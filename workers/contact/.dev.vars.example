@@ -1,0 +1,2 @@
+# Variables de développement (wrangler dev). Copie vers `.dev.vars`.
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx

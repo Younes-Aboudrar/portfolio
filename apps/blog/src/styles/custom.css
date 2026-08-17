@@ -1,0 +1,62 @@
+@import 'tailwindcss';
+@import '@aboudrar/shared/tokens.css';
+@import '@aboudrar/shared/base.css';
+
+/* Blog-wide tweaks on top of the shared identity */
+.site-title::before {
+	content: '>_ ';
+	color: var(--color-accent);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: 0.2s;
+}
+
+/* Content typography for rendered markdown */
+.prose {
+	line-height: 1.8;
+	font-size: 1.0625rem;
+}
+.prose h2 {
+	@apply text-2xl font-bold mt-10 mb-4 tracking-tight text-zinc-900 dark:text-zinc-100;
+	scroll-margin-top: 5rem;
+}
+.prose h3 {
+	@apply text-xl font-semibold mt-8 mb-3 text-zinc-900 dark:text-zinc-100;
+	scroll-margin-top: 5rem;
+}
+.prose p {
+	@apply my-4 text-zinc-700 dark:text-zinc-300;
+}
+.prose a {
+	@apply text-emerald-700 dark:text-emerald-400 underline underline-offset-4 decoration-emerald-500/40 hover:decoration-emerald-500;
+}
+.prose ul,
+.prose ol {
+	@apply my-4 pl-6 space-y-2 text-zinc-700 dark:text-zinc-300;
+}
+.prose ul {
+	@apply list-disc marker:text-emerald-500;
+}
+.prose ol {
+	@apply list-decimal marker:text-emerald-500;
+}
+.prose blockquote {
+	@apply border-l-4 border-emerald-500 pl-4 my-6 italic text-zinc-500 dark:text-zinc-400;
+}
+.prose code {
+	@apply font-mono text-[0.875em] px-1.5 py-0.5 rounded bg-zinc-100 text-emerald-700 dark:bg-zinc-800 dark:text-emerald-300;
+}
+.prose pre {
+	@apply my-6 p-4 rounded-xl bg-zinc-900 dark:bg-black overflow-x-auto border border-zinc-800;
+}
+.prose pre code {
+	@apply bg-transparent p-0 text-zinc-100 text-[0.875rem];
+}
+.prose img {
+	@apply rounded-xl my-6;
+}
+.prose hr {
+	@apply my-8 border-zinc-200 dark:border-zinc-800;
+}

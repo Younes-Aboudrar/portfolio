@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { formatDate } from '../lib/utils';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const byYear = new Map<number, typeof posts>();
+for (const post of posts) {
+	const year = post.data.pubDate.getFullYear();
+	if (!byYear.has(year)) byYear.set(year, []);
+	byYear.get(year)!.push(post);
+}
+const years = [...byYear.keys()].sort((a, b) => b - a);
+---
+
+<BaseLayout title="Archives — ablog" description="Tous les articles du blog, par année.">
+	<h1 class="text-3xl font-bold tracking-tight mb-2">Archives</h1>
+	<p class="text-zinc-600 dark:text-zinc-400 mb-10">{posts.length} articles publiés.</p>
+
+	{years.map((year) => (
+		<section class="mb-10">
+			<h2 class="font-mono text-lg font-bold text-emerald-600 dark:text-emerald-400 mb-4">
+				{year} <span class="text-zinc-400 font-normal">({byYear.get(year)!.length})</span>
+			</h2>
+			<ul class="space-y-3">
+				{byYear.get(year)!.map((post) => (
+					<li class="flex items-baseline gap-4">
+						<time class="font-mono text-xs text-zinc-400 shrink-0 w-16" datetime={post.data.pubDate.toISOString()}>
+							{formatDate(post.data.pubDate)}
+						</time>
+						<a href={`/posts/${post.id}/`} class="no-underline text-zinc-800 dark:text-zinc-200 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+							{post.data.title}
+						</a>
+					</li>
+				))}
+			</ul>
+		</section>
+	))}
+</BaseLayout>

@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostHeader from '../../components/PostHeader.astro';
+import { getCollection, render } from 'astro:content';
+import { readingTime } from '../../lib/utils';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('posts', ({ data }) => !data.draft);
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: { post }
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const all = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const idx = all.findIndex((p) => p.id === post.id);
+const prev = idx > 0 ? all[idx - 1] : null;
+const next = idx >= 0 && idx < all.length - 1 ? all[idx + 1] : null;
+const title = `${post.data.title} — ablog`;
+---
+
+<BaseLayout title={title} description={post.data.description}>
+	<PostHeader
+		title={post.data.title}
+		description={post.data.description}
+		date={post.data.pubDate}
+		updatedDate={post.data.updatedDate}
+		tags={post.data.tags}
+	/>
+	<p class="font-mono text-xs text-zinc-400 mb-10 -mt-6">
+		{readingTime(post.body)} de lecture
+	</p>
+
+	<article class="prose">
+		<Content />
+	</article>
+
+	<nav class="not-prose mt-14 grid grid-cols-2 gap-4 border-t border-zinc-200 dark:border-zinc-800 pt-6 text-sm">
+		{prev && (
+			<a href={`/posts/${prev.id}/`} class="no-underline group">
+				<p class="font-mono text-xs text-zinc-400 mb-1">&lt;- précédent</p>
+				<p class="text-zinc-700 dark:text-zinc-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400">{prev.data.title}</p>
+			</a>
+		)}
+		{next && (
+			<a href={`/posts/${next.id}/`} class="no-underline group text-right">
+				<p class="font-mono text-xs text-zinc-400 mb-1">suivant -&gt;</p>
+				<p class="text-zinc-700 dark:text-zinc-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400">{next.data.title}</p>
+			</a>
+		)}
+	</nav>
+</BaseLayout>

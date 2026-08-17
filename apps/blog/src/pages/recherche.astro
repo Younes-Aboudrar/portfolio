@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const withSearchText = posts.map((post) => ({
+	...post,
+	searchText: [post.data.title, post.data.description, post.data.tags.join(' '), post.body]
+		.join(' ')
+		.replace(/\s+/g, ' ')
+		.toLowerCase()
+}));
+---
+
+<BaseLayout title="Recherche — ablog" description="Rechercher dans tous les articles du blog.">
+	<h1 class="text-3xl font-bold tracking-tight mb-2">Recherche</h1>
+	<p class="text-zinc-600 dark:text-zinc-400 mb-8">Cherche dans les {posts.length} articles publiés.</p>
+
+	<div class="relative mb-8">
+		<span class="absolute left-4 top-1/2 -translate-y-1/2 font-mono text-zinc-400">/</span>
+		<input
+			id="search-input"
+			type="search"
+			placeholder="taper pour filtrer..."
+			autocomplete="off"
+			class="w-full pl-10 pr-4 py-3 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:border-emerald-500 font-mono text-sm"
+		/>
+	</div>
+
+	<p id="search-empty" class="hidden text-zinc-500 dark:text-zinc-400 text-sm font-mono mb-6">
+		Aucun résultat.
+	</p>
+
+	<div id="search-results" class="grid sm:grid-cols-2 gap-5">
+		{withSearchText.map((post) => (
+			<article
+				class:list={['search-item rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:border-emerald-500 dark:hover:border-emerald-600 transition-colors']}
+				data-search={post.searchText}
+			>
+				<a href={`/posts/${post.id}/`} class="no-underline">
+					<time class="font-mono text-xs text-zinc-400 mb-3 inline-block" datetime={post.data.pubDate.toISOString()}>
+						{post.data.pubDate.toLocaleDateString('fr-FR', { year: 'numeric', month: 'short', day: 'numeric' })}
+					</time>
+					<h2 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">
+						{post.data.title}
+					</h2>
+					<p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">{post.data.description}</p>
+					{post.data.tags.length > 0 && (
+						<div class="flex flex-wrap gap-2 mt-4">
+							{post.data.tags.map((tag) => (
+								<span class="font-mono text-xs px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400">
+									#{tag}
+								</span>
+							))}
+						</div>
+					)}
+				</a>
+			</article>
+		))}
+	</div>
+
+	<script is:inline>
+		(() => {
+			const input = document.getElementById('search-input');
+			const results = document.getElementById('search-results');
+			const empty = document.getElementById('search-empty');
+			if (!input || !results || !empty) return;
+			const items = [...results.querySelectorAll('.search-item')];
+
+			const render = (query) => {
+				const q = query.trim().toLowerCase();
+				let visible = 0;
+				for (const item of items) {
+					const matches = !q || item.getAttribute('data-search').includes(q);
+					item.hidden = !matches;
+					if (matches) visible++;
+				}
+				empty.hidden = visible > 0;
+			};
+
+			input.addEventListener('input', () => render(input.value));
+			render('');
+		})();
+	</script>
+</BaseLayout>

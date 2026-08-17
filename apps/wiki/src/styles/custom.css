@@ -1,0 +1,39 @@
+/* abwiki — Starlight theme: emerald accent + Inter/JetBrains Mono, matching
+   the aboudrar.dev family identity. Light & dark overrides for Starlight's
+   `--sl-*` design tokens. */
+
+@import 'tailwindcss';
+@import '@aboudrar/shared/tokens.css';
+
+/* Dark (default) */
+:root {
+	--sl-font: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	--sl-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+	--sl-color-accent-low: hsl(160, 84%, 8%);
+	--sl-color-accent: hsl(160, 84%, 55%);
+	--sl-color-accent-high: hsl(160, 84%, 84%);
+	--sl-color-text-accent: var(--sl-color-accent-high);
+	--sl-color-text-invert: var(--sl-color-accent-low);
+}
+
+/* Light */
+:root[data-theme='light'] {
+	--sl-color-accent-high: hsl(160, 70%, 25%);
+	--sl-color-accent: hsl(160, 84%, 36%);
+	--sl-color-accent-low: hsl(160, 84%, 92%);
+	--sl-color-text-accent: var(--sl-color-accent);
+	--sl-color-text-invert: var(--sl-color-accent-low);
+}
+
+/* Brand tweaks */
+.site-title {
+	font-family: var(--sl-font-mono);
+	font-weight: 700;
+	letter-spacing: -0.01em;
+}
+
+.site-title::before {
+	content: '>_ ';
+	color: var(--sl-color-accent);
+}

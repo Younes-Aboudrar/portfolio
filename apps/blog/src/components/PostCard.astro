@@ -1,0 +1,36 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	href: string;
+	date: Date;
+	tags?: string[];
+}
+const { title, description, href, date, tags = [] } = Astro.props;
+---
+
+<article class="group rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 hover:border-emerald-500 dark:hover:border-emerald-600 transition-colors">
+	<a href={href} class="no-underline">
+		<div class="flex items-center justify-between gap-4 mb-3">
+			<time class="font-mono text-xs text-zinc-400" datetime={date.toISOString()}>
+				{date.toLocaleDateString('fr-FR', { year: 'numeric', month: 'short', day: 'numeric' })}
+			</time>
+			<span class="font-mono text-emerald-600 dark:text-emerald-400 group-hover:translate-x-0.5 transition-transform">
+				-&gt;
+			</span>
+		</div>
+		<h2 class="text-lg font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+			{title}
+		</h2>
+		<p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 line-clamp-3">{description}</p>
+		{tags.length > 0 && (
+			<div class="flex flex-wrap gap-2 mt-4">
+				{tags.map((tag) => (
+					<span class="font-mono text-xs px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400">
+						#{tag}
+					</span>
+				))}
+			</div>
+		)}
+	</a>
+</article>

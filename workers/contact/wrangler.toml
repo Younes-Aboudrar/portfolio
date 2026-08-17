@@ -1,0 +1,17 @@
+name = "contact"
+main = "src/index.js"
+compatibility_date = "2026-08-17"
+
+# The form on younes.aboudrar.dev is allowed to call this worker.
+[vars]
+CONTACT_TO = "younes@aboudrar.dev"
+CONTACT_FROM = "contact@aboudrar.dev"
+CONTACT_REPLY_PREFIX = "contact -"
+
+# Runtime secrets: set via `wrangler secret put RESEND_API_KEY`
+# [secrets]
+# RESEND_API_KEY = "..."
+
+[[routes]]
+pattern = "contact.aboudrar.dev"
+zone_name = "aboudrar.dev"

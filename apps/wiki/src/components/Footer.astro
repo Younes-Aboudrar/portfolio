@@ -1,0 +1,19 @@
+---
+interface Props {
+	lastUpdated?: Date;
+}
+const { lastUpdated } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="sl-flex sl-justify-between sl-items-center sl-gap-2 sl-text-sm">
+	<p class="sl-my-0">
+		© {year} Younes Aboudrar — <a href="https://younes.aboudrar.dev">portfolio</a> ·
+		<a href="https://blog.aboudrar.dev">blog</a>
+	</p>
+	{lastUpdated && (
+		<p class="sl-my-0 sl-text-xs sl-text-gray-4">
+			Dernière mise à jour : {lastUpdated.toDateString()}
+		</p>
+	)}
+</footer>

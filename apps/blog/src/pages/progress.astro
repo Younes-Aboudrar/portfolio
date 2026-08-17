@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const milestones = [
+	{ label: 'Premier euro net', target: 0, current: 0, emoji: '🌱', done: false },
+	{ label: 'Filet de sécurité (3 mois de dépenses)', target: 10000, current: 0, emoji: '🛡️', done: false },
+	{ label: 'Première année à 6 chiffres', target: 100000, current: 0, emoji: '🚀', done: false },
+	{ label: 'Indépendance financière partielle', target: 250000, current: 0, emoji: '🏝️', done: false },
+	{ label: 'LE MILLION', target: 1000000, current: 0, emoji: '🏆', done: false }
+];
+---
+
+<BaseLayout title="Progression — ablog" description="Suivi public de ma progression vers le million.">
+	<h1 class="text-3xl font-bold tracking-tight mb-2">Progression</h1>
+	<p class="text-zinc-600 dark:text-zinc-400 mb-10">
+		Suivi public, mis à jour régulièrement. Valeur nette en euros.
+	</p>
+
+	<div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 mb-8">
+		<p class="font-mono text-xs text-zinc-400 mb-2">VALEUR NETTE ACTUELLE</p>
+		<p class="text-4xl font-bold tracking-tight text-gradient-accent">0 €</p>
+		<div class="mt-4 h-2 rounded-full bg-zinc-100 dark:bg-zinc-800 overflow-hidden">
+			<div class="h-full w-0 bg-emerald-500 transition-all" style="width: 0%"></div>
+		</div>
+		<p class="font-mono text-xs text-zinc-400 mt-2">0% vers le million</p>
+	</div>
+
+	<ol class="space-y-4">
+		{milestones.map((m, i) => (
+			<li class="flex items-center gap-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4">
+				<span class="text-2xl">{m.emoji}</span>
+				<div class="flex-1">
+					<p class="font-medium text-zinc-900 dark:text-zinc-100">{m.label}</p>
+					<p class="font-mono text-xs text-zinc-400">
+						{m.current.toLocaleString('fr-FR')} / {m.target.toLocaleString('fr-FR')} €
+					</p>
+				</div>
+				<span
+					class:list={[
+						'font-mono text-xs px-2.5 py-1 rounded-full',
+						m.done
+							? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400'
+							: 'bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400'
+					]}
+				>
+					{m.done ? '✔' : `étape ${i + 1}`}
+				</span>
+			</li>
+		))}
+	</ol>
+
+	<p class="font-mono text-xs text-zinc-500 dark:text-zinc-400 mt-8">
+		// Ces chiffres sont réels. Ils seront mis à jour à chaque étape franchie.
+	</p>
+</BaseLayout>

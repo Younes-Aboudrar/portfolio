@@ -1,0 +1,25 @@
+{
+	"name": "@aboudrar/wiki",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"check": "astro check",
+		"sync": "astro sync"
+	},
+	"dependencies": {
+		"@aboudrar/shared": "*",
+		"@astrojs/starlight": "^0.41.7",
+		"@tailwindcss/vite": "^4.3.3",
+		"astro": "^7.2.2",
+		"cookie": "^2.0.1",
+		"tailwindcss": "^4.3.3"
+	},
+	"devDependencies": {
+		"@astrojs/check": "^0.9.0",
+		"typescript": "^5.9.3"
+	}
+}

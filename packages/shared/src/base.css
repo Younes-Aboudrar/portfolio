@@ -1,0 +1,55 @@
+/* Global base styles shared by every aboudrar.dev site. */
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		scroll-padding-top: 4rem;
+	}
+
+	body {
+		@apply bg-slate-50 text-slate-900 dark:bg-zinc-950 dark:text-zinc-100 font-sans antialiased;
+	}
+
+	::selection {
+		@apply bg-emerald-500/20 text-emerald-900 dark:text-emerald-100;
+	}
+}
+
+@layer utilities {
+	.text-gradient {
+		@apply bg-clip-text text-transparent bg-gradient-to-r from-zinc-900 to-zinc-500 dark:from-zinc-100 dark:to-zinc-500;
+	}
+
+	.text-gradient-accent {
+		@apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-emerald-300 dark:from-emerald-400 dark:to-emerald-200;
+	}
+}
+
+/* Scroll-reveal. `.js` is added by an inline script in <head> (see app.html). */
+.js [data-reveal] {
+	opacity: 0;
+	transform: translateY(24px);
+}
+.js [data-reveal].is-visible {
+	opacity: 1;
+	transform: translateY(0);
+	transition:
+		opacity 0.7s ease,
+		transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	.js [data-reveal] {
+		opacity: 1;
+		transform: none;
+	}
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
