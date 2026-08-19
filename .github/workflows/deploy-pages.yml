@@ -1,0 +1,67 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 26
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build portfolio
+        run: npm run build --workspace @aboudrar/portfolio
+        env:
+          PUBLIC_CONTACT_ENDPOINT: https://contact.aboudrar.dev/api/contact
+
+      - name: Build wiki
+        run: npm run build --workspace @aboudrar/wiki
+
+      - name: Build blog
+        run: npm run build --workspace @aboudrar/blog
+
+      - name: Deploy portfolio to younes.aboudrar.dev
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.GH_PAGES_DEPLOY_TOKEN }}
+          external_repository: Younes-Aboudrar/younes.aboudrar.dev
+          publish_branch: gh-pages
+          publish_dir: apps/portfolio/build
+          cname: younes.aboudrar.dev
+          force_orphan: true
+
+      - name: Deploy wiki to abwiki.aboudrar.dev
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.GH_PAGES_DEPLOY_TOKEN }}
+          external_repository: Younes-Aboudrar/abwiki.aboudrar.dev
+          publish_branch: gh-pages
+          publish_dir: apps/wiki/dist
+          cname: abwiki.aboudrar.dev
+          force_orphan: true
+
+      - name: Deploy blog to blog.aboudrar.dev
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.GH_PAGES_DEPLOY_TOKEN }}
+          external_repository: Younes-Aboudrar/blog.aboudrar.dev
+          publish_branch: gh-pages
+          publish_dir: apps/blog/dist
+          cname: blog.aboudrar.dev
+          force_orphan: true
