@@ -1,22 +1,24 @@
 # Déploiement — aboudrar.dev
 
-Monorepo npm (workspaces) hébergé sur **Cloudflare**. Trois sites sur
-Cloudflare Pages + un Worker (formulaire de contact).
+Monorepo npm (workspaces). Les 3 sites statiques sont hébergés sur **GitHub
+Pages** (un repo par site + un custom domain), et le formulaire de contact est
+un **Cloudflare Worker** (envoi d'emails via Resend).
 
-| Site | Domaine | App | Framework |
-|---|---|---|---|
-| Portfolio | `younes.aboudrar.dev` | `apps/portfolio` | SvelteKit (`adapter-cloudflare`) |
-| Wiki | `abwiki.aboudrar.dev` | `apps/wiki` | Astro Starlight |
-| Blog | `blog.aboudrar.dev` | `apps/blog` | Astro |
-| API contact | `contact.aboudrar.dev` | `workers/contact` | Cloudflare Worker |
+| Site | Domaine | App | Framework | Repo de déploiement |
+|---|---|---|---|---|
+| Portfolio | `younes.aboudrar.dev` | `apps/portfolio` | SvelteKit (`adapter-static`) | `Younes-Aboudrar/younes.aboudrar.dev` |
+| Wiki | `abwiki.aboudrar.dev` | `apps/wiki` | Astro Starlight | `Younes-Aboudrar/abwiki.aboudrar.dev` |
+| Blog | `blog.aboudrar.dev` | `apps/blog` | Astro | `Younes-Aboudrar/blog.aboudrar.dev` |
+| API contact | `contact.aboudrar.dev` | `workers/contact` | Cloudflare Worker | — (Workers, pas de repo) |
 
 ## Prérequis
 
-- Un compte Cloudflare, la zone DNS `aboudrar.dev` déjà ajoutée (les sous-domaines
-  + SSL se configurent automatiquement).
-- Un compte [Resend](https://resend.com) pour l'envoi d'emails.
-- Node ≥ 20 (le repo a été testé avec Node 26). Définir `NODE_VERSION=26` dans
-  les variables d'environnement des projets Pages.
+- Compte GitHub **Younes-Aboudrar** ; les 3 repos de déploiement existent déjà
+  et ont GitHub Pages activé sur la branche `gh-pages` avec le custom domain.
+- Zone DNS `aboudrar.dev` sur Cloudflare (les sous-domaines + SSL se gèrent dans
+  le dashboard).
+- Compte [Resend](https://resend.com) avec le domaine `aboudrar.dev` vérifié.
+- Node ≥ 20 (testé avec Node 26). `NODE_VERSION=26` dans CI (GitHub Actions).
 
 ## Construire localement
 
@@ -28,53 +30,71 @@ npm run check          # svelte-check (portfolio) + astro check (wiki, blog)
 
 Sorties de build :
 
-- `apps/portfolio/.svelte-kit/cloudflare` (adapter-cloudflare)
+- `apps/portfolio/build` (adapter-static)
 - `apps/wiki/dist`
 - `apps/blog/dist`
 
-## Cloudflare Pages — configuration par projet
+## Déploiement automatique (GitHub Actions)
 
-Pour chaque projet Pages, définir :
+Workflow `.github/workflows/deploy-pages.yml` :
 
-- **Root directory** : racine du repo (les workspaces sont npm, `npm ci` doit
-  tourner à la racine).
-- **Build command** : `npm ci && npm run build --workspace <package>`
-- **Build output directory** : voir tableau ci-dessous
-- **Environment variables** : `NODE_VERSION = 26`, et les variables indiquées.
+1. Sur chaque push vers `main` (ou déclenchement manuel via *Actions*).
+2. Build les 3 apps (`npm ci` à la racine + `npm run build --workspace <pkg>`).
+3. Pousse chaque sortie vers la branche `gh-pages` de son repo de déploiement
+   avec le fichier `CNAME` correspondant, via l'action
+   `peaceiris/actions-gh-pages` (token `GH_PAGES_DEPLOY_TOKEN`, secret du repo
+   `Younes-Aboudrar/portfolio`).
 
-| Projet Pages | Domaine | Package | Output |
+Environnement du build portfolio : `PUBLIC_CONTACT_ENDPOINT=https://contact.aboudrar.dev/api/contact`.
+Les tokens `PUBLIC_CF_ANALYTICS` (optionnels) peuvent être ajoutés en variables
+du workflow si tu veux réactiver Cloudflare Web Analytics.
+
+### Repos de déploiement
+
+- `Younes-Aboudrar/younes.aboudrar.dev` → branche `gh-pages`, custom domain `younes.aboudrar.dev`
+- `Younes-Aboudrar/abwiki.aboudrar.dev` → branche `gh-pages`, custom domain `abwiki.aboudrar.dev`
+- `Younes-Aboudrar/blog.aboudrar.dev` → branche `gh-pages`, custom domain `blog.aboudrar.dev`
+
+Chaque repo contient un fichier `CNAME` (géré automatiquement par le workflow)
+et un `.nojekyll` (pour que GitHub ne passe pas les `_app/` / `_astro/` au
+moteur Jekyll).
+
+## DNS (Cloudflare)
+
+Dans le dashboard Cloudflare → **aboudrar.dev → DNS → Records** :
+
+| Type | Nom | Cible | Proxy |
 |---|---|---|---|
-| `portfolio` | `younes.aboudrar.dev` | `@aboudrar/portfolio` | `apps/portfolio/.svelte-kit/cloudflare` |
-| `abwiki` | `abwiki.aboudrar.dev` | `@aboudrar/wiki` | `apps/wiki/dist` |
-| `ablog` | `blog.aboudrar.dev` | `@aboudrar/blog` | `apps/blog/dist` |
+| CNAME | `younes` | `younes-aboudrar.github.io` | DNS only (gris) |
+| CNAME | `abwiki` | `younes-aboudrar.github.io` | DNS only (gris) |
+| CNAME | `blog` | `younes-aboudrar.github.io` | DNS only (gris) |
+| CNAME | `contact` | `contact.<subdomain>.workers.dev` | Proxied (orange) |
 
-### Variables par projet
-
-- **portfolio** : `PUBLIC_CONTACT_ENDPOINT=https://contact.aboudrar.dev/api/contact`,
-  `PUBLIC_CF_ANALYTICS=<token Web Analytics>`.
-- **abwiki** : `PUBLIC_CF_ANALYTICS=<token Web Analytics>` (optionnel).
-- **ablog** : `PUBLIC_CF_ANALYTICS=<token Web Analytics>` (optionnel).
-
-Le token Cloudflare Web Analytics se trouve dans le dashboard Cloudflare →
-**Analytics → Web Analytics → Manage**.
+Les CNAME des sites GitHub Pages doivent rester en **DNS only** : GitHub Pages
+sert déjà son propre certificat SSL, et un proxy interposerait un TLS en plus.
+Le CNAME du Worker peut être géré automatiquement par `wrangler deploy` (Custom
+Domains) — dans ce cas aucun enregistrement DNS manuel n'est nécessaire pour
+`contact`.
 
 ## Worker `contact`
 
 ```bash
 cd workers/contact
 npm install
-npm run dev          # local, utilise .dev.vars
-npm run deploy       # déploie sur contact.aboudrar.dev
+npx wrangler login     # autorise le compte Cloudflare dans le navigateur
+npm run dev            # local, utilise .dev.vars
+npm run deploy         # déploie sur contact.aboudrar.dev (crée le custom domain)
 ```
 
 ### Secrets et variables
 
-- `wrangler secret put RESEND_API_KEY` — clé API Resend (créer depuis le
-  dashboard Resend → API Keys).
+- `npx wrangler secret put RESEND_API_KEY` — clé API Resend (dashboard Resend →
+  API Keys).
 - Variables définies dans `wrangler.toml` :
   - `CONTACT_TO` = `younes@aboudrar.dev`
   - `CONTACT_FROM` = `contact@aboudrar.dev` (domaine à vérifier chez Resend :
-    add a DNS `_resend.domainkey.aboudrar.dev` TXT pour valider `aboudrar.dev`)
+    ajouter les enregistrements DNS `_resend.domainkey.aboudrar.dev` /
+    `_resend.dkim.aboudrar.dev` TXT/CNAME pour valider `aboudrar.dev`)
   - `CONTACT_REPLY_PREFIX` = `contact -`
 
 ### API
@@ -87,20 +107,6 @@ npm run deploy       # déploie sur contact.aboudrar.dev
 
 CORS : seule l'origine `https://younes.aboudrar.dev` est autorisée. Les emails
 sont envoyés vers `younes@aboudrar.dev` avec `reply_to` = l'email du visiteur.
-
-## DNS
-
-Rien à faire à la main : associer le domaine de chaque projet Pages
-(et le route `contact.aboudrar.dev` du Worker) dans le dashboard — Cloudflare
-créera automatiquement les enregistrements et le certificat SSL.
-
-## Analytics
-
-Le beacon Cloudflare Web Analytics est injecté :
-
-- portfolio : composant `Analytics.svelte` (`PUBLIC_CF_ANALYTICS`).
-- wiki : option `head` de Starlight (`PUBLIC_CF_ANALYTICS`).
-- blog : `BaseLayout.astro` (`PUBLIC_CF_ANALYTICS`).
 
 ## Ajuster le contenu
 
@@ -121,12 +127,11 @@ Le beacon Cloudflare Web Analytics est injecté :
 Tant que ces fichiers n'existent pas, des placeholders (monogramme/dégradé) sont
 affichés automatiquement.
 
-## Renommer le dépôt
+## Sécurité
 
-Le repo est référencé dans les liens d'édition du wiki et les URLs GitHub du
-portfolio. Il est prévu de renommer `Younes-Aboudrar/portfolio` →
-`Younes-Aboudrar/aboudrar.dev`, puis de mettre à jour :
-
-- `apps/wiki/astro.config.mjs` → `editLink.baseUrl`
-- `apps/portfolio/src/lib/contact.ts` → `github`
-- les liens dans `apps/blog/src/pages/about.astro`
+Le token GitHub stocké dans `.git/config` était révoqué/expiré. Le remote a été
+nettoyé (URL HTTPS sans token). Pour pousser vers `Younes-Aboudrar/portfolio`,
+configure une authentification propre : clé SSH (`git remote set-url origin
+git@github.com:Younes-Aboudrar/portfolio.git`) ou GitHub CLI (`gh auth login`).
+Le secret `GH_PAGES_DEPLOY_TOKEN` est stocké dans les secrets du repo et utilisé
+uniquement par le workflow.

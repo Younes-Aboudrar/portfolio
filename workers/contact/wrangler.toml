@@ -12,6 +12,6 @@ CONTACT_REPLY_PREFIX = "contact -"
 # [secrets]
 # RESEND_API_KEY = "..."
 
-[[routes]]
-pattern = "contact.aboudrar.dev"
+[[custom_domains]]
+domain = "contact.aboudrar.dev"
 zone_name = "aboudrar.dev"
