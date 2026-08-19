@@ -72,9 +72,13 @@ Dans le dashboard Cloudflare → **aboudrar.dev → DNS → Records** :
 
 Les CNAME des sites GitHub Pages doivent rester en **DNS only** : GitHub Pages
 sert déjà son propre certificat SSL, et un proxy interposerait un TLS en plus.
-Le CNAME du Worker peut être géré automatiquement par `wrangler deploy` (Custom
-Domains) — dans ce cas aucun enregistrement DNS manuel n'est nécessaire pour
-`contact`.
+
+Le Worker utilise une **route** de zone (`contact.aboudrar.dev/*` dans
+`wrangler.toml`) : il faut donc un enregistrement DNS proxied (orange) pour
+`contact.aboudrar.dev` (n'importe quelle cible, p. ex. `contact.<subdomain>.workers.dev`).
+Le déploiement se fait avec `wrangler deploy` ; si un enregistrement DNS existe
+déjà, la bascule en *Custom Domain* (`custom_domain = true`) est impossible
+sans le supprimer d'abord.
 
 ## Worker `contact`
 

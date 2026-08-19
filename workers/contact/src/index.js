@@ -15,6 +15,11 @@ const json = (data, status = 200) =>
 export default {
 	async fetch(request, env) {
 		const url = new URL(request.url);
+		const origin = request.headers.get('Origin');
+
+		if (origin && origin !== ALLOWED_ORIGIN) {
+			return json({ ok: false, error: 'origine non autorisée' }, 403);
+		}
 
 		if (request.method === 'OPTIONS') {
 			return new Response(null, {
