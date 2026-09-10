@@ -29,6 +29,7 @@ Le wiki est organisé par catégories :
 - [Outils & DevOps](/fr/tools-devops/) — Linux, Docker, Git, workflow
 - [IA / ML](/fr/ai-ml/) — machine learning, data, LLMs
 - [Finance & Mindset](/fr/finance-mindset/) — business, investissement, mental
+- [Logistique & Transport](/fr/logistics/) — courtiers en fret, transport de marchandises
 
 Une catégorie peut grandir et se subdiviser en sous-dossiers à volonté. La
 navigation latérale reflète automatiquement l'arborescence des fichiers.
