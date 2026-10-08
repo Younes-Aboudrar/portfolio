@@ -4,7 +4,7 @@
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import BrandIcon from '$lib/components/BrandIcon.svelte';
-	import { Printer, Mail, MapPin } from '@lucide/svelte';
+	import { Printer, Mail, Phone, MapPin } from '@lucide/svelte';
 </script>
 
 <svelte:head>
@@ -46,6 +46,10 @@
 							<p class="inline-flex items-center gap-2">
 								<Mail class="w-4 h-4" />
 								{contact.email}
+							</p>
+							<p class="inline-flex items-center gap-2">
+								<Phone class="w-4 h-4 shrink-0" />
+								<a href={contact.phoneHref} class="hover:underline">{contact.phone}</a>
 							</p>
 							<p class="inline-flex items-center gap-2">
 								<BrandIcon name="github" className="w-4 h-4" />

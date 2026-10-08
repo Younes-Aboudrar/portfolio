@@ -3,7 +3,7 @@
 	import { contact } from '$lib/contact';
 	import siteStatus from '$lib/site-status.json';
 	import BrandIcon from './BrandIcon.svelte';
-	import { ArrowUp, Mail, BookOpen, FileText } from '@lucide/svelte';
+	import { ArrowUp, Mail, Phone, BookOpen, FileText } from '@lucide/svelte';
 </script>
 
 <footer class="border-t border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 pt-16 pb-8">
@@ -107,6 +107,10 @@
 					class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-emerald-600 dark:text-emerald-400"
 				>
 					{contact.email}
+				</a>
+				<a href={contact.phoneHref} class="mt-3 flex w-fit items-center gap-2 text-sm font-medium text-emerald-600 dark:text-emerald-400 hover:underline">
+					<Phone class="w-4 h-4 shrink-0" />
+					{contact.phone}
 				</a>
 			</div>
 		</div>
