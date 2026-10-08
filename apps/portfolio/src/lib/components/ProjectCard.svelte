@@ -3,17 +3,18 @@
 	import { ArrowUpRight } from '@lucide/svelte';
 	import type { Project } from '$lib/i18n/types';
 
-	let { project } = $props();
+	let { project, compact = false }: { project: Project; compact?: boolean } = $props();
 
 	let photoError = $state(false);
 </script>
 
 <a
 	href="/projects/{project.slug}"
-	class="group flex flex-col h-full overflow-hidden rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm transition-all hover:shadow-lg hover:border-emerald-300 dark:hover:border-emerald-700/50 hover:-translate-y-1"
+	class="group flex flex-col min-w-0 h-full overflow-hidden rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm transition-all hover:shadow-lg hover:border-emerald-300 dark:hover:border-emerald-700/50 hover:-translate-y-1"
 >
+	{#if !compact}
 	<div class="relative aspect-[16/9] overflow-hidden bg-slate-100 dark:bg-zinc-800">
-		{#if !photoError}
+		{#if project.image && !photoError}
 			<img
 				src="/{project.image}"
 				alt={project.title}
@@ -26,7 +27,7 @@
 				class="w-full h-full flex items-center justify-center bg-gradient-to-br from-emerald-100 via-emerald-50 to-sky-100 dark:from-emerald-900/30 dark:via-zinc-900 dark:to-zinc-900"
 			>
 				<span
-					class="font-mono text-4xl font-bold text-emerald-600 dark:text-emerald-400"
+					class="min-w-0 max-w-full font-mono text-3xl font-bold text-emerald-600 dark:text-emerald-400 px-6 text-center break-words"
 				>
 					{project.tech[0]}
 				</span>
@@ -38,8 +39,13 @@
 			{project.status}
 		</span>
 	</div>
+	{/if}
 
 	<div class="flex flex-col flex-grow p-6">
+		<p class="text-xs font-medium text-emerald-600 dark:text-emerald-400 mb-2">{project.context}</p>
+		{#if compact}
+			<p class="text-xs text-slate-500 dark:text-zinc-500 mb-3">{project.status}</p>
+		{/if}
 		<div class="flex items-start justify-between gap-3 mb-3">
 			<h3
 				class="font-bold text-lg text-slate-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"

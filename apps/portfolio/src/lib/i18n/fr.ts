@@ -1,4 +1,5 @@
 import type { Dictionary } from './types';
+import { projectsFr } from '../projects/fr';
 
 export const fr: Dictionary = {
 	meta: {
@@ -149,103 +150,8 @@ export const fr: Dictionary = {
 	projects: {
 		heading: 'Projets techniques',
 		subheading:
-			'Une sélection de réalisations en développement backend et de travaux académiques collectifs en systèmes industriels.',
-		items: [
-			{
-				slug: 'maintenance-manager',
-				title: 'Maintenance Manager — GMAO',
-				tagline:
-					'Backend FastAPI et synchronisation Offline-First pour la maintenance industrielle.',
-				date: 'Juin – août 2026',
-				image: 'images/projects/maintenance-manager.jpg',
-				status: 'Testé en stage',
-				tech: ['Python', 'FastAPI', 'PostgreSQL', 'Offline-First'],
-				description:
-					'Projet réalisé pendant mon stage chez OCP pour la maintenance d’IMACID. J’ai assuré le pilotage et développé seul l’intégralité du backend. L’application Android a été réalisée par mon binôme, avec mon accompagnement pour les exigences et l’intégration. La version testée couvre six profils métiers et les interventions préventives et correctives.',
-				challenges:
-					'Permettre le suivi des équipements et des interventions dans des zones où la connexion est limitée.',
-				solutions:
-					'Architecture Offline-First avec synchronisation asynchrone et base PostgreSQL pour les équipements, interventions et historiques. Le backend a été déployé pour essais pendant le stage ; sa remise en service est en préparation.',
-				lessons: [
-					'Conception backend à partir de besoins de maintenance industrielle.',
-					'Coordination des exigences et de l’intégration entre API et application mobile.'
-				]
-			},
-			{
-				slug: 'efficacite-energetique-climatisation',
-				title: 'Étude énergétique CVC',
-				tagline: 'Variation de vitesse, analyse harmonique et bilan technico-économique.',
-				date: 'Projet académique',
-				image: 'images/projects/efficacite-energetique-climatisation.jpg',
-				status: 'Étude en binôme',
-				tech: ['Python', 'NumPy', 'Matplotlib', 'Variation de vitesse'],
-				description:
-					'Étude collective d’une installation CVC de 45 kW : profils de charge partielle, lois d’affinité, harmoniques et rentabilité. Les économies étudiées sont des projections théoriques sous hypothèses, sans gain d’exploitation mesuré.',
-				challenges: 'Relier variation de vitesse, qualité de l’énergie et hypothèses économiques.',
-				solutions:
-					'Calculs fondés sur les lois d’affinité, simulation harmonique en Python et bilan technico-économique sous hypothèses.',
-				lessons: [
-					'Distinguer un résultat théorique d’une mesure en exploitation.',
-					'Analyser ensemble les dimensions énergétique et économique.'
-				]
-			},
-			{
-				slug: 'performance-etudiante',
-				title: 'Analyse de profils étudiants',
-				tagline: 'Analyse exploratoire, ACP et segmentation par K-Means.',
-				date: 'Projet académique',
-				image: 'images/projects/performance-etudiante.jpg',
-				status: 'Travail collectif',
-				tech: ['Analyse de données', 'ACP', 'K-Means'],
-				description:
-					'Projet collectif d’analyse de notes et de facteurs comportementaux. La présentation étudie les corrélations entre matières et la segmentation des profils étudiants, avec des pistes d’orientation.',
-				challenges:
-					'Interpréter des profils à partir de données académiques sans confondre corrélation et causalité.',
-				solutions:
-					'Démarche d’analyse exploratoire, ACP et K-Means sur les deux premières composantes, présentée dans un travail collectif.',
-				lessons: [
-					'Interprétation de corrélations et de groupes de profils.',
-					'Présentation des limites et du contexte d’une analyse.'
-				]
-			},
-			{
-				slug: 'controle-vitesse-compresseur',
-				title: 'Régulation d’un compresseur',
-				tagline: 'Modélisation Simulink et étude de commande PID à vitesse variable.',
-				date: 'Projet académique',
-				image: 'images/projects/controle-vitesse-compresseur.jpg',
-				status: 'Étude et simulation',
-				tech: ['MATLAB/Simulink', 'PID', 'SINAMICS G120', 'TIA Portal'],
-				description:
-					'Étude collective d’un compresseur entraîné par un moteur asynchrone. Le travail porte sur la modélisation Simulink, la régulation PID et une configuration décrite sous TIA Portal. Il s’agit d’une étude et d’une simulation, sans mise en service matérielle revendiquée.',
-				challenges: 'Étudier la réponse en pression et le réglage d’une boucle de régulation.',
-				solutions:
-					'Modélisation du moteur et de la pression, simulation de la boucle PID et étude du variateur SINAMICS G120.',
-				lessons: [
-					'Analyse d’une boucle de régulation dans un modèle simulé.',
-					'Distinction entre simulation et validation sur équipement réel.'
-				]
-			},
-			{
-				slug: 'algorithmes-metaheuristiques',
-				title: 'Optimisation sur graphes',
-				tagline: 'Comparaison de méthodes exactes, relaxations et heuristiques sous SageMath.',
-				date: 'Travaux pratiques',
-				image: 'images/projects/algorithmes-metaheuristiques.jpg',
-				status: 'Travail académique',
-				tech: ['SageMath', 'PL / PLNE', 'Graphes', 'Heuristiques'],
-				description:
-					'Travaux pratiques sur la programmation linéaire, les flots, la couverture pondérée de sommets et le voyageur de commerce. Le compte rendu et le notebook comparent plusieurs méthodes dans un contexte pédagogique.',
-				challenges:
-					'Comparer le coût des solutions et le temps de calcul selon la taille du problème.',
-				solutions:
-					'Modélisation sous SageMath et comparaison de méthodes exactes, relaxations, heuristique gloutonne, recherche locale et algorithme génétique.',
-				lessons: [
-					'Prise en compte des contraintes lors de la modélisation.',
-					'Comparaison expérimentale de stratégies d’optimisation.'
-				]
-			}
-		],
+			'Mes projets regroupés par contexte : stages, présidence AéroENSEM, formation académique et développement personnel.',
+		items: projectsFr,
 		viewDetails: 'Voir les détails',
 		backToProjects: 'Retour aux projets',
 		github: 'Code source',
@@ -254,7 +160,37 @@ export const fr: Dictionary = {
 		challengesLabel: 'Défis',
 		solutionsLabel: 'Solutions',
 		lessonsLabel: 'Points clés',
-		relatedLabel: 'Projets similaires'
+		relatedLabel: 'Projets similaires',
+		categories: [
+			{
+				id: 'internships',
+				title: 'Projets en stage',
+				description:
+					'Maintenance Manager chez OCP, interface de traduction et chatbot FAQ chez CodeAlpha.'
+			},
+			{
+				id: 'aeroensem',
+				title: 'Présidence AéroENSEM',
+				description:
+					'Communication technique, site du club et automatisations associatives pendant mon mandat.'
+			},
+			{
+				id: 'academic',
+				title: 'Projets académiques',
+				description:
+					'PFA, études industrielles, projets de données et travaux pratiques, avec leur contexte pédagogique.'
+			},
+			{
+				id: 'personal',
+				title: 'Projets personnels',
+				description: 'Développement et évolution de mon portfolio professionnel.'
+			}
+		],
+		allCategories: 'Toutes les catégories',
+		academicProjects: 'Projets et études',
+		coursework: 'Travaux pratiques',
+		projectSingular: 'projet',
+		projectPlural: 'projets'
 	},
 	skills: {
 		heading: 'Compétences et domaines étudiés',
@@ -345,7 +281,7 @@ export const fr: Dictionary = {
 		skillsTitle: 'Compétences',
 		experienceTitle: 'Expérience',
 		educationTitle: 'Formation',
-		projectsTitle: 'Projets',
+		projectsTitle: 'Projets sélectionnés',
 		certificationsTitle: 'Certifications & Récompenses',
 		print: 'Imprimer / PDF'
 	},
@@ -370,7 +306,7 @@ export const fr: Dictionary = {
 			{
 				href: '/projects',
 				title: 'Projets',
-				description: 'Une sélection de projets industriels et de travaux académiques.'
+				description: 'Projets en stage, pendant la présidence AéroENSEM, académiques et personnels.'
 			},
 			{
 				href: '/education',

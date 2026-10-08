@@ -11,11 +11,12 @@
 
 	let slug = $derived(page.params.slug);
 	let project = $derived(t().projects.items.find((item) => item.slug === slug));
+	let category = $derived(t().projects.categories.find((item) => item.id === project?.category));
 	let photoError = $state(false);
 
 	const related = $derived(
 		project
-			? t().projects.items.filter((item) => item.slug !== project.slug).slice(0, 2)
+			? t().projects.items.filter((item) => item.slug !== project.slug && item.category === project.category).slice(0, 2)
 			: []
 	);
 </script>
@@ -41,7 +42,7 @@
 		<main class="flex-grow w-full">
 			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
 				<a
-					href="/projects"
+					href={'/projects/' + project.category}
 					class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors mb-8"
 				>
 					<ArrowLeft class="w-4 h-4" />
@@ -50,6 +51,9 @@
 
 				<header class="mb-10">
 					<div class="flex flex-wrap items-center gap-3 mb-4">
+						<a href={'/projects/' + project.category} class="text-sm font-medium text-emerald-600 dark:text-emerald-400 hover:underline">
+							{category?.title}
+						</a>
 						<span
 							class="text-xs font-mono px-3 py-1 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 rounded-full border border-emerald-100 dark:border-emerald-800/50"
 						>
@@ -66,6 +70,7 @@
 					<h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-zinc-100 mb-4">
 						{project.title}
 					</h1>
+					<p class="text-sm font-medium text-emerald-600 dark:text-emerald-400 mb-3">{project.context}</p>
 					<p class="text-xl text-slate-600 dark:text-zinc-400 leading-relaxed">
 						{project.tagline}
 					</p>
@@ -102,7 +107,7 @@
 					<div
 						class="aspect-[16/9] rounded-2xl overflow-hidden border border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-800 mb-10"
 					>
-						{#if !photoError}
+						{#if project.image && !photoError}
 							<img
 								src="/{project.image}"
 								alt={project.title}
@@ -113,7 +118,7 @@
 							<div
 								class="w-full h-full flex items-center justify-center bg-gradient-to-br from-emerald-100 via-emerald-50 to-sky-100 dark:from-emerald-900/30 dark:via-zinc-900 dark:to-zinc-900"
 							>
-								<span class="font-mono text-6xl font-bold text-emerald-600 dark:text-emerald-400">
+								<span class="min-w-0 max-w-full font-mono text-4xl font-bold text-emerald-600 dark:text-emerald-400 px-6 text-center break-words">
 									{project.tech[0]}
 								</span>
 							</div>

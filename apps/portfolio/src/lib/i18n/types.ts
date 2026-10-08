@@ -1,11 +1,16 @@
 export type Locale = 'fr' | 'en';
+export type ProjectCategory = 'internships' | 'aeroensem' | 'academic' | 'personal';
 
 export interface Project {
 	slug: string;
+	category: ProjectCategory;
+	kind: 'project' | 'coursework';
+	context: string;
+	cvFeatured?: boolean;
 	title: string;
 	tagline: string;
 	date: string;
-	image: string;
+	image?: string;
 	status: string;
 	tech: string[];
 	links?: { github?: string; demo?: string };
@@ -91,6 +96,12 @@ export interface Dictionary {
 	projects: {
 		heading: string;
 		subheading: string;
+		categories: { id: ProjectCategory; title: string; description: string }[];
+		allCategories: string;
+		academicProjects: string;
+		coursework: string;
+		projectSingular: string;
+		projectPlural: string;
 		items: Project[];
 		viewDetails: string;
 		backToProjects: string;

@@ -1,4 +1,5 @@
 import type { Dictionary } from './types';
+import { projectsEn } from '../projects/en';
 
 export const en: Dictionary = {
 	meta: {
@@ -149,100 +150,8 @@ export const en: Dictionary = {
 	projects: {
 		heading: 'Technical projects',
 		subheading:
-			'Selected backend development work and collaborative academic studies in industrial systems.',
-		items: [
-			{
-				slug: 'maintenance-manager',
-				title: 'Maintenance Manager — CMMS',
-				tagline: 'FastAPI backend and offline-first synchronization for industrial maintenance.',
-				date: 'June – August 2026',
-				image: 'images/projects/maintenance-manager.jpg',
-				status: 'Tested during internship',
-				tech: ['Python', 'FastAPI', 'PostgreSQL', 'Offline-First'],
-				description:
-					'Developed during my OCP internship for IMACID maintenance. I led the project and independently built the entire backend. My teammate developed the Android app, with my guidance on requirements and integration. The tested version supports six business roles and preventive and corrective interventions.',
-				challenges:
-					'Support equipment and intervention tracking in areas with limited connectivity.',
-				solutions:
-					'Offline-first architecture with asynchronous synchronization and a PostgreSQL database for equipment, interventions and histories. The backend was deployed for trials during the internship; restoration of the service is in preparation.',
-				lessons: [
-					'Backend design based on industrial maintenance needs.',
-					'Coordination of requirements and integration between the API and mobile app.'
-				]
-			},
-			{
-				slug: 'efficacite-energetique-climatisation',
-				title: 'HVAC energy study',
-				tagline: 'Variable speed drives, harmonic analysis and a technical-economic assessment.',
-				date: 'Academic project',
-				image: 'images/projects/efficacite-energetique-climatisation.jpg',
-				status: 'Two-person study',
-				tech: ['Python', 'NumPy', 'Matplotlib', 'Variable speed drives'],
-				description:
-					'Collaborative study of a 45 kW HVAC installation covering partial-load profiles, affinity laws, harmonics and economic feasibility. Energy savings are theoretical projections under stated assumptions, rather than measured operational gains.',
-				challenges: 'Connect variable speed operation, power quality and economic assumptions.',
-				solutions:
-					'Affinity-law calculations, Python harmonic simulation and a technical-economic assessment under stated assumptions.',
-				lessons: [
-					'Distinguishing theoretical results from operational measurements.',
-					'Considering energy use and economics together.'
-				]
-			},
-			{
-				slug: 'performance-etudiante',
-				title: 'Student profile analysis',
-				tagline: 'Exploratory analysis, PCA and K-Means segmentation.',
-				date: 'Academic project',
-				image: 'images/projects/performance-etudiante.jpg',
-				status: 'Team project',
-				tech: ['Data analysis', 'PCA', 'K-Means'],
-				description:
-					'Collaborative analysis of grades and behavioral factors. The presentation examines correlations between subjects and student profile segmentation, with possible guidance applications.',
-				challenges: 'Interpret academic profiles while distinguishing correlation from causation.',
-				solutions:
-					'Exploratory analysis, PCA and K-Means on the first two components, presented as a team study.',
-				lessons: [
-					'Interpreting correlations and profile clusters.',
-					'Communicating the context and limits of an analysis.'
-				]
-			},
-			{
-				slug: 'controle-vitesse-compresseur',
-				title: 'Compressor control study',
-				tagline: 'Simulink modeling and PID control of a variable-speed compressor.',
-				date: 'Academic project',
-				image: 'images/projects/controle-vitesse-compresseur.jpg',
-				status: 'Study and simulation',
-				tech: ['MATLAB/Simulink', 'PID', 'SINAMICS G120', 'TIA Portal'],
-				description:
-					'Collaborative study of a compressor driven by an induction motor. The work covers Simulink modeling, PID control and a configuration described in TIA Portal. Its scope is study and simulation, without claiming physical commissioning.',
-				challenges: 'Study pressure response and control-loop tuning.',
-				solutions:
-					'Motor and pressure modeling, PID-loop simulation and analysis of the SINAMICS G120 drive.',
-				lessons: [
-					'Control-loop analysis in a simulated model.',
-					'Distinguishing simulation from validation on physical equipment.'
-				]
-			},
-			{
-				slug: 'algorithmes-metaheuristiques',
-				title: 'Graph optimization',
-				tagline: 'Comparing exact methods, relaxations and heuristics in SageMath.',
-				date: 'Practical coursework',
-				image: 'images/projects/algorithmes-metaheuristiques.jpg',
-				status: 'Academic work',
-				tech: ['SageMath', 'LP / ILP', 'Graphs', 'Heuristics'],
-				description:
-					'Practical coursework on linear programming, flows, weighted vertex cover and the traveling salesman problem. The report and notebook compare approaches in an educational context.',
-				challenges: 'Compare solution costs and computation time as problem size changes.',
-				solutions:
-					'SageMath modeling and comparisons of exact methods, relaxations, greedy heuristics, local search and a genetic algorithm.',
-				lessons: [
-					'Accounting for constraints in mathematical models.',
-					'Experimental comparison of optimization strategies.'
-				]
-			}
-		],
+			'My projects grouped by context: internships, AeroENSEM presidency, academic work and personal development.',
+		items: projectsEn,
 		viewDetails: 'View details',
 		backToProjects: 'Back to projects',
 		github: 'Source code',
@@ -251,7 +160,37 @@ export const en: Dictionary = {
 		challengesLabel: 'Challenges',
 		solutionsLabel: 'Solutions',
 		lessonsLabel: 'Key takeaways',
-		relatedLabel: 'Related projects'
+		relatedLabel: 'Related projects',
+		categories: [
+			{
+				id: 'internships',
+				title: 'Internship projects',
+				description:
+					'Maintenance Manager at OCP, and the translation interface and FAQ chatbot at CodeAlpha.'
+			},
+			{
+				id: 'aeroensem',
+				title: 'AeroENSEM presidency',
+				description:
+					'Technical communication, the club website and administrative automation during my term.'
+			},
+			{
+				id: 'academic',
+				title: 'Academic projects',
+				description:
+					'End-of-year work, industrial studies, data projects and practical coursework in their educational context.'
+			},
+			{
+				id: 'personal',
+				title: 'Personal projects',
+				description: 'Development and evolution of my professional portfolio.'
+			}
+		],
+		allCategories: 'All categories',
+		academicProjects: 'Projects and studies',
+		coursework: 'Practical coursework',
+		projectSingular: 'project',
+		projectPlural: 'projects'
 	},
 	skills: {
 		heading: 'Skills & areas of study',
@@ -341,7 +280,7 @@ export const en: Dictionary = {
 		skillsTitle: 'Skills',
 		experienceTitle: 'Experience',
 		educationTitle: 'Education',
-		projectsTitle: 'Projects',
+		projectsTitle: 'Selected projects',
 		certificationsTitle: 'Certifications & Awards',
 		print: 'Print / PDF'
 	},
@@ -366,7 +305,7 @@ export const en: Dictionary = {
 			{
 				href: '/projects',
 				title: 'Projects',
-				description: 'Selected industrial projects and academic studies.'
+				description: 'Internship, AeroENSEM presidency, academic and personal projects.'
 			},
 			{
 				href: '/education',

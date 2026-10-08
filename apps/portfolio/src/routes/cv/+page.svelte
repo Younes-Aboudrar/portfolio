@@ -148,7 +148,7 @@
 						{t().cv.projectsTitle}
 					</h2>
 					<div class="space-y-4">
-						{#each t().projects.items as project}
+						{#each t().projects.items.filter((project) => project.cvFeatured) as project}
 							<div>
 								<h3 class="font-bold text-slate-900 dark:text-zinc-100 print:text-black">
 									{project.title}
