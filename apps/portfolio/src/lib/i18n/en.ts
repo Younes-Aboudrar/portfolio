@@ -84,6 +84,8 @@ export const en: Dictionary = {
 	},
 	experience: {
 		heading: 'Experience',
+		professionalHeading: 'Professional experience',
+		extracurricularHeading: 'Extracurricular experience',
 		jobs: [
 			{
 				role: 'Intern — maintenance management application',
@@ -98,16 +100,6 @@ export const en: Dictionary = {
 				]
 			},
 			{
-				role: 'President',
-				company: 'AeroENSEM Club',
-				date: 'Sept. 2025 – March 2026',
-				tech: ['Leadership', 'Club coordination', 'Technical communication'],
-				tasks: [
-					'Led the club and coordinated its activities.',
-					'Prepared communications and a speech for the conference on Moroccan aeronautics toward 2030.'
-				]
-			},
-			{
 				role: 'Remote internship — AI and web development',
 				company: 'CodeAlpha',
 				date: 'July 2025',
@@ -115,6 +107,18 @@ export const en: Dictionary = {
 				tasks: [
 					'FAQ chatbot prototype using Flask, spaCy language processing and text similarity search.',
 					'Separate translation interface project using the Azure Translator API, with browser-based speech synthesis.'
+				]
+			}
+		],
+		activities: [
+			{
+				role: 'President',
+				company: 'AeroENSEM Club',
+				date: 'Sept. 2025 – March 2026',
+				tech: ['Leadership', 'Club coordination', 'Technical communication'],
+				tasks: [
+					'Led the club and coordinated its activities.',
+					'Prepared communications and a speech for the conference on Moroccan aeronautics toward 2030.'
 				]
 			}
 		]
@@ -150,7 +154,7 @@ export const en: Dictionary = {
 	projects: {
 		heading: 'Technical projects',
 		subheading:
-			'My projects grouped by context: internships, AeroENSEM presidency, academic work and personal development.',
+			'My projects grouped by context: internships, academic work and personal development.',
 		items: projectsEn,
 		viewDetails: 'View details',
 		backToProjects: 'Back to projects',
@@ -169,12 +173,6 @@ export const en: Dictionary = {
 					'Maintenance Manager at OCP, and the translation interface and FAQ chatbot at CodeAlpha.'
 			},
 			{
-				id: 'aeroensem',
-				title: 'AeroENSEM presidency',
-				description:
-					'Technical communication, the club website and administrative automation during my term.'
-			},
-			{
 				id: 'academic',
 				title: 'Academic projects',
 				description:
@@ -183,7 +181,7 @@ export const en: Dictionary = {
 			{
 				id: 'personal',
 				title: 'Personal projects',
-				description: 'Development and evolution of my professional portfolio.'
+				description: 'Professional portfolio and self-hosting Plane and Ente for my own use.'
 			}
 		],
 		allCategories: 'All categories',
@@ -278,7 +276,7 @@ export const en: Dictionary = {
 		profile: 'Profile',
 		contactLabel: 'Contact',
 		skillsTitle: 'Skills',
-		experienceTitle: 'Experience',
+		experienceTitle: 'Professional experience',
 		educationTitle: 'Education',
 		projectsTitle: 'Selected projects',
 		certificationsTitle: 'Certifications & Awards',
@@ -305,7 +303,7 @@ export const en: Dictionary = {
 			{
 				href: '/projects',
 				title: 'Projects',
-				description: 'Internship, AeroENSEM presidency, academic and personal projects.'
+				description: 'Internship, academic and personal projects.'
 			},
 			{
 				href: '/education',

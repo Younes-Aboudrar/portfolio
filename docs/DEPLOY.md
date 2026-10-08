@@ -39,7 +39,8 @@ Sorties de build :
 Workflow `.github/workflows/deploy-pages.yml` :
 
 1. Sur chaque push vers `main` (ou déclenchement manuel via *Actions*).
-2. Build les 3 apps (`npm ci` à la racine + `npm run build --workspace <pkg>`).
+2. Lit `apps/portfolio/src/lib/site-status.json`, puis construit le portfolio
+   et les sites actifs (`npm ci` à la racine + `npm run build --workspace <pkg>`).
 3. Pousse chaque sortie vers la branche `gh-pages` de son repo de déploiement
    avec le fichier `CNAME` correspondant, via l'action
    `peaceiris/actions-gh-pages` (token `GH_PAGES_DEPLOY_TOKEN`, secret du repo
@@ -48,6 +49,20 @@ Workflow `.github/workflows/deploy-pages.yml` :
 Environnement du build portfolio : `PUBLIC_CONTACT_ENDPOINT=https://contact.aboudrar.dev/api/contact`.
 Les tokens `PUBLIC_CF_ANALYTICS` (optionnels) peuvent être ajoutés en variables
 du workflow si tu veux réactiver Cloudflare Web Analytics.
+
+### Pause temporaire du wiki et du blog
+
+`apps/portfolio/src/lib/site-status.json` contrôle les liens dans le portfolio
+et les publications du wiki et du blog. Actuellement, `wiki` et `blog` valent
+`false` : leurs liens sont masqués et le workflow publie une page de pause à
+la place de chaque site. Les anciennes URL affichent aussi la page de pause
+via `404.html`. Les contenus sources restent conservés dans `apps/wiki` et
+`apps/blog`.
+
+Pour réactiver un site, passer son réglage à `true` et pousser sur `main`.
+Le workflow reconstruit alors le site complet et rétablit ses liens dans le
+portfolio. Les domaines et la configuration GitHub Pages restent en place.
+Pour préparer les pages de pause localement : `node scripts/prepare-sites.mjs`.
 
 ### Repos de déploiement
 

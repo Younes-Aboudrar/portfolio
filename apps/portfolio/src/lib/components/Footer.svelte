@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { t } from '$lib/i18n/i18n.svelte';
 	import { contact } from '$lib/contact';
+	import siteStatus from '$lib/site-status.json';
 	import BrandIcon from './BrandIcon.svelte';
 	import { ArrowUp, Mail, BookOpen, FileText } from '@lucide/svelte';
 </script>
@@ -51,18 +52,22 @@
 							{t().nav.cv}
 						</a>
 					</li>
-					<li>
-						<a href={contact.wiki} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-							<BookOpen class="w-4 h-4" />
-							{t().nav.wiki}
-						</a>
-					</li>
-					<li>
-						<a href={contact.blog} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-							<FileText class="w-4 h-4" />
-							{t().nav.blog}
-						</a>
-					</li>
+					{#if siteStatus.wiki}
+						<li>
+							<a href={contact.wiki} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+								<BookOpen class="w-4 h-4" />
+								{t().nav.wiki}
+							</a>
+						</li>
+					{/if}
+					{#if siteStatus.blog}
+						<li>
+							<a href={contact.blog} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+								<FileText class="w-4 h-4" />
+								{t().nav.blog}
+							</a>
+						</li>
+					{/if}
 				</ul>
 			</div>
 

@@ -25,6 +25,7 @@ export const projectsEn: Project[] = [
 	},
 	{
 		slug: 'interface-traduction',
+		links: { github: 'https://github.com/Younes-Aboudrar/CodeAlpha_LanguageTranslationTool' },
 		category: 'internships',
 		kind: 'project',
 		title: 'Web translation interface',
@@ -45,6 +46,7 @@ export const projectsEn: Project[] = [
 	},
 	{
 		slug: 'chatbot-faq',
+		links: { github: 'https://github.com/Younes-Aboudrar/CodeAlpha_AIEngineeringFAQsChatbot' },
 		category: 'internships',
 		kind: 'project',
 		title: 'Contextual FAQ chatbot',
@@ -61,41 +63,6 @@ export const projectsEn: Project[] = [
 			'Structuring a Python web service.',
 			'FAQ retrieval using language processing and similarity.'
 		]
-	},
-	{
-		slug: 'communication-aeroensem',
-		category: 'aeroensem',
-		kind: 'project',
-		title: 'AeroENSEM technical communication and conference',
-		tagline: 'Communication and speech preparation during the presidency.',
-		date: 'Sept. 2025 – March 2026',
-		status: 'Club project',
-		context: 'AeroENSEM Club presidency',
-		tech: ['Technical communication', 'Leadership'],
-		description:
-			'Technical communication during the AeroENSEM presidency, including preparation of the president’s speech for the conference on Moroccan aeronautics toward 2030.',
-		challenges: 'Structure a technical message for club and institutional audiences.',
-		solutions: 'Preparation of a presidential speech and conference communication content.',
-		lessons: [
-			'Adapting technical communication to an audience.',
-			'Connecting club responsibilities with event preparation.'
-		]
-	},
-	{
-		slug: 'site-automatisations-aeroensem',
-		category: 'aeroensem',
-		kind: 'project',
-		title: 'Club website and administrative automation',
-		tagline: 'Bilingual content and organization scripts for AeroENSEM.',
-		date: 'Sept. 2025 – March 2026',
-		status: 'Club project',
-		context: 'AeroENSEM Club presidency',
-		tech: ['Hugo', 'Python', 'Web'],
-		description:
-			'Club project bringing together a Hugo website configuration, bilingual content and Python scripts for organization and document generation.',
-		challenges: 'Organize club content and reduce repeated document tasks.',
-		solutions: 'Hugo site structure and Python scripts for organization and document generation.',
-		lessons: ['Organizing bilingual web content.', 'Document-task automation in a club setting.']
 	},
 	{
 		slug: 'portfolio-sveltekit',
@@ -119,6 +86,46 @@ export const projectsEn: Project[] = [
 		links: {
 			demo: 'https://younes.aboudrar.dev'
 		}
+	},
+	{
+		slug: 'autohebergement-plane',
+		category: 'personal',
+		kind: 'project',
+		title: 'Self-hosting Plane',
+		tagline: 'Setting up a project management tool for my own use.',
+		date: 'Personal project',
+		status: 'Active personal service',
+		context: 'Personal self-hosted environment',
+		tech: ['Plane', 'Ubuntu Server', 'Docker', 'Cloudflare Zero Trust'],
+		description:
+			'Independent installation and administration of Plane on my personal server to organize and track my projects. This work is part of setting up my personal computing environment, which I began during my first year of engineering studies.',
+		challenges: 'Provide a project management tool suited to my needs and accessible remotely.',
+		solutions:
+			'Hosting the service in my Ubuntu Server environment, configuring access and networking, and using Cloudflare Zero Trust for remote access.',
+		lessons: [
+			'Independent installation and administration of a self-hosted service.',
+			'Access configuration and maintenance of a personal computing environment.'
+		]
+	},
+	{
+		slug: 'autohebergement-ente',
+		category: 'personal',
+		kind: 'project',
+		title: 'Self-hosting Ente',
+		tagline: 'Setting up a photo and video management service for my own use.',
+		date: 'Personal project',
+		status: 'Active personal service',
+		context: 'Personal self-hosted environment',
+		tech: ['Ente', 'Ubuntu Server', 'Docker', 'Cloudflare Zero Trust'],
+		description:
+			'Independent installation and administration of Ente on my personal server to manage my photo and video library. The service complements my personal self-hosted environment alongside Plane.',
+		challenges: 'Provide a personal media management service with appropriate access.',
+		solutions:
+			'Service installation, remote access configuration and administration in my personal environment.',
+		lessons: [
+			'Deployment and configuration of a media management service.',
+			'Administration of multiple services for distinct personal needs.'
+		]
 	},
 	{
 		slug: 'pfa-qualite-industrielle-iot',

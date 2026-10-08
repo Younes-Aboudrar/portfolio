@@ -2,20 +2,26 @@
 	import { t } from '$lib/i18n/i18n.svelte';
 	import SectionHeading from './SectionHeading.svelte';
 	import Reveal from './Reveal.svelte';
-	import { Briefcase, Calendar } from '@lucide/svelte';
+	import { Briefcase, Calendar, Users } from '@lucide/svelte';
 
-	let { headingLevel = 2 }: { headingLevel?: 1 | 2 } = $props();
+	let { headingLevel = 2, group = 'professional' }: { headingLevel?: 1 | 2; group?: 'professional' | 'extracurricular' } = $props();
+	const extracurricular = $derived(group === 'extracurricular');
+	const items = $derived(extracurricular ? t().experience.activities : t().experience.jobs);
 </script>
 
-<section id="experience" class="py-20">
-	<SectionHeading {headingLevel} title={t().experience.heading} path="experience">
-		<Briefcase class="w-5 h-5" />
+<section id={extracurricular ? 'extracurricular' : 'experience'} class="py-20">
+	<SectionHeading {headingLevel} title={extracurricular ? t().experience.extracurricularHeading : t().experience.professionalHeading} path={extracurricular ? 'experience/extracurricular' : 'experience'}>
+		{#if extracurricular}
+			<Users class="w-5 h-5" />
+		{:else}
+			<Briefcase class="w-5 h-5" />
+		{/if}
 	</SectionHeading>
 
 	<div
 		class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 dark:before:via-zinc-800 before:to-transparent"
 	>
-		{#each t().experience.jobs as job, i}
+		{#each items as job, i}
 			<div
 				class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
 			>

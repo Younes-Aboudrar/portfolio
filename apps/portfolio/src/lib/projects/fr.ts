@@ -26,6 +26,7 @@ export const projectsFr: Project[] = [
 	},
 	{
 		slug: 'interface-traduction',
+		links: { github: 'https://github.com/Younes-Aboudrar/CodeAlpha_LanguageTranslationTool' },
 		category: 'internships',
 		kind: 'project',
 		title: 'Interface de traduction web',
@@ -45,6 +46,7 @@ export const projectsFr: Project[] = [
 	},
 	{
 		slug: 'chatbot-faq',
+		links: { github: 'https://github.com/Younes-Aboudrar/CodeAlpha_AIEngineeringFAQsChatbot' },
 		category: 'internships',
 		kind: 'project',
 		title: 'Chatbot FAQ contextuel',
@@ -61,46 +63,6 @@ export const projectsFr: Project[] = [
 		lessons: [
 			'Organisation d’un service web Python.',
 			'Recherche de réponses fondée sur le traitement linguistique et la similarité.'
-		]
-	},
-	{
-		slug: 'communication-aeroensem',
-		category: 'aeroensem',
-		kind: 'project',
-		title: 'Communication technique et conférence AéroENSEM',
-		tagline: 'Préparation de la communication et d’une prise de parole pendant la présidence.',
-		date: 'Sept. 2025 – mars 2026',
-		status: 'Projet associatif',
-		context: 'Présidence du Club AéroENSEM',
-		tech: ['Communication technique', 'Leadership'],
-		description:
-			'Communication technique dans le cadre de la présidence du Club AéroENSEM, avec préparation du « Mot du Président » pour la conférence sur les enjeux de l’aéronautique marocaine à l’horizon 2030.',
-		challenges: 'Structurer un message technique pour un public associatif et institutionnel.',
-		solutions:
-			'Préparation d’un discours de présidence et des contenus de communication autour de la conférence.',
-		lessons: [
-			'Communication technique adaptée au public.',
-			'Articulation entre responsabilités associatives et préparation d’événements.'
-		]
-	},
-	{
-		slug: 'site-automatisations-aeroensem',
-		category: 'aeroensem',
-		kind: 'project',
-		title: 'Site du club et automatisations associatives',
-		tagline: 'Contenus bilingues et scripts d’organisation du Club AéroENSEM.',
-		date: 'Sept. 2025 – mars 2026',
-		status: 'Projet associatif',
-		context: 'Présidence du Club AéroENSEM',
-		tech: ['Hugo', 'Python', 'Web'],
-		description:
-			'Projet associatif regroupant la configuration d’un site Hugo, des contenus bilingues et des scripts Python d’organisation et de génération de documents.',
-		challenges: 'Organiser les contenus du club et réduire la répétition des tâches documentaires.',
-		solutions:
-			'Structure Hugo pour le site et scripts Python pour l’organisation et la génération de documents.',
-		lessons: [
-			'Organisation de contenus web bilingues.',
-			'Automatisation de tâches documentaires dans un contexte associatif.'
 		]
 	},
 	{
@@ -126,6 +88,48 @@ export const projectsFr: Project[] = [
 		links: {
 			demo: 'https://younes.aboudrar.dev'
 		}
+	},
+	{
+		slug: 'autohebergement-plane',
+		category: 'personal',
+		kind: 'project',
+		title: 'Auto-hébergement de Plane',
+		tagline: 'Mise en place d’un outil de gestion de projets pour mon usage personnel.',
+		date: 'Projet personnel',
+		status: 'Service personnel actif',
+		context: 'Environnement personnel auto-hébergé',
+		tech: ['Plane', 'Ubuntu Server', 'Docker', 'Cloudflare Zero Trust'],
+		description:
+			'Installation et administration autonomes de Plane sur mon serveur personnel pour organiser et suivre mes projets. Ce travail s’inscrit dans la mise en place de mon environnement informatique personnel, commencée pendant ma première année d’ingénierie.',
+		challenges:
+			'Disposer d’un outil de gestion de projets adapté à mes besoins et accessible à distance.',
+		solutions:
+			'Hébergement du service dans mon environnement Ubuntu Server, configuration des accès et du réseau, et utilisation de Cloudflare Zero Trust pour l’accès distant.',
+		lessons: [
+			'Installation et administration autonome d’un service auto-hébergé.',
+			'Configuration des accès et suivi d’un environnement informatique personnel.'
+		]
+	},
+	{
+		slug: 'autohebergement-ente',
+		category: 'personal',
+		kind: 'project',
+		title: 'Auto-hébergement d’Ente',
+		tagline: 'Mise en place d’un service de gestion de photos et vidéos pour mon usage personnel.',
+		date: 'Projet personnel',
+		status: 'Service personnel actif',
+		context: 'Environnement personnel auto-hébergé',
+		tech: ['Ente', 'Ubuntu Server', 'Docker', 'Cloudflare Zero Trust'],
+		description:
+			'Installation et administration autonomes d’Ente sur mon serveur personnel pour gérer ma bibliothèque de photos et vidéos. Le service complète mon environnement personnel auto-hébergé, aux côtés de Plane.',
+		challenges:
+			'Mettre à disposition un service personnel de gestion de médias avec des accès adaptés.',
+		solutions:
+			'Mise en place du service, configuration de son accès distant et administration dans mon environnement personnel.',
+		lessons: [
+			'Déploiement et configuration d’un service de gestion de médias.',
+			'Administration de plusieurs services pour des besoins personnels distincts.'
+		]
 	},
 	{
 		slug: 'pfa-qualite-industrielle-iot',

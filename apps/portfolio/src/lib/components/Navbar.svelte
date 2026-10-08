@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import { t } from '$lib/i18n/i18n.svelte';
 	import { contact } from '$lib/contact';
+	import siteStatus from '$lib/site-status.json';
 	import BrandIcon from './BrandIcon.svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
 	import LangToggle from './LangToggle.svelte';
@@ -19,9 +20,9 @@
 	]);
 
 	const externalLinks = $derived([
-		{ label: t().nav.wiki, href: contact.wiki, icon: 'wiki' },
-		{ label: t().nav.blog, href: contact.blog, icon: 'blog' }
-	]);
+		{ label: t().nav.wiki, href: contact.wiki, icon: 'wiki', enabled: siteStatus.wiki },
+		{ label: t().nav.blog, href: contact.blog, icon: 'blog', enabled: siteStatus.blog }
+	].filter((link) => link.enabled));
 
 	function isActive(href: string) {
 		return page.url.pathname === href || page.url.pathname.startsWith(href + '/');
@@ -65,7 +66,9 @@
 					{/each}
 				</div>
 
-				<div class="h-4 w-px bg-slate-300 dark:bg-zinc-700"></div>
+				{#if externalLinks.length}
+					<div class="h-4 w-px bg-slate-300 dark:bg-zinc-700"></div>
+				{/if}
 
 				<div class="flex items-center gap-3">
 					{#each externalLinks as link}

@@ -1,5 +1,13 @@
 export type Locale = 'fr' | 'en';
-export type ProjectCategory = 'internships' | 'aeroensem' | 'academic' | 'personal';
+export type ProjectCategory = 'internships' | 'academic' | 'personal';
+
+export interface Experience {
+	role: string;
+	company: string;
+	date: string;
+	tech: string[];
+	tasks: string[];
+}
 
 export interface Project {
 	slug: string;
@@ -68,13 +76,10 @@ export interface Dictionary {
 	};
 	experience: {
 		heading: string;
-		jobs: {
-			role: string;
-			company: string;
-			date: string;
-			tech: string[];
-			tasks: string[];
-		}[];
+		professionalHeading: string;
+		extracurricularHeading: string;
+		jobs: Experience[];
+		activities: Experience[];
 	};
 	education: {
 		heading: string;

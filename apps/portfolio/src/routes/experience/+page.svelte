@@ -6,4 +6,5 @@
 
 <PageShell title={t().experience.heading} description={t().about.body2}>
 	<ExperienceCard headingLevel={1} />
+	<ExperienceCard group="extracurricular" />
 </PageShell>

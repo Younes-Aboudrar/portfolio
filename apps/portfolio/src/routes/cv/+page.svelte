@@ -161,6 +161,30 @@
 					</div>
 				</section>
 
+				<section class="mb-8">
+					<h2 class="text-sm font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-4 print:text-emerald-700">
+						{t().experience.extracurricularHeading}
+					</h2>
+					{#each t().experience.activities as activity}
+						<div>
+							<div class="flex flex-wrap items-baseline justify-between gap-2">
+								<h3 class="font-bold text-slate-900 dark:text-zinc-100 print:text-black">
+									{activity.role} — <span class="font-medium text-emerald-600 dark:text-emerald-400 print:text-emerald-700">{activity.company}</span>
+								</h3>
+								<span class="text-xs font-mono text-slate-500 dark:text-zinc-500 print:text-black">{activity.date}</span>
+							</div>
+							<ul class="mt-2 space-y-1.5">
+								{#each activity.tasks as task}
+									<li class="flex items-start gap-2 text-sm text-slate-600 dark:text-zinc-400 print:text-black">
+										<span class="text-emerald-600 dark:text-emerald-400 mt-0.5">&gt;</span>
+										{task}
+									</li>
+								{/each}
+							</ul>
+						</div>
+					{/each}
+				</section>
+
 				{#if t().certifications.items.length}
 					<section>
 						<h2 class="text-sm font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-4 print:text-emerald-700">

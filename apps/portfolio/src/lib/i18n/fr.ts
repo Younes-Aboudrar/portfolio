@@ -84,6 +84,8 @@ export const fr: Dictionary = {
 	},
 	experience: {
 		heading: 'Expérience',
+		professionalHeading: 'Expériences professionnelles',
+		extracurricularHeading: 'Expérience parascolaire',
 		jobs: [
 			{
 				role: 'Stagiaire — projet de GMAO',
@@ -98,16 +100,6 @@ export const fr: Dictionary = {
 				]
 			},
 			{
-				role: 'Président',
-				company: 'Club AéroENSEM',
-				date: 'Sept. 2025 – mars 2026',
-				tech: ['Leadership', 'Coordination associative', 'Communication technique'],
-				tasks: [
-					'Présidence du club et coordination de ses activités associatives.',
-					'Préparation de la communication et d’une prise de parole pour la conférence « Les enjeux de l’aéronautique marocaine à l’horizon 2030 ».'
-				]
-			},
-			{
 				role: 'Stage à distance — IA et développement web',
 				company: 'CodeAlpha',
 				date: 'Juillet 2025',
@@ -115,6 +107,18 @@ export const fr: Dictionary = {
 				tasks: [
 					'Prototype de chatbot FAQ sous Flask, avec traitement linguistique spaCy et recherche de similarité textuelle.',
 					'Projet distinct d’interface de traduction utilisant l’API Azure Translator, avec lecture vocale côté navigateur.'
+				]
+			}
+		],
+		activities: [
+			{
+				role: 'Président',
+				company: 'Club AéroENSEM',
+				date: 'Sept. 2025 – mars 2026',
+				tech: ['Leadership', 'Coordination associative', 'Communication technique'],
+				tasks: [
+					'Présidence du club et coordination de ses activités associatives.',
+					'Préparation de la communication et d’une prise de parole pour la conférence « Les enjeux de l’aéronautique marocaine à l’horizon 2030 ».'
 				]
 			}
 		]
@@ -150,7 +154,7 @@ export const fr: Dictionary = {
 	projects: {
 		heading: 'Projets techniques',
 		subheading:
-			'Mes projets regroupés par contexte : stages, présidence AéroENSEM, formation académique et développement personnel.',
+			'Mes projets regroupés par contexte : stages, formation académique et développement personnel.',
 		items: projectsFr,
 		viewDetails: 'Voir les détails',
 		backToProjects: 'Retour aux projets',
@@ -169,12 +173,6 @@ export const fr: Dictionary = {
 					'Maintenance Manager chez OCP, interface de traduction et chatbot FAQ chez CodeAlpha.'
 			},
 			{
-				id: 'aeroensem',
-				title: 'Présidence AéroENSEM',
-				description:
-					'Communication technique, site du club et automatisations associatives pendant mon mandat.'
-			},
-			{
 				id: 'academic',
 				title: 'Projets académiques',
 				description:
@@ -183,7 +181,7 @@ export const fr: Dictionary = {
 			{
 				id: 'personal',
 				title: 'Projets personnels',
-				description: 'Développement et évolution de mon portfolio professionnel.'
+				description: 'Portfolio professionnel et auto-hébergement de Plane et Ente pour mon usage personnel.'
 			}
 		],
 		allCategories: 'Toutes les catégories',
@@ -279,7 +277,7 @@ export const fr: Dictionary = {
 		profile: 'Profil',
 		contactLabel: 'Contact',
 		skillsTitle: 'Compétences',
-		experienceTitle: 'Expérience',
+		experienceTitle: 'Expériences professionnelles',
 		educationTitle: 'Formation',
 		projectsTitle: 'Projets sélectionnés',
 		certificationsTitle: 'Certifications & Récompenses',
@@ -306,7 +304,7 @@ export const fr: Dictionary = {
 			{
 				href: '/projects',
 				title: 'Projets',
-				description: 'Projets en stage, pendant la présidence AéroENSEM, académiques et personnels.'
+				description: 'Projets en stage, académiques et personnels.'
 			},
 			{
 				href: '/education',

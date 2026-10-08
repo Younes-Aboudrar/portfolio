@@ -25,15 +25,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Prepare site availability
+        id: sites
+        run: node scripts/prepare-sites.mjs
+
       - name: Build portfolio
         run: npm run build --workspace @aboudrar/portfolio
         env:
           PUBLIC_CONTACT_ENDPOINT: https://contact.aboudrar.dev/api/contact
 
       - name: Build wiki
+        if: steps.sites.outputs.wiki_enabled == 'true'
         run: npm run build --workspace @aboudrar/wiki
 
       - name: Build blog
+        if: steps.sites.outputs.blog_enabled == 'true'
         run: npm run build --workspace @aboudrar/blog
 
       - name: Deploy portfolio to younes.aboudrar.dev
@@ -52,7 +58,7 @@ jobs:
           personal_token: ${{ secrets.GH_PAGES_DEPLOY_TOKEN }}
           external_repository: Younes-Aboudrar/abwiki.aboudrar.dev
           publish_branch: gh-pages
-          publish_dir: apps/wiki/dist
+          publish_dir: ${{ steps.sites.outputs.wiki_dir }}
           cname: abwiki.aboudrar.dev
           force_orphan: true
 
@@ -62,6 +68,6 @@ jobs:
           personal_token: ${{ secrets.GH_PAGES_DEPLOY_TOKEN }}
           external_repository: Younes-Aboudrar/blog.aboudrar.dev
           publish_branch: gh-pages
-          publish_dir: apps/blog/dist
+          publish_dir: ${{ steps.sites.outputs.blog_dir }}
           cname: blog.aboudrar.dev
           force_orphan: true
