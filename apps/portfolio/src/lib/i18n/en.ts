@@ -16,7 +16,8 @@ export const en: Dictionary = {
 		blog: 'Blog',
 		wiki: 'Wiki',
 		now: 'Now',
-		cv: 'CV'
+		cv: 'CV',
+		home: 'Home'
 	},
 	hero: {
 		badge: '6-month final-year internship · Early March 2027',
@@ -337,5 +338,41 @@ export const en: Dictionary = {
 	misc: {
 		langName: 'FR',
 		notFound: 'Page not found'
+	},
+	home: {
+		heading: 'Explore my work and background',
+		intro: 'Find my profile, experience and selected work in the sections below.',
+		pages: [
+			{
+				href: '/about',
+				title: 'About',
+				description: 'My profile, availability and areas of interest.'
+			},
+			{
+				href: '/experience',
+				title: 'Experience',
+				description: 'My internships and contributions to software development.'
+			},
+			{
+				href: '/projects',
+				title: 'Projects',
+				description: 'Selected industrial projects and academic studies.'
+			},
+			{
+				href: '/education',
+				title: 'Education',
+				description: 'My studies in Casablanca, exchange in Nancy and preparatory classes.'
+			},
+			{
+				href: '/skills',
+				title: 'Skills',
+				description: 'Tools and methods used during internships and academic work.'
+			},
+			{
+				href: '/contact',
+				title: 'Contact',
+				description: 'Discuss a final-year internship or a professional project.'
+			}
+		]
 	}
 };

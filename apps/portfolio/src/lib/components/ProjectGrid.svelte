@@ -4,10 +4,12 @@
 	import Reveal from './Reveal.svelte';
 	import ProjectCard from './ProjectCard.svelte';
 	import { Code } from '@lucide/svelte';
+
+	let { headingLevel = 2 }: { headingLevel?: 1 | 2 } = $props();
 </script>
 
 <section id="projects" class="py-20">
-	<SectionHeading title={t().projects.heading} path="projects">
+	<SectionHeading {headingLevel} title={t().projects.heading} path="projects">
 		<Code class="w-5 h-5" />
 	</SectionHeading>
 

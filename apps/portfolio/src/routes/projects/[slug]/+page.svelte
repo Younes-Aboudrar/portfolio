@@ -41,7 +41,7 @@
 		<main class="flex-grow w-full">
 			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
 				<a
-					href="/#projects"
+					href="/projects"
 					class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors mb-8"
 				>
 					<ArrowLeft class="w-4 h-4" />

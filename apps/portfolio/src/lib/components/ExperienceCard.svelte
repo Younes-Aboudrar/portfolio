@@ -3,10 +3,12 @@
 	import SectionHeading from './SectionHeading.svelte';
 	import Reveal from './Reveal.svelte';
 	import { Briefcase, Calendar } from '@lucide/svelte';
+
+	let { headingLevel = 2 }: { headingLevel?: 1 | 2 } = $props();
 </script>
 
 <section id="experience" class="py-20">
-	<SectionHeading title={t().experience.heading} path="experience">
+	<SectionHeading {headingLevel} title={t().experience.heading} path="experience">
 		<Briefcase class="w-5 h-5" />
 	</SectionHeading>
 
@@ -31,9 +33,9 @@
 						class="p-6 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm transition-all hover:shadow-md hover:border-emerald-200 dark:hover:border-emerald-900/50"
 					>
 						<div
-							class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2"
+							class="flex flex-col sm:flex-row flex-wrap sm:items-center sm:justify-between mb-4 gap-2"
 						>
-							<div>
+							<div class="min-w-0">
 								<h3 class="font-bold text-lg text-slate-900 dark:text-zinc-100">
 									{job.role}
 								</h3>
@@ -42,7 +44,7 @@
 								</p>
 							</div>
 							<span
-								class="text-xs font-mono px-3 py-1 bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 rounded-full shrink-0 border border-slate-200 dark:border-zinc-700"
+								class="max-w-full text-xs font-mono px-3 py-1 bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 rounded-full shrink-0 border border-slate-200 dark:border-zinc-700"
 							>
 								{job.date}
 							</span>

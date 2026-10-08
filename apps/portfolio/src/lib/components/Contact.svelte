@@ -4,10 +4,12 @@
 	import Reveal from './Reveal.svelte';
 	import ContactForm from './ContactForm.svelte';
 	import { Send } from '@lucide/svelte';
+
+	let { headingLevel = 2 }: { headingLevel?: 1 | 2 } = $props();
 </script>
 
 <section id="contact" class="py-20">
-	<SectionHeading title={t().contact.heading} path="contact">
+	<SectionHeading {headingLevel} title={t().contact.heading} path="contact">
 		<Send class="w-5 h-5" />
 	</SectionHeading>
 

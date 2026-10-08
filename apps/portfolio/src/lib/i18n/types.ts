@@ -20,6 +20,7 @@ export interface Dictionary {
 		description: string;
 	};
 	nav: {
+		home: string;
 		about: string;
 		experience: string;
 		projects: string;
@@ -31,6 +32,11 @@ export interface Dictionary {
 		wiki: string;
 		now: string;
 		cv: string;
+	};
+	home: {
+		heading: string;
+		intro: string;
+		pages: { href: string; title: string; description: string }[];
 	};
 	hero: {
 		badge: string;

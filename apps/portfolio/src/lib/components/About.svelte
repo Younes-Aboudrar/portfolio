@@ -1,25 +1,16 @@
 <script lang="ts">
 	import { t } from '$lib/i18n/i18n.svelte';
 	import Reveal from './Reveal.svelte';
+	import SectionHeading from './SectionHeading.svelte';
 	import { User, MapPin, Mail, CalendarCheck, Cpu } from '@lucide/svelte';
+
+	let { headingLevel = 2 }: { headingLevel?: 1 | 2 } = $props();
 </script>
 
 <section id="about" class="py-20">
-	<Reveal>
-		<div class="flex items-center gap-3 mb-12">
-			<span class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50">
-				<User class="w-5 h-5" />
-			</span>
-			<div>
-				<h2 class="text-3xl font-bold text-slate-900 dark:text-zinc-100">
-					{t().about.heading}
-				</h2>
-				<p class="text-sm font-mono text-slate-500 dark:text-zinc-500 mt-0.5">
-					~/about
-				</p>
-			</div>
-		</div>
-	</Reveal>
+	<SectionHeading title={t().about.heading} path="about" {headingLevel}>
+		<User class="w-5 h-5" />
+	</SectionHeading>
 
 	<div class="grid md:grid-cols-2 gap-10">
 		<Reveal delay={100}>

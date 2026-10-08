@@ -3,10 +3,12 @@
 	import SectionHeading from './SectionHeading.svelte';
 	import Reveal from './Reveal.svelte';
 	import { GraduationCap } from '@lucide/svelte';
+
+	let { headingLevel = 2 }: { headingLevel?: 1 | 2 } = $props();
 </script>
 
 <section id="education" class="py-20">
-	<SectionHeading title={t().education.heading} path="education">
+	<SectionHeading {headingLevel} title={t().education.heading} path="education">
 		<GraduationCap class="w-5 h-5" />
 	</SectionHeading>
 

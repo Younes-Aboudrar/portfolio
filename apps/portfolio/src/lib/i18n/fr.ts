@@ -16,7 +16,8 @@ export const fr: Dictionary = {
 		blog: 'Blog',
 		wiki: 'Wiki',
 		now: 'En ce moment',
-		cv: 'CV'
+		cv: 'CV',
+		home: 'Accueil'
 	},
 	hero: {
 		badge: 'PFE de 6 mois · Début mars 2027',
@@ -341,5 +342,41 @@ export const fr: Dictionary = {
 	misc: {
 		langName: 'EN',
 		notFound: 'Page introuvable'
+	},
+	home: {
+		heading: 'Découvrir mon parcours',
+		intro: 'Retrouvez mon profil, mes expériences et mes travaux dans les rubriques ci-dessous.',
+		pages: [
+			{
+				href: '/about',
+				title: 'À propos',
+				description: 'Mon profil, ma disponibilité et mes domaines d’intérêt.'
+			},
+			{
+				href: '/experience',
+				title: 'Expérience',
+				description: 'Mes stages et mes contributions en développement logiciel.'
+			},
+			{
+				href: '/projects',
+				title: 'Projets',
+				description: 'Une sélection de projets industriels et de travaux académiques.'
+			},
+			{
+				href: '/education',
+				title: 'Formation',
+				description: 'Mon cursus à Casablanca, mon échange à Nancy et les classes préparatoires.'
+			},
+			{
+				href: '/skills',
+				title: 'Compétences',
+				description: 'Les outils et méthodes pratiqués en stage et étudiés en formation.'
+			},
+			{
+				href: '/contact',
+				title: 'Contact',
+				description: 'Échanger sur un PFE ou un projet professionnel.'
+			}
+		]
 	}
 };

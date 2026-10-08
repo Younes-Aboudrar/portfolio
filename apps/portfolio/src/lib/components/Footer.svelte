@@ -23,9 +23,24 @@
 
 			<div>
 				<h3 class="text-sm font-semibold text-slate-900 dark:text-zinc-100 mb-4 uppercase tracking-wider">
-					Explore
+					{t().home.heading}
 				</h3>
 				<ul class="space-y-2.5">
+					<li>
+						<a href="/" class="text-sm text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+							{t().nav.home}
+						</a>
+					</li>
+					<li>
+						<a href="/projects" class="text-sm text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+							{t().nav.projects}
+						</a>
+					</li>
+					<li>
+						<a href="/contact" class="text-sm text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+							{t().nav.contact}
+						</a>
+					</li>
 					<li>
 						<a href="/now" class="text-sm text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
 							{t().nav.now}

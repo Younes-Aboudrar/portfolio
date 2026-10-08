@@ -4,10 +4,12 @@
 	let {
 		title,
 		path,
+		headingLevel = 2,
 		children
 	}: {
 		title: string;
 		path: string;
+		headingLevel?: 1 | 2;
 		children: import('svelte').Snippet;
 	} = $props();
 </script>
@@ -20,7 +22,7 @@
 			{@render children()}
 		</span>
 		<div>
-			<h2 class="text-3xl font-bold text-slate-900 dark:text-zinc-100">{title}</h2>
+			<svelte:element this={headingLevel === 1 ? 'h1' : 'h2'} class="text-3xl font-bold text-slate-900 dark:text-zinc-100">{title}</svelte:element>
 			<p class="text-sm font-mono text-slate-500 dark:text-zinc-500 mt-0.5">~/{path}</p>
 		</div>
 	</div>

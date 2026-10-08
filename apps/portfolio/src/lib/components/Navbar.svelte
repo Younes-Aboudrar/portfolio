@@ -8,20 +8,14 @@
 	import { Menu, X, BookOpen, FileText, ArrowUpRight, Mail } from '@lucide/svelte';
 
 	let isMenuOpen = $state(false);
-	let activeSection = $state('');
-
-	const root = $derived(page.url.pathname === '/' ? '' : '/');
 
 	const siteLinks = $derived([
-		{ label: t().nav.about, href: root + '#about' },
-		{ label: t().nav.experience, href: root + '#experience' },
-		{ label: t().nav.projects, href: root + '#projects' },
-		{ label: t().nav.education, href: root + '#education' },
-		{ label: t().nav.skills, href: root + '#skills' },
-		...(t().certifications.items.length
-			? [{ label: t().nav.certifications, href: root + '#certifications' }]
-			: []),
-		{ label: t().nav.contact, href: root + '#contact' }
+		{ label: t().nav.about, href: '/about' },
+		{ label: t().nav.experience, href: '/experience' },
+		{ label: t().nav.projects, href: '/projects' },
+		{ label: t().nav.education, href: '/education' },
+		{ label: t().nav.skills, href: '/skills' },
+		{ label: t().nav.contact, href: '/contact' }
 	]);
 
 	const externalLinks = $derived([
@@ -29,20 +23,9 @@
 		{ label: t().nav.blog, href: contact.blog, icon: 'blog' }
 	]);
 
-	$effect(() => {
-		const sections = document.querySelectorAll<HTMLElement>('section[id]');
-		if (!sections.length) return;
-		const observer = new IntersectionObserver(
-			(entries) => {
-				for (const entry of entries) {
-					if (entry.isIntersecting) activeSection = entry.target.id;
-				}
-			},
-			{ rootMargin: '-40% 0px -55% 0px' }
-		);
-		sections.forEach((section) => observer.observe(section));
-		return () => observer.disconnect();
-	});
+	function isActive(href: string) {
+		return page.url.pathname === href || page.url.pathname.startsWith(href + '/');
+	}
 
 	function closeMenu() {
 		isMenuOpen = false;
@@ -56,6 +39,9 @@
 		<div class="flex items-center justify-between h-16">
 			<a
 				href="/"
+				onclick={closeMenu}
+				aria-label={t().nav.home}
+				aria-current={page.url.pathname === '/' ? 'page' : undefined}
 				class="group flex items-center gap-2 font-bold text-xl tracking-tight shrink-0"
 			>
 				<span class="text-emerald-500 font-mono">&gt;_</span>
@@ -65,12 +51,13 @@
 				>
 			</a>
 
-			<div class="hidden lg:flex items-center gap-6">
+			<div class="hidden xl:flex items-center gap-4">
 				<div class="flex items-center gap-5">
 					{#each siteLinks as link}
 						<a
 							href={link.href}
-							class:active={activeSection === link.href.slice(1)}
+							class:active={isActive(link.href)}
+							aria-current={isActive(link.href) ? 'page' : undefined}
 							class="text-sm font-medium text-slate-600 hover:text-emerald-600 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors border-b-2 border-transparent py-1 [&.active]:text-emerald-600 [&.active]:border-emerald-500 [&.active]:dark:text-emerald-400"
 						>
 							{link.label}
@@ -102,13 +89,15 @@
 				</div>
 			</div>
 
-			<div class="lg:hidden flex items-center gap-2">
+			<div class="xl:hidden flex items-center gap-2">
 				<ThemeToggle />
 				<LangToggle />
 				<button
 					onclick={() => (isMenuOpen = !isMenuOpen)}
 					class="text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white pb-1 focus:outline-none"
 					aria-label="Menu"
+					aria-expanded={isMenuOpen}
+					aria-controls="mobile-navigation"
 				>
 					{#if isMenuOpen}
 						<X class="w-6 h-6" />
@@ -122,13 +111,16 @@
 
 	{#if isMenuOpen}
 		<div
-			class="lg:hidden border-t border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 pt-2 pb-4 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto"
+			id="mobile-navigation"
+			class="xl:hidden border-t border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 pt-2 pb-4 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto"
 		>
 			{#each siteLinks as link}
 				<a
 					href={link.href}
 					onclick={closeMenu}
-					class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-zinc-900 transition-colors"
+					aria-current={isActive(link.href) ? 'page' : undefined}
+					class:active={isActive(link.href)}
+					class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-zinc-900 transition-colors [&.active]:text-emerald-600 [&.active]:dark:text-emerald-400"
 				>
 					{link.label}
 				</a>

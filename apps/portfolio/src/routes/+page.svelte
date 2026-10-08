@@ -1,74 +1,39 @@
 <script lang="ts">
-	import Navbar from '$lib/components/Navbar.svelte';
+	import PageShell from '$lib/components/PageShell.svelte';
 	import Hero from '$lib/components/Hero.svelte';
-	import StatsBar from '$lib/components/StatsBar.svelte';
-	import About from '$lib/components/About.svelte';
-	import ExperienceCard from '$lib/components/ExperienceCard.svelte';
-	import EducationTimeline from '$lib/components/EducationTimeline.svelte';
-	import Certifications from '$lib/components/Certifications.svelte';
-	import ProjectGrid from '$lib/components/ProjectGrid.svelte';
-	import SkillsTerminal from '$lib/components/SkillsTerminal.svelte';
-	import Contact from '$lib/components/Contact.svelte';
-	import Footer from '$lib/components/Footer.svelte';
+	import Reveal from '$lib/components/Reveal.svelte';
 	import { t } from '$lib/i18n/i18n.svelte';
-	import { contact } from '$lib/contact';
+	import { ArrowUpRight } from '@lucide/svelte';
 </script>
 
-<svelte:head>
-	<title>{contact.name} | Portfolio</title>
-	<meta property="og:title" content="{contact.name} — Portfolio" />
-	<meta property="og:description" content={t().meta.description} />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://younes.aboudrar.dev/" />
-</svelte:head>
+<PageShell title={t().nav.home} description={t().meta.description} fullWidth>
+	<Hero />
 
-<div class="min-h-screen flex flex-col pt-16" id="top">
-	<Navbar />
+	<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16" aria-labelledby="explore-heading">
+		<h2 id="explore-heading" class="text-3xl font-bold text-slate-900 dark:text-zinc-100 mb-4">
+			{t().home.heading}
+		</h2>
+		<p class="text-lg text-slate-600 dark:text-zinc-400 max-w-3xl mb-10">
+			{t().home.intro}
+		</p>
 
-	<main class="flex-grow w-full">
-		<Hero />
-
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-20">
-			<StatsBar />
+		<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+			{#each t().home.pages as item, i}
+				<Reveal delay={(i % 3) * 80} className="h-full">
+					<a
+						href={item.href}
+						class="group flex flex-col h-full rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 transition-colors hover:border-emerald-400 dark:hover:border-emerald-700"
+					>
+						<div class="flex items-center justify-between gap-3 mb-3">
+							<h3 class="text-xl font-semibold text-slate-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400">
+								{item.title}
+							</h3>
+							<ArrowUpRight class="w-5 h-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
+						</div>
+						<p class="text-sm leading-relaxed text-slate-600 dark:text-zinc-400">{item.description}</p>
+					</a>
+				</Reveal>
+			{/each}
 		</div>
-
-		<div class="h-px bg-slate-200 dark:bg-zinc-800 w-full"></div>
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-			<About />
-		</div>
-
-		<div class="h-px bg-slate-200 dark:bg-zinc-800 w-full"></div>
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-			<ExperienceCard />
-		</div>
-
-		<div class="h-px bg-slate-200 dark:bg-zinc-800 w-full"></div>
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-			<EducationTimeline />
-		</div>
-
-		{#if t().certifications.items.length}
-			<div class="h-px bg-slate-200 dark:bg-zinc-800 w-full"></div>
-			<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-				<Certifications />
-			</div>
-		{/if}
-
-		<div class="h-px bg-slate-200 dark:bg-zinc-800 w-full"></div>
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-			<ProjectGrid />
-		</div>
-
-		<div class="h-px bg-slate-200 dark:bg-zinc-800 w-full"></div>
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-			<SkillsTerminal />
-		</div>
-
-		<div class="h-px bg-slate-200 dark:bg-zinc-800 w-full"></div>
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-			<Contact />
-		</div>
-	</main>
-
-	<Footer />
-</div>
+	</section>
+</PageShell>

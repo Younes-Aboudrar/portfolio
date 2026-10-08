@@ -9,7 +9,7 @@
 	const typeLines = $derived(t().hero.terminalLines);
 </script>
 
-<section id="about" class="min-h-screen flex flex-col justify-center relative pt-24 pb-10">
+<section id="intro" class="min-h-[calc(100svh-4rem)] flex flex-col justify-center relative pt-16 pb-24">
 	<div
 		class="absolute inset-0 z-0 pointer-events-none overflow-hidden"
 		aria-hidden="true"
@@ -84,14 +84,14 @@
 
 			<div class="flex flex-wrap items-center gap-4 mb-10">
 				<a
-					href="#experience"
+					href="/experience"
 					class="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 dark:bg-zinc-100 dark:hover:bg-white text-white dark:text-zinc-900 px-6 py-3 rounded-lg font-medium transition-colors shadow-lg shadow-slate-900/10 dark:shadow-black/30"
 				>
 					{t().hero.ctaExperience}
 					<ChevronRight class="w-4 h-4" />
 				</a>
 				<a
-					href="mailto:{contact.email}"
+					href="/contact"
 					class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-slate-900 dark:text-zinc-100 border border-slate-200 dark:border-zinc-800 px-6 py-3 rounded-lg font-medium transition-colors"
 				>
 					{t().hero.ctaContact}

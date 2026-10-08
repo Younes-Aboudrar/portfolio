@@ -3,10 +3,12 @@
 	import SectionHeading from './SectionHeading.svelte';
 	import Reveal from './Reveal.svelte';
 	import { SquareTerminal } from '@lucide/svelte';
+
+	let { headingLevel = 2 }: { headingLevel?: 1 | 2 } = $props();
 </script>
 
 <section id="skills" class="py-20">
-	<SectionHeading title={t().skills.heading} path="skills">
+	<SectionHeading {headingLevel} title={t().skills.heading} path="skills">
 		<SquareTerminal class="w-5 h-5" />
 	</SectionHeading>
 
