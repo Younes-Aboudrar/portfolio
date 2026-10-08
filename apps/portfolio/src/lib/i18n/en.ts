@@ -3,7 +3,7 @@ import type { Dictionary } from './types';
 export const en: Dictionary = {
 	meta: {
 		description:
-			"Portfolio of Younes ABOUDRAR, engineering student in industrial process digitalization and software developer."
+			'Younes ABOUDRAR, electrical engineering student studying digital systems. Backend development and industrial digitalization. Available for a six-month final-year internship from early March 2027.'
 	},
 	nav: {
 		about: 'About',
@@ -19,54 +19,90 @@ export const en: Dictionary = {
 		cv: 'CV'
 	},
 	hero: {
-		badge: 'System online. Ready for deployment.',
+		badge: '6-month final-year internship · Early March 2027',
 		name: 'Younes ABOUDRAR',
-		headline: 'Engineering Student in Industrial Process Digitalization',
+		headline: 'Electrical engineering & digital systems student',
 		mission:
-			'I combine a rational approach to electrical engineering with an advanced command of digital tools and artificial intelligence.',
+			'I develop software for industrial systems, with experience in backend development and maintenance management.',
 		objective:
-			'Focused on precision and optimization, I build reliable technical solutions for industry and am looking for a technical internship to put them into practice.',
+			'A third-year engineering student at ENSEM Casablanca, currently on exchange at ENSEM Nancy, I am seeking a six-month final-year internship from early March 2027.',
 		ctaExperience: 'View experience',
-		ctaContact: 'Contact me'
+		ctaContact: 'Contact me',
+		terminalLines: [
+			'Electrical engineering · GE-DPI',
+			'Digital systems · ISN',
+			'Backend · Python / FastAPI',
+			'Industrial maintenance · PostgreSQL'
+		],
+		terminalSummary: 'Engineering student · Backend development',
+		scrollLabel: 'Explore'
 	},
 	stats: [
-		{ label: 'Projects completed', value: 4 },
-		{ label: 'Technical skills', value: 21 },
-		{ label: 'Languages spoken', value: 3 },
-		{ label: 'Years of engineering', value: 4 }
+		{
+			label: 'Year of engineering studies',
+			value: 3,
+			suffix: 'rd'
+		},
+		{
+			label: 'Months sought for final-year internship',
+			value: 6
+		},
+		{
+			label: 'Months of internship at OCP',
+			value: 2
+		},
+		{
+			label: 'Business roles in the tested maintenance app',
+			value: 6
+		}
 	],
 	about: {
-		heading: 'About me',
-		body: "Second-year engineering student at ENSEM, specializing in industrial process digitalization: automation, embedded systems, energy efficiency and data analysis. Ranked 3rd in my class during my first year.",
-		body2: "Alongside my studies, I preside over the AeroENSEM Club, build software tools in Rust, Go, Python and TypeScript, and I'm constructing my full digital identity: a portfolio, a personal wiki to structure my knowledge, and a blog where I publicly document my path toward financial independence.",
+		heading: 'About',
+		body: 'I am a third-year engineering student at ENSEM Casablanca, working toward a State Engineering Degree in Electrical Engineering with a specialization in Industrial Process Digitalization (GE-DPI). I am currently on a semester exchange in Digital Systems Engineering (ISN) at ENSEM Nancy.',
+		body2:
+			'During my 2026 internship at OCP, I led a maintenance management application project and developed its entire FastAPI backend. This experience connects my industrial systems studies with software designed for maintenance needs and limited connectivity.',
 		facts: [
-			{ label: 'Location', value: 'Casablanca, Morocco' },
-			{ label: 'Email', value: 'younes@aboudrar.dev' },
-			{ label: 'Availability', value: 'Technical internship — 2026' },
-			{ label: 'Interests', value: 'Automation, AI, Linux, Dev' }
+			{
+				label: 'Location',
+				value: 'Nancy, France'
+			},
+			{
+				label: 'Email',
+				value: 'younes@aboudrar.dev'
+			},
+			{
+				label: 'Availability',
+				value: '6-month final-year internship — early March 2027'
+			},
+			{
+				label: 'Areas of interest',
+				value: 'Digital systems, AI, cloud'
+			}
 		]
 	},
 	experience: {
 		heading: 'Experience',
 		jobs: [
 			{
-				role: 'President',
-				company: 'AeroENSEM Club',
-				date: 'Sept. 2025 - Present',
-				tech: ['Leadership', 'Project management', 'Arduino'],
+				role: 'Intern — maintenance management application',
+				company: 'OCP S.A. · Jorf Lasfar',
+				date: '15 June – 15 August 2026',
+				tech: ['Python', 'FastAPI', 'PostgreSQL', 'Offline-First'],
 				tasks: [
-					'Led the board and organized the conference "Moroccan Aeronautics 2030".',
-					'Achieved 3rd place at the "Mouse Maze" (Arduino) competition.'
+					'Led the project and independently developed the entire FastAPI backend of an Android maintenance management app for preventive and corrective interventions, with six business roles in the tested version.',
+					'Guided the teammate responsible for the Android app on requirements and backend integration.',
+					'Designed an offline-first architecture with asynchronous synchronization for areas with limited connectivity.',
+					'Modeled equipment, interventions and maintenance histories in PostgreSQL. Deployed for trials during the internship; restoration of the service is in preparation.'
 				]
 			},
 			{
-				role: 'Intern (Initiation Internship)',
-				company: 'CodeAlpha (Remote)',
+				role: 'Remote internship — AI and web development',
+				company: 'CodeAlpha',
 				date: 'July 2025',
-				tech: ['Python', 'Flask', 'SpaCy', 'scikit-learn'],
+				tech: ['Python', 'Flask', 'spaCy', 'JavaScript', 'Azure Translator'],
 				tasks: [
-					'Designed a contextual chatbot in Python, Flask, SpaCy and scikit-learn for intent recognition.',
-					'Built a web interface integrating the Azure Translator API for real-time translation and speech synthesis.'
+					'FAQ chatbot prototype using Flask, spaCy language processing and text similarity search.',
+					'Separate translation interface project using the Azure Translator API, with browser-based speech synthesis.'
 				]
 			}
 		]
@@ -75,120 +111,124 @@ export const en: Dictionary = {
 		heading: 'Education',
 		items: [
 			{
-				degree:
-					'State Engineering Degree (in progress) — Industrial Process Digitalization',
-				institution: 'ENSEM, Casablanca',
-				date: 'Sept. 2024 - Present',
-				highlight:
-					'Ranked 3rd in my class (1st year). Key modules: Automation, Energy Efficiency, Embedded Systems, Operations Research.'
+				degree: 'International exchange — Digital Systems Engineering (ISN)',
+				institution: 'ENSEM Nancy, France',
+				date: '7 Sept. 2026 – 26 Feb. 2027',
+				highlight: 'Semester S9 exchange with ENSEM Casablanca.'
 			},
 			{
-				degree: 'CPGE Preparatory Classes, MPSI / MP track',
+				degree: 'State Engineering Degree in Electrical Engineering — in progress',
+				institution: 'ENSEM Casablanca, Morocco',
+				date: 'Sept. 2024 – Aug. 2027 (expected completion)',
+				highlight:
+					'Specialization in Industrial Process Digitalization (GE-DPI). Third year of the engineering cycle, 2026–2027.'
+			},
+			{
+				degree: 'CPGE preparatory classes, MPSI / MP',
 				institution: 'Lycée Reda Slaoui, Agadir',
-				date: 'Sept. 2022 - June 2024',
-				highlight: 'Intensive training in mathematics and physics.'
+				date: 'Sept. 2022 – June 2024',
+				highlight: 'Studies in mathematics, physics and engineering science.'
 			}
 		]
 	},
 	certifications: {
 		heading: 'Certifications & Awards',
-		items: [
-			{
-				title: '3rd place — "Mouse Maze" Competition (Arduino)',
-				issuer: 'AeroENSEM Club',
-				date: '2025'
-			},
-			{
-				title: 'Initiation internship — AI & Web Development',
-				issuer: 'CodeAlpha',
-				date: 'July 2025'
-			},
-			{
-				title: "3rd in class (1st year of the engineering cycle)",
-				issuer: 'ENSEM',
-				date: '2024 - 2025'
-			}
-		]
+		items: []
 	},
 	projects: {
 		heading: 'Technical projects',
 		subheading:
-			'Academic and personal projects that illustrate my approach to problem solving.',
+			'Selected backend development work and collaborative academic studies in industrial systems.',
 		items: [
 			{
-				slug: 'efficacite-energetique-climatisation',
-				title: 'Air Conditioning Energy Efficiency',
-				tagline: 'Variable speed drive analysis and energy consumption optimization.',
-				date: '2025',
-				image: 'images/projects/efficacite-energetique-climatisation.jpg',
-				status: 'Completed',
-				tech: ['Matlab/Simulink', 'Variable speed drive', 'Power quality'],
+				slug: 'maintenance-manager',
+				title: 'Maintenance Manager — CMMS',
+				tagline: 'FastAPI backend and offline-first synchronization for industrial maintenance.',
+				date: 'June – August 2026',
+				image: 'images/projects/maintenance-manager.jpg',
+				status: 'Tested during internship',
+				tech: ['Python', 'FastAPI', 'PostgreSQL', 'Offline-First'],
 				description:
-					"Two-person project studying the air conditioning of an industrial building. Consumption analysis using a variable speed drive and a power quality study.",
+					'Developed during my OCP internship for IMACID maintenance. I led the project and independently built the entire backend. My teammate developed the Android app, with my guidance on requirements and integration. The tested version supports six business roles and preventive and corrective interventions.',
 				challenges:
-					'Modeling real consumption on a system where several parameters (load, regime, grid quality) interact simultaneously.',
+					'Support equipment and intervention tracking in areas with limited connectivity.',
 				solutions:
-					'Matlab/Simulink modeling combined with a measurement campaign, resulting in a quantified energy optimization plan.',
+					'Offline-first architecture with asynchronous synchronization and a PostgreSQL database for equipment, interventions and histories. The backend was deployed for trials during the internship; restoration of the service is in preparation.',
 				lessons: [
-					'Mastery of variable speed drives and their impact on power quality.',
-					'The importance of methodological rigor in energy analysis.'
+					'Backend design based on industrial maintenance needs.',
+					'Coordination of requirements and integration between the API and mobile app.'
+				]
+			},
+			{
+				slug: 'efficacite-energetique-climatisation',
+				title: 'HVAC energy study',
+				tagline: 'Variable speed drives, harmonic analysis and a technical-economic assessment.',
+				date: 'Academic project',
+				image: 'images/projects/efficacite-energetique-climatisation.jpg',
+				status: 'Two-person study',
+				tech: ['Python', 'NumPy', 'Matplotlib', 'Variable speed drives'],
+				description:
+					'Collaborative study of a 45 kW HVAC installation covering partial-load profiles, affinity laws, harmonics and economic feasibility. Energy savings are theoretical projections under stated assumptions, rather than measured operational gains.',
+				challenges: 'Connect variable speed operation, power quality and economic assumptions.',
+				solutions:
+					'Affinity-law calculations, Python harmonic simulation and a technical-economic assessment under stated assumptions.',
+				lessons: [
+					'Distinguishing theoretical results from operational measurements.',
+					'Considering energy use and economics together.'
 				]
 			},
 			{
 				slug: 'performance-etudiante',
-				title: 'Student Performance — Data Science',
-				tagline: 'A guidance tool built on academic data analysis.',
-				date: '2025',
+				title: 'Student profile analysis',
+				tagline: 'Exploratory analysis, PCA and K-Means segmentation.',
+				date: 'Academic project',
 				image: 'images/projects/performance-etudiante.jpg',
-				status: 'Completed',
-				tech: ['Python', 'pandas', 'scikit-learn', 'Correlation'],
+				status: 'Team project',
+				tech: ['Data analysis', 'PCA', 'K-Means'],
 				description:
-					"Three-person project: a student guidance system based on data analysis with correlation algorithms between academic results and student profiles.",
-				challenges:
-					'Extracting meaningful correlations from a noisy and heterogeneous dataset.',
+					'Collaborative analysis of grades and behavioral factors. The presentation examines correlations between subjects and student profile segmentation, with possible guidance applications.',
+				challenges: 'Interpret academic profiles while distinguishing correlation from causation.',
 				solutions:
-					'Cleaning and normalization pipeline, then correlation analysis interpreted to power a guidance tool.',
+					'Exploratory analysis, PCA and K-Means on the first two components, presented as a team study.',
 				lessons: [
-					'Full data project lifecycle: collection, cleaning, analysis, reporting.',
-					'Teamwork and communicating results to a non-technical audience.'
+					'Interpreting correlations and profile clusters.',
+					'Communicating the context and limits of an analysis.'
 				]
 			},
 			{
 				slug: 'controle-vitesse-compresseur',
-				title: 'Compressor Speed Control',
-				tagline: 'Driving a SINAMICS G120 variable speed drive via TIA Portal.',
-				date: '2024',
+				title: 'Compressor control study',
+				tagline: 'Simulink modeling and PID control of a variable-speed compressor.',
+				date: 'Academic project',
 				image: 'images/projects/controle-vitesse-compresseur.jpg',
-				status: 'Completed',
-				tech: ['TIA Portal', 'SINAMICS G120', 'Siemens PLC'],
+				status: 'Study and simulation',
+				tech: ['MATLAB/Simulink', 'PID', 'SINAMICS G120', 'TIA Portal'],
 				description:
-					"Three-person industrial automation project: controlling a SINAMICS G120 variable speed drive for a compressor, programmed under TIA Portal.",
-				challenges:
-					'Correctly configuring the drive parameters and the communication with the PLC.',
+					'Collaborative study of a compressor driven by an induction motor. The work covers Simulink modeling, PID control and a configuration described in TIA Portal. Its scope is study and simulation, without claiming physical commissioning.',
+				challenges: 'Study pressure response and control-loop tuning.',
 				solutions:
-					'Complete regulation chain: PLC program, drive configuration and supervision.',
+					'Motor and pressure modeling, PID-loop simulation and analysis of the SINAMICS G120 drive.',
 				lessons: [
-					'Fundamentals of Siemens automation (TIA Portal).',
-					'Connecting a PLC and a drive in a real industrial environment.'
+					'Control-loop analysis in a simulated model.',
+					'Distinguishing simulation from validation on physical equipment.'
 				]
 			},
 			{
 				slug: 'algorithmes-metaheuristiques',
-				title: 'Algorithms & Meta-heuristics',
-				tagline: 'Implementing constructive algorithms for complex optimization.',
-				date: '2024',
+				title: 'Graph optimization',
+				tagline: 'Comparing exact methods, relaxations and heuristics in SageMath.',
+				date: 'Practical coursework',
 				image: 'images/projects/algorithmes-metaheuristiques.jpg',
-				status: 'Completed',
-				tech: ['Python', 'Optimization', 'Meta-heuristics'],
+				status: 'Academic work',
+				tech: ['SageMath', 'LP / ILP', 'Graphs', 'Heuristics'],
 				description:
-					"Three-person project: implementing constructive algorithms to solve complex combinatorial optimization problems, connected to operations research.",
-				challenges:
-					'Balancing solution quality and computation time on large instances.',
+					'Practical coursework on linear programming, flows, weighted vertex cover and the traveling salesman problem. The report and notebook compare approaches in an educational context.',
+				challenges: 'Compare solution costs and computation time as problem size changes.',
 				solutions:
-					'Design and comparison of several constructive heuristics with experimental performance analysis.',
+					'SageMath modeling and comparisons of exact methods, relaxations, greedy heuristics, local search and a genetic algorithm.',
 				lessons: [
-					'Design of optimization algorithms and complexity analysis.',
-					'Experimental validation and strategy comparison.'
+					'Accounting for constraints in mathematical models.',
+					'Experimental comparison of optimization strategies.'
 				]
 			}
 		],
@@ -199,23 +239,47 @@ export const en: Dictionary = {
 		techLabel: 'Technologies',
 		challengesLabel: 'Challenges',
 		solutionsLabel: 'Solutions',
-		lessonsLabel: 'What I learned',
+		lessonsLabel: 'Key takeaways',
 		relatedLabel: 'Related projects'
 	},
 	skills: {
-		heading: 'Technical arsenal',
-		terminalPrompt: 'younes@aboudrar: ~/arsenal',
+		heading: 'Skills & areas of study',
+		terminalPrompt: 'younes@aboudrar: ~/skills',
 		categories: [
-			{ category: 'Engineering', items: ['TIA Portal', 'Matlab/Simulink', 'PV-Sol', 'PVSys', 'Carrier HAP', 'Arduino', 'VHDL'] },
-			{ category: 'Dev & Scripting', items: ['Python', 'Rust', 'Go', 'C/C++', 'TypeScript', 'Assembly', 'Android Studio'] },
-			{ category: 'Tools & OS', items: ['Linux (Arch)', 'Docker', 'VS Code', 'Neovim', 'Git', 'LaTeX', 'MS Office'] },
-			{ category: 'Languages', items: ['French (Fluent)', 'English (Technical)', 'Arabic (Native)'] }
+			{
+				category: 'Backend development — OCP internship',
+				items: [
+					'Python',
+					'FastAPI',
+					'PostgreSQL',
+					'Offline-first architecture',
+					'Asynchronous synchronization'
+				]
+			},
+			{
+				category: 'Control and energy — studies and simulations',
+				items: ['MATLAB/Simulink', 'PID control', 'TIA Portal', 'Variable speed drives']
+			},
+			{
+				category: 'Data and optimization — academic work',
+				items: [
+					'Exploratory analysis',
+					'PCA / K-Means',
+					'SageMath',
+					'Linear programming',
+					'Graphs and heuristics'
+				]
+			},
+			{
+				category: 'Systems and networks — practical coursework',
+				items: ['Linux / Ubuntu', 'Apache', 'Packet Tracer', 'Wireshark']
+			}
 		]
 	},
 	contact: {
 		heading: 'Contact',
 		subheading:
-			'Got a project, an internship, or an opportunity? Write to me, I reply fast.',
+			'For a six-month final-year internship from early March 2027, or to discuss a project, contact me by email or using this form.',
 		form: {
 			name: 'Name',
 			email: 'Email',
@@ -228,33 +292,35 @@ export const en: Dictionary = {
 		socials: 'Find me on'
 	},
 	footer: {
-		tagline: 'Engineer in the making — Developer & builder.',
+		tagline: 'Engineering student · Digital systems and industrial digitalization.',
 		madeWith: 'Built with SvelteKit, Astro & Tailwind CSS.',
 		backToTop: 'Back to top'
 	},
 	now: {
 		heading: 'Now',
-		subheading: 'What I am currently working on — updated regularly.',
-		focusTitle: 'Focused on',
+		subheading: 'Professional priorities — October 2026.',
+		focusTitle: 'Current priorities',
 		focus: [
 			{
-				title: 'Presidency of the AeroENSEM Club',
-				detail: 'Organizing the "Moroccan Aeronautics 2030" conference and running the club.'
+				title: 'Exchange semester at ENSEM Nancy',
+				detail: 'Digital Systems Engineering (ISN), from 7 September 2026 to 26 February 2027.'
 			},
 			{
-				title: 'aboudrar.dev digital identity',
-				detail: 'This portfolio, my personal wiki (abwiki) and my blog: my online second brain.'
+				title: 'Final-year internship search',
+				detail:
+					'Seeking a six-month internship from early March 2027, with an interest in digital systems, AI and cloud.'
 			},
 			{
-				title: 'Automation & AI',
-				detail: 'Deepening TIA Portal, embedded systems and artificial intelligence.'
+				title: 'Maintenance Manager',
+				detail:
+					'Preparing redeployment and restoration of the maintenance application developed during my OCP internship.'
 			}
 		],
-		currentlyTitle: 'Currently',
+		currentlyTitle: 'At a glance',
 		currently: [
-			'Reading: Rust documentation & embedded systems',
-			'Project: full aboudrar.dev website (portfolio + wiki + blog)',
-			'Looking for: a technical internship for 2026'
+			'Studies: third year of the engineering cycle, 2026–2027',
+			'Location: Nancy, France',
+			'Availability: early March 2027, for six months'
 		]
 	},
 	cv: {

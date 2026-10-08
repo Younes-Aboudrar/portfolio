@@ -40,6 +40,9 @@ export interface Dictionary {
 		objective: string;
 		ctaExperience: string;
 		ctaContact: string;
+		terminalLines: string[];
+		terminalSummary: string;
+		scrollLabel: string;
 	};
 	stats: {
 		label: string;

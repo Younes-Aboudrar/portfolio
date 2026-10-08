@@ -66,6 +66,9 @@
 					<p class="text-slate-700 dark:text-zinc-300 leading-relaxed text-sm print:text-black">
 						{t().hero.mission}
 					</p>
+					<p class="text-slate-700 dark:text-zinc-300 leading-relaxed text-sm mt-2 print:text-black">
+						{t().hero.objective}
+					</p>
 				</section>
 
 				<section class="mb-8">
@@ -158,22 +161,24 @@
 					</div>
 				</section>
 
-				<section>
-					<h2 class="text-sm font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-4 print:text-emerald-700">
-						{t().cv.certificationsTitle}
-					</h2>
-					<ul class="space-y-2">
-						{#each t().certifications.items as cert}
-							<li class="flex items-start gap-2 text-sm text-slate-600 dark:text-zinc-400 print:text-black">
-								<span class="text-emerald-600 dark:text-emerald-400 mt-0.5">&gt;</span>
-								<span>
-									{cert.title}
-									<span class="text-slate-500 dark:text-zinc-500"> — {cert.issuer}, {cert.date}</span>
-								</span>
-							</li>
-						{/each}
-					</ul>
-				</section>
+				{#if t().certifications.items.length}
+					<section>
+						<h2 class="text-sm font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mb-4 print:text-emerald-700">
+							{t().cv.certificationsTitle}
+						</h2>
+						<ul class="space-y-2">
+							{#each t().certifications.items as cert}
+								<li class="flex items-start gap-2 text-sm text-slate-600 dark:text-zinc-400 print:text-black">
+									<span class="text-emerald-600 dark:text-emerald-400 mt-0.5">&gt;</span>
+									<span>
+										{cert.title}
+										<span class="text-slate-500 dark:text-zinc-500"> — {cert.issuer}, {cert.date}</span>
+									</span>
+								</li>
+							{/each}
+						</ul>
+					</section>
+				{/if}
 			</article>
 		</div>
 	</main>

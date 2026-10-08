@@ -47,10 +47,12 @@
 			<EducationTimeline />
 		</div>
 
-		<div class="h-px bg-slate-200 dark:bg-zinc-800 w-full"></div>
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-			<Certifications />
-		</div>
+		{#if t().certifications.items.length}
+			<div class="h-px bg-slate-200 dark:bg-zinc-800 w-full"></div>
+			<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+				<Certifications />
+			</div>
+		{/if}
 
 		<div class="h-px bg-slate-200 dark:bg-zinc-800 w-full"></div>
 		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">

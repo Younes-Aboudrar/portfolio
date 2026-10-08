@@ -6,12 +6,7 @@
 
 	let photoError = $state(false);
 
-	const typeLines = $derived([
-		'echo "Ingénieur"',
-		'echo "Développeur"',
-		'echo "Automatisation & IA"',
-		'echo "Rust · Go · Python · TS"'
-	]);
+	const typeLines = $derived(t().hero.terminalLines);
 </script>
 
 <section id="about" class="min-h-screen flex flex-col justify-center relative pt-24 pb-10">
@@ -155,7 +150,7 @@
 							<span class="text-slate-500 dark:text-zinc-500">whoami</span>
 						</div>
 						<div class="pl-5 text-slate-600 dark:text-zinc-400">
-							Étudiant ingénieur · Développeur · En quête de maîtrise
+							{t().hero.terminalSummary}
 						</div>
 					</div>
 				</div>
@@ -167,7 +162,7 @@
 		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-8">
 			<div class="flex items-center justify-center gap-3 text-slate-400 dark:text-zinc-600">
 				<span class="w-10 h-px bg-slate-300 dark:bg-zinc-700"></span>
-				<span class="text-xs font-mono uppercase tracking-widest">scroll</span>
+				<span class="text-xs font-mono uppercase tracking-widest">{t().hero.scrollLabel}</span>
 				<span class="w-10 h-px bg-slate-300 dark:bg-zinc-700"></span>
 			</div>
 		</div>

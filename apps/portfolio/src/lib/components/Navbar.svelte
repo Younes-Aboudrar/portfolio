@@ -18,7 +18,9 @@
 		{ label: t().nav.projects, href: root + '#projects' },
 		{ label: t().nav.education, href: root + '#education' },
 		{ label: t().nav.skills, href: root + '#skills' },
-		{ label: t().nav.certifications, href: root + '#certifications' },
+		...(t().certifications.items.length
+			? [{ label: t().nav.certifications, href: root + '#certifications' }]
+			: []),
 		{ label: t().nav.contact, href: root + '#contact' }
 	]);
 

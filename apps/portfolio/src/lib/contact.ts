@@ -1,10 +1,10 @@
 export const contact = {
 	name: 'Younes ABOUDRAR',
-	title: 'Étudiant Ingénieur en Digitalisation des Processus Industriels',
+	title: 'Élève ingénieur en génie électrique et systèmes numériques',
 	email: 'younes@aboudrar.dev',
 	linkedin: 'younes-aboudrar',
 	github: 'Younes-Aboudrar',
-	location: 'Casablanca, Maroc',
+	location: 'Nancy, France',
 	blog: 'https://blog.aboudrar.dev',
 	wiki: 'https://abwiki.aboudrar.dev'
 };

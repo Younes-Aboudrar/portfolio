@@ -3,7 +3,7 @@ import type { Dictionary } from './types';
 export const fr: Dictionary = {
 	meta: {
 		description:
-			"Portfolio de Younes ABOUDRAR, étudiant ingénieur en digitalisation des processus industriels et développeur logiciel."
+			'Younes ABOUDRAR, élève ingénieur en génie électrique et systèmes numériques. Développement backend et digitalisation industrielle. PFE de six mois dès début mars 2027.'
 	},
 	nav: {
 		about: 'À propos',
@@ -15,59 +15,94 @@ export const fr: Dictionary = {
 		contact: 'Contact',
 		blog: 'Blog',
 		wiki: 'Wiki',
-		now: 'Now',
+		now: 'En ce moment',
 		cv: 'CV'
 	},
 	hero: {
-		badge: 'Système en ligne. Prêt pour déploiement.',
+		badge: 'PFE de 6 mois · Début mars 2027',
 		name: 'Younes ABOUDRAR',
-		headline:
-			'Étudiant Ingénieur en Digitalisation des Processus Industriels',
+		headline: 'Élève ingénieur en génie électrique et systèmes numériques',
 		mission:
-			"Je combine une approche rationnelle de l'ingénierie électrique avec une maîtrise avancée des outils numériques et de l'intelligence artificielle.",
+			'Je développe des solutions logicielles pour les systèmes industriels, avec une expérience en développement backend et en gestion de la maintenance.',
 		objective:
-			"Axé sur la précision et l'optimisation, je conçois des solutions techniques fiables pour l'industrie et recherche un stage technique pour les mettre en pratique.",
+			'En troisième année à l’ENSEM Casablanca et en mobilité à l’ENSEM Nancy, je recherche un PFE de six mois à partir de début mars 2027.',
 		ctaExperience: 'Voir l’expérience',
-		ctaContact: 'Me contacter'
+		ctaContact: 'Me contacter',
+		terminalLines: [
+			'Génie électrique · GE-DPI',
+			'Systèmes numériques · ISN',
+			'Backend · Python / FastAPI',
+			'Maintenance industrielle · PostgreSQL'
+		],
+		terminalSummary: 'Élève ingénieur · Développement backend',
+		scrollLabel: 'Découvrir'
 	},
 	stats: [
-		{ label: 'Projets réalisés', value: 4 },
-		{ label: 'Compétences techniques', value: 21 },
-		{ label: 'Langues parlées', value: 3 },
-		{ label: "Années d'ingénierie", value: 4 }
+		{
+			label: 'Année du cycle ingénieur',
+			value: 3,
+			suffix: 'e'
+		},
+		{
+			label: 'Mois de PFE recherchés',
+			value: 6
+		},
+		{
+			label: 'Mois de stage chez OCP',
+			value: 2
+		},
+		{
+			label: 'Profils métiers de la GMAO testée',
+			value: 6
+		}
 	],
 	about: {
-		heading: 'À propos de moi',
-		body: "Étudiant en 2ème année d'ingénierie à l'ENSEM, je me spécialise dans la digitalisation des processus industriels : automatisation, systèmes embarqués, efficacité énergétique et analyse de données. Classé 3ème de ma promotion en 1ère année.",
-		body2: "En parallèle de mes études, je préside le Club AéroENSEM, je développe des outils logiciels en Rust, Go, Python et TypeScript, et je construis mon identité numérique complète : un portfolio, un wiki personnel pour structurer mes connaissances, et un blog où je documente publiquement mon chemin vers l'indépendance financière.",
+		heading: 'À propos',
+		body: 'Élève ingénieur en troisième année à l’ENSEM Casablanca, je prépare le diplôme d’ingénieur d’État en génie électrique, spécialisation Digitalisation des Processus Industriels (GE-DPI). Je poursuis actuellement un semestre d’échange en Ingénierie des Systèmes Numériques (ISN) à l’ENSEM Nancy.',
+		body2:
+			'Lors de mon stage chez OCP en 2026, j’ai piloté un projet de GMAO et développé l’intégralité de son backend FastAPI. Cette expérience relie mes études en systèmes industriels à la conception de logiciels adaptés aux besoins de maintenance et aux contraintes de connectivité.',
 		facts: [
-			{ label: 'Localisation', value: 'Casablanca, Maroc' },
-			{ label: 'Email', value: 'younes@aboudrar.dev' },
-			{ label: 'Disponibilité', value: 'Stage technique — 2026' },
-			{ label: 'Centres d’intérêt', value: 'Automatisation, IA, Linux, Dev' }
+			{
+				label: 'Localisation',
+				value: 'Nancy, France'
+			},
+			{
+				label: 'Email',
+				value: 'younes@aboudrar.dev'
+			},
+			{
+				label: 'Disponibilité',
+				value: 'PFE de 6 mois — début mars 2027'
+			},
+			{
+				label: 'Domaines d’intérêt',
+				value: 'Systèmes numériques, IA, cloud'
+			}
 		]
 	},
 	experience: {
 		heading: 'Expérience',
 		jobs: [
 			{
-				role: 'Président',
-				company: 'Club AéroENSEM',
-				date: 'Sept. 2025 - Présent',
-				tech: ['Leadership', 'Gestion de projet', 'Arduino'],
+				role: 'Stagiaire — projet de GMAO',
+				company: 'OCP S.A. · Jorf Lasfar',
+				date: '15 juin – 15 août 2026',
+				tech: ['Python', 'FastAPI', 'PostgreSQL', 'Offline-First'],
 				tasks: [
-					'Direction du bureau et organisation de la conférence "L\'Aéronautique Marocaine 2030".',
-					'Obtention de la 3ème place à la compétition "Mouse Maze" (Arduino).'
+					'Pilotage du projet et développement en autonomie de l’intégralité du backend FastAPI d’une GMAO Android pour les interventions préventives et correctives ; six profils métiers dans la version testée.',
+					'Accompagnement du binôme chargé de l’application Android sur les exigences et l’intégration avec le backend.',
+					'Conception d’une architecture Offline-First avec synchronisation asynchrone, adaptée à une connectivité limitée.',
+					'Modélisation PostgreSQL des équipements, interventions et historiques. Déploiement pour essais pendant le stage ; remise en service en préparation.'
 				]
 			},
 			{
-				role: 'Stagiaire (Stage d\'Initiation)',
-				company: 'CodeAlpha (Distanciel)',
+				role: 'Stage à distance — IA et développement web',
+				company: 'CodeAlpha',
 				date: 'Juillet 2025',
-				tech: ['Python', 'Flask', 'SpaCy', 'scikit-learn'],
+				tech: ['Python', 'Flask', 'spaCy', 'JavaScript', 'Azure Translator'],
 				tasks: [
-					"Conception d'un agent conversationnel contextuel en Python, Flask, SpaCy et scikit-learn pour la reconnaissance d'intention.",
-					"Développement d'une interface web intégrant l'API Azure Translator pour la traduction et synthèse vocale temps réel."
+					'Prototype de chatbot FAQ sous Flask, avec traitement linguistique spaCy et recherche de similarité textuelle.',
+					'Projet distinct d’interface de traduction utilisant l’API Azure Translator, avec lecture vocale côté navigateur.'
 				]
 			}
 		]
@@ -76,122 +111,127 @@ export const fr: Dictionary = {
 		heading: 'Formation',
 		items: [
 			{
-				degree:
-					"Diplôme d'Ingénieur d'État (en cours) — Digitalisation des Processus Industriels",
-				institution: 'ENSEM, Casablanca',
-				date: 'Sept. 2024 - Présent',
-				highlight:
-					'Classé 3ème de la promotion (1ère année). Modules clés : Automatisme, Efficacité Énergétique, Systèmes Embarqués, Recherche Opérationnelle.'
+				degree: 'Mobilité internationale — Ingénierie des Systèmes Numériques (ISN)',
+				institution: 'ENSEM Nancy, France',
+				date: '7 sept. 2026 – 26 fév. 2027',
+				highlight: 'Semestre d’études S9 dans le cadre d’un échange avec l’ENSEM Casablanca.'
 			},
 			{
-				degree: 'Classes Préparatoires aux Grandes Écoles (CPGE), Filière MPSI / MP',
+				degree: 'Diplôme d’ingénieur d’État en Génie Électrique — en préparation',
+				institution: 'ENSEM Casablanca, Maroc',
+				date: 'Sept. 2024 – août 2027 (fin prévue)',
+				highlight:
+					'Spécialisation : Génie électrique en Digitalisation des Processus Industriels (GE-DPI). Troisième année du cycle ingénieur, 2026–2027.'
+			},
+			{
+				degree: 'Classes préparatoires MPSI / MP',
 				institution: 'Lycée Reda Slaoui, Agadir',
-				date: 'Sept. 2022 - Juin 2024',
-				highlight: 'Formation intensive en mathématiques et physique.'
+				date: 'Sept. 2022 – juin 2024',
+				highlight: 'Formation en mathématiques, physique et sciences de l’ingénieur.'
 			}
 		]
 	},
 	certifications: {
 		heading: 'Certifications & Récompenses',
-		items: [
-			{
-				title: '3ème place — Compétition "Mouse Maze" (Arduino)',
-				issuer: 'Club AéroENSEM',
-				date: '2025'
-			},
-			{
-				title: 'Stage d\'initiation — Développement IA & Web',
-				issuer: 'CodeAlpha',
-				date: 'Juillet 2025'
-			},
-			{
-				title: '3ème de la promotion (1ère année du cycle d\'ingénieur)',
-				issuer: 'ENSEM',
-				date: '2024 - 2025'
-			}
-		]
+		items: []
 	},
 	projects: {
 		heading: 'Projets techniques',
 		subheading:
-			'Des projets académiques et personnels qui illustrent mon approche de résolution de problèmes.',
+			'Une sélection de réalisations en développement backend et de travaux académiques collectifs en systèmes industriels.',
 		items: [
 			{
-				slug: 'efficacite-energetique-climatisation',
-				title: 'Efficacité Énergétique Climatisation',
+				slug: 'maintenance-manager',
+				title: 'Maintenance Manager — GMAO',
 				tagline:
-					'Analyse par variateur de vitesse et optimisation de la consommation d\'énergie.',
-				date: '2025',
-				image: 'images/projects/efficacite-energetique-climatisation.jpg',
-				status: 'Terminé',
-				tech: ['Matlab/Simulink', 'Variateur de vitesse', 'Qualité d\'énergie'],
+					'Backend FastAPI et synchronisation Offline-First pour la maintenance industrielle.',
+				date: 'Juin – août 2026',
+				image: 'images/projects/maintenance-manager.jpg',
+				status: 'Testé en stage',
+				tech: ['Python', 'FastAPI', 'PostgreSQL', 'Offline-First'],
 				description:
-					"Projet de binôme portant sur l'étude de la climatisation d'un bâtiment industriel. Analyse de la consommation à l'aide d'un variateur de vitesse et étude de la qualité de l'énergie.",
+					'Projet réalisé pendant mon stage chez OCP pour la maintenance d’IMACID. J’ai assuré le pilotage et développé seul l’intégralité du backend. L’application Android a été réalisée par mon binôme, avec mon accompagnement pour les exigences et l’intégration. La version testée couvre six profils métiers et les interventions préventives et correctives.',
 				challenges:
-					'Modéliser la consommation réelle sur un système où plusieurs paramètres (charge, régime, qualité réseau) interagissent simultanément.',
+					'Permettre le suivi des équipements et des interventions dans des zones où la connexion est limitée.',
 				solutions:
-					'Réalisation d\'une modélisation sous Matlab/Simulink couplée à une campagne de mesures, aboutissant à un plan d\'optimisation énergétique chiffré.',
+					'Architecture Offline-First avec synchronisation asynchrone et base PostgreSQL pour les équipements, interventions et historiques. Le backend a été déployé pour essais pendant le stage ; sa remise en service est en préparation.',
 				lessons: [
-					'Maîtrise des variateurs de vitesse et de leur impact sur la qualité d\'énergie.',
-					'Importance de la rigueur méthodologique dans l\'analyse énergétique.'
+					'Conception backend à partir de besoins de maintenance industrielle.',
+					'Coordination des exigences et de l’intégration entre API et application mobile.'
+				]
+			},
+			{
+				slug: 'efficacite-energetique-climatisation',
+				title: 'Étude énergétique CVC',
+				tagline: 'Variation de vitesse, analyse harmonique et bilan technico-économique.',
+				date: 'Projet académique',
+				image: 'images/projects/efficacite-energetique-climatisation.jpg',
+				status: 'Étude en binôme',
+				tech: ['Python', 'NumPy', 'Matplotlib', 'Variation de vitesse'],
+				description:
+					'Étude collective d’une installation CVC de 45 kW : profils de charge partielle, lois d’affinité, harmoniques et rentabilité. Les économies étudiées sont des projections théoriques sous hypothèses, sans gain d’exploitation mesuré.',
+				challenges: 'Relier variation de vitesse, qualité de l’énergie et hypothèses économiques.',
+				solutions:
+					'Calculs fondés sur les lois d’affinité, simulation harmonique en Python et bilan technico-économique sous hypothèses.',
+				lessons: [
+					'Distinguer un résultat théorique d’une mesure en exploitation.',
+					'Analyser ensemble les dimensions énergétique et économique.'
 				]
 			},
 			{
 				slug: 'performance-etudiante',
-				title: 'Performance Étudiante — Data Science',
-				tagline:
-					"Système d'aide à l'orientation fondé sur l'analyse de données académiques.",
-				date: '2025',
+				title: 'Analyse de profils étudiants',
+				tagline: 'Analyse exploratoire, ACP et segmentation par K-Means.',
+				date: 'Projet académique',
 				image: 'images/projects/performance-etudiante.jpg',
-				status: 'Terminé',
-				tech: ['Python', 'pandas', 'scikit-learn', 'Corrélation'],
+				status: 'Travail collectif',
+				tech: ['Analyse de données', 'ACP', 'K-Means'],
 				description:
-					"Projet de trinôme : développement d'un système d'aide à l'orientation basé sur l'analyse de données avec des algorithmes de corrélation entre résultats académiques et profils étudiants.",
+					'Projet collectif d’analyse de notes et de facteurs comportementaux. La présentation étudie les corrélations entre matières et la segmentation des profils étudiants, avec des pistes d’orientation.',
 				challenges:
-					'Extraire des corrélations signifiantes d\'un jeu de données bruité et hétérogène.',
+					'Interpréter des profils à partir de données académiques sans confondre corrélation et causalité.',
 				solutions:
-					'Pipeline de nettoyage et normalisation, puis calcul de corrélations interprétées pour alimenter un outil d\'orientation.',
+					'Démarche d’analyse exploratoire, ACP et K-Means sur les deux premières composantes, présentée dans un travail collectif.',
 				lessons: [
-					'Cycle complet d\'un projet data : collecte, nettoyage, analyse, restitution.',
-					'Travail d\'équipe et communication des résultats à un public non technique.'
+					'Interprétation de corrélations et de groupes de profils.',
+					'Présentation des limites et du contexte d’une analyse.'
 				]
 			},
 			{
 				slug: 'controle-vitesse-compresseur',
-				title: 'Contrôle de Vitesse Compresseur',
-				tagline: 'Pilotage d\'un variateur SINAMICS G120 via TIA Portal.',
-				date: '2024',
+				title: 'Régulation d’un compresseur',
+				tagline: 'Modélisation Simulink et étude de commande PID à vitesse variable.',
+				date: 'Projet académique',
 				image: 'images/projects/controle-vitesse-compresseur.jpg',
-				status: 'Terminé',
-				tech: ['TIA Portal', 'SINAMICS G120', 'Automate Siemens'],
+				status: 'Étude et simulation',
+				tech: ['MATLAB/Simulink', 'PID', 'SINAMICS G120', 'TIA Portal'],
 				description:
-					"Projet de trinôme d'automatisation industrielle : pilotage d'un variateur de vitesse SINAMICS G120 pour un compresseur, programmé sous TIA Portal.",
-				challenges:
-					'Configurer correctement le paramétrage du variateur et la communication avec l\'automate.',
+					'Étude collective d’un compresseur entraîné par un moteur asynchrone. Le travail porte sur la modélisation Simulink, la régulation PID et une configuration décrite sous TIA Portal. Il s’agit d’une étude et d’une simulation, sans mise en service matérielle revendiquée.',
+				challenges: 'Étudier la réponse en pression et le réglage d’une boucle de régulation.',
 				solutions:
-					'Mise en œuvre d\'une chaîne de régulation complète : programme automate, paramétrage variateur et supervision.',
+					'Modélisation du moteur et de la pression, simulation de la boucle PID et étude du variateur SINAMICS G120.',
 				lessons: [
-					'Fondamentaux de l\'automatisation Siemens (TIA Portal).',
-					'Connexion entre automate et variateur dans un environnement industriel réel.'
+					'Analyse d’une boucle de régulation dans un modèle simulé.',
+					'Distinction entre simulation et validation sur équipement réel.'
 				]
 			},
 			{
 				slug: 'algorithmes-metaheuristiques',
-				title: 'Algorithmes & Méta-heuristiques',
-				tagline: 'Implémentation d\'algorithmes constructifs pour l\'optimisation complexe.',
-				date: '2024',
+				title: 'Optimisation sur graphes',
+				tagline: 'Comparaison de méthodes exactes, relaxations et heuristiques sous SageMath.',
+				date: 'Travaux pratiques',
 				image: 'images/projects/algorithmes-metaheuristiques.jpg',
-				status: 'Terminé',
-				tech: ['Python', 'Optimisation', 'Méta-heuristiques'],
+				status: 'Travail académique',
+				tech: ['SageMath', 'PL / PLNE', 'Graphes', 'Heuristiques'],
 				description:
-					"Projet de trinôme : implémentation d'algorithmes constructifs pour résoudre des problèmes d'optimisation combinatoire complexes, en lien avec la recherche opérationnelle.",
+					'Travaux pratiques sur la programmation linéaire, les flots, la couverture pondérée de sommets et le voyageur de commerce. Le compte rendu et le notebook comparent plusieurs méthodes dans un contexte pédagogique.',
 				challenges:
-					'Équilibre entre qualité de la solution et temps de calcul sur des instances de grande taille.',
+					'Comparer le coût des solutions et le temps de calcul selon la taille du problème.',
 				solutions:
-					'Conception et comparaison de plusieurs heuristiques constructives avec analyse expérimentale des performances.',
+					'Modélisation sous SageMath et comparaison de méthodes exactes, relaxations, heuristique gloutonne, recherche locale et algorithme génétique.',
 				lessons: [
-					'Conception d\'algorithmes d\'optimisation et analyse de complexité.',
-					'Validation expérimentale et comparaison de stratégies.'
+					'Prise en compte des contraintes lors de la modélisation.',
+					'Comparaison expérimentale de stratégies d’optimisation.'
 				]
 			}
 		],
@@ -202,23 +242,47 @@ export const fr: Dictionary = {
 		techLabel: 'Technologies',
 		challengesLabel: 'Défis',
 		solutionsLabel: 'Solutions',
-		lessonsLabel: 'Ce que j\'ai appris',
+		lessonsLabel: 'Points clés',
 		relatedLabel: 'Projets similaires'
 	},
 	skills: {
-		heading: 'Arsenal technique',
-		terminalPrompt: 'younes@aboudrar: ~/arsenal',
+		heading: 'Compétences et domaines étudiés',
+		terminalPrompt: 'younes@aboudrar: ~/competences',
 		categories: [
-			{ category: 'Ingénierie', items: ['TIA Portal', 'Matlab/Simulink', 'PV-Sol', 'PVSys', 'Carrier HAP', 'Arduino', 'VHDL'] },
-			{ category: 'Dev & Scripting', items: ['Python', 'Rust', 'Go', 'C/C++', 'TypeScript', 'Assembly', 'Android Studio'] },
-			{ category: 'Outils & OS', items: ['Linux (Arch)', 'Docker', 'VS Code', 'Neovim', 'Git', 'LaTeX', 'MS Office'] },
-			{ category: 'Langues', items: ['Français (Courant)', 'Anglais (Technique)', 'Arabe (Natif)'] }
+			{
+				category: 'Développement backend — stage OCP',
+				items: [
+					'Python',
+					'FastAPI',
+					'PostgreSQL',
+					'Architecture Offline-First',
+					'Synchronisation asynchrone'
+				]
+			},
+			{
+				category: 'Automatique et énergie — études et simulations',
+				items: ['MATLAB/Simulink', 'Régulation PID', 'TIA Portal', 'Variation de vitesse']
+			},
+			{
+				category: 'Données et optimisation — travaux académiques',
+				items: [
+					'Analyse exploratoire',
+					'ACP / K-Means',
+					'SageMath',
+					'Programmation linéaire',
+					'Graphes et heuristiques'
+				]
+			},
+			{
+				category: 'Systèmes et réseaux — travaux pratiques',
+				items: ['Linux / Ubuntu', 'Apache', 'Packet Tracer', 'Wireshark']
+			}
 		]
 	},
 	contact: {
 		heading: 'Contact',
 		subheading:
-			'Vous avez un projet, un stage, ou une opportunité ? Écrivez-moi, je réponds rapidement.',
+			'Pour un PFE de six mois à partir de début mars 2027, ou pour échanger sur un projet, contactez-moi par email ou via ce formulaire.',
 		form: {
 			name: 'Nom',
 			email: 'Email',
@@ -231,33 +295,36 @@ export const fr: Dictionary = {
 		socials: 'Retrouvez-moi'
 	},
 	footer: {
-		tagline: 'Ingénieur en devenir — Développeur & bâtisseur.',
+		tagline: 'Élève ingénieur · Systèmes numériques et digitalisation industrielle.',
 		madeWith: 'Construit avec SvelteKit, Astro & Tailwind CSS.',
 		backToTop: 'Haut de page'
 	},
 	now: {
-		heading: 'Now',
-		subheading: 'Ce sur quoi je travaille actuellement — mis à jour régulièrement.',
-		focusTitle: 'Focalisé sur',
+		heading: 'En ce moment',
+		subheading: 'Priorités professionnelles — octobre 2026.',
+		focusTitle: 'Mes priorités',
 		focus: [
 			{
-				title: 'Présidence du Club AéroENSEM',
-				detail: 'Organisation de la conférence "L\'Aéronautique Marocaine 2030" et animation du club.'
+				title: 'Semestre d’échange à l’ENSEM Nancy',
+				detail:
+					'Parcours Ingénierie des Systèmes Numériques (ISN), du 7 septembre 2026 au 26 février 2027.'
 			},
 			{
-				title: 'Identité numérique aboudrar.dev',
-				detail: 'Ce portfolio, mon wiki personnel (abwiki) et mon blog (blog) : mon second cerveau en ligne.'
+				title: 'Recherche de PFE',
+				detail:
+					'Stage de fin d’études de six mois, à partir de début mars 2027. Intérêt pour les systèmes numériques, l’IA et le cloud.'
 			},
 			{
-				title: 'Automatisation & IA',
-				detail: 'Approfondissement de TIA Portal, des systèmes embarqués et de l\'intelligence artificielle.'
+				title: 'Maintenance Manager',
+				detail:
+					'Préparation du redéploiement et de la remise en service de la GMAO développée pendant le stage OCP.'
 			}
 		],
-		currentlyTitle: 'Actuellement',
+		currentlyTitle: 'En bref',
 		currently: [
-			'Lecture : documentation Rust & systèmes embarqués',
-			'Projet : site complet aboudrar.dev (portfolio + wiki + blog)',
-			'Recherche : stage technique pour 2026'
+			'Formation : troisième année du cycle ingénieur, 2026–2027',
+			'Localisation : Nancy, France',
+			'Disponibilité : début mars 2027, pour six mois'
 		]
 	},
 	cv: {
