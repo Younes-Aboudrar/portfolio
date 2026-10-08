@@ -97,6 +97,16 @@ export const en: Dictionary = {
 				]
 			},
 			{
+				role: 'President',
+				company: 'AeroENSEM Club',
+				date: 'Sept. 2025 – March 2026',
+				tech: ['Leadership', 'Club coordination', 'Technical communication'],
+				tasks: [
+					'Led the club and coordinated its activities.',
+					'Prepared communications and a speech for the conference on Moroccan aeronautics toward 2030.'
+				]
+			},
+			{
 				role: 'Remote internship — AI and web development',
 				company: 'CodeAlpha',
 				date: 'July 2025',

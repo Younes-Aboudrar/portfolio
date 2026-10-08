@@ -97,6 +97,16 @@ export const fr: Dictionary = {
 				]
 			},
 			{
+				role: 'Président',
+				company: 'Club AéroENSEM',
+				date: 'Sept. 2025 – mars 2026',
+				tech: ['Leadership', 'Coordination associative', 'Communication technique'],
+				tasks: [
+					'Présidence du club et coordination de ses activités associatives.',
+					'Préparation de la communication et d’une prise de parole pour la conférence « Les enjeux de l’aéronautique marocaine à l’horizon 2030 ».'
+				]
+			},
+			{
 				role: 'Stage à distance — IA et développement web',
 				company: 'CodeAlpha',
 				date: 'Juillet 2025',
