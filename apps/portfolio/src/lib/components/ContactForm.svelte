@@ -46,7 +46,7 @@
 					type="text"
 					bind:value={name}
 					required
-					class="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 text-slate-900 dark:text-zinc-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-colors"
+					class="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 text-slate-900 dark:text-zinc-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-colors"
 				/>
 			</div>
 			<div>
@@ -59,7 +59,7 @@
 					type="email"
 					bind:value={email}
 					required
-					class="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 text-slate-900 dark:text-zinc-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-colors"
+					class="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 text-slate-900 dark:text-zinc-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-colors"
 				/>
 			</div>
 		</div>
@@ -74,7 +74,7 @@
 				bind:value={message}
 				required
 				rows="5"
-				class="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 text-slate-900 dark:text-zinc-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-colors resize-none"
+				class="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 text-slate-900 dark:text-zinc-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-colors resize-none"
 			></textarea>
 		</div>
 
@@ -82,11 +82,11 @@
 			<label>Website <input type="text" bind:value={website} tabindex="-1" autocomplete="off" /></label>
 		</div>
 
-		<div class="flex items-center gap-4" aria-live="polite" aria-atomic="true">
+		<div class="flex flex-wrap items-center gap-4" aria-live="polite" aria-atomic="true">
 			<button
 				type="submit"
 				disabled={status === 'sending'}
-				class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-lg font-medium transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+				class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-300 dark:hover:bg-blue-200 dark:text-zinc-950 px-6 py-3 rounded-lg font-medium transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
 			>
 				{#if status === 'sending'}
 					<LoaderCircle class="w-4 h-4 animate-spin" />
@@ -98,7 +98,7 @@
 			</button>
 
 			{#if status === 'success'}
-				<p class="text-sm text-emerald-600 dark:text-emerald-400 flex items-center gap-2">
+				<p class="text-sm text-blue-600 dark:text-blue-400 flex items-center gap-2">
 					<CheckCircle2 class="w-4 h-4" />
 					{formLabels.success}
 				</p>

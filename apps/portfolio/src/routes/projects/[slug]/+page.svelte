@@ -28,14 +28,14 @@
 	{@const links = project.links ?? {}}
 	{@const hasLinks = Boolean(links.github || links.demo)}
 
-	<div class="min-h-screen flex flex-col pt-16" id="top">
+	<div class="min-h-screen flex flex-col pt-20" id="top">
 		<Navbar />
 
 		<main class="flex-grow w-full">
 			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
 				<a
 					href={'/projects/' + project.category}
-					class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors mb-8"
+					class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mb-8"
 				>
 					<ArrowLeft class="w-4 h-4" />
 					{t().projects.backToProjects}
@@ -43,11 +43,11 @@
 
 				<header class="mb-10">
 					<div class="flex flex-wrap items-center gap-3 mb-4">
-						<a href={'/projects/' + project.category} class="text-sm font-medium text-emerald-600 dark:text-emerald-400 hover:underline">
+						<a href={'/projects/' + project.category} class="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">
 							{category?.title}
 						</a>
 						<span
-							class="text-xs font-mono px-3 py-1 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 rounded-full border border-emerald-100 dark:border-emerald-800/50"
+							class="text-xs font-mono px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-full border border-blue-100 dark:border-blue-800/50"
 						>
 							{project.status}
 						</span>
@@ -62,7 +62,7 @@
 					<h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-zinc-100 mb-4">
 						{project.title}
 					</h1>
-					<p class="text-sm font-medium text-emerald-600 dark:text-emerald-400 mb-3">{project.context}</p>
+					<p class="text-sm font-medium text-blue-600 dark:text-blue-400 mb-3">{project.context}</p>
 					<p class="text-xl text-slate-600 dark:text-zinc-400 leading-relaxed">
 						{project.tagline}
 					</p>
@@ -95,28 +95,11 @@
 					{/if}
 				</header>
 
-				<Reveal>
-					<div
-						class="aspect-[16/9] rounded-2xl overflow-hidden border border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-800 mb-10"
-					>
-						{#if project.image && hasImage(project.image) && !photoError}
-							<img
-								src="/{project.image}"
-								alt={project.title}
-								onerror={() => (photoError = true)}
-								class="w-full h-full object-cover"
-							/>
-						{:else}
-							<div
-								class="w-full h-full flex items-center justify-center bg-gradient-to-br from-emerald-100 via-emerald-50 to-sky-100 dark:from-emerald-900/30 dark:via-zinc-900 dark:to-zinc-900"
-							>
-								<span class="min-w-0 max-w-full font-mono text-4xl font-bold text-emerald-600 dark:text-emerald-400 px-6 text-center break-words">
-									{project.tech[0]}
-								</span>
-							</div>
-						{/if}
-					</div>
-				</Reveal>
+				{#if project.image && hasImage(project.image) && !photoError}
+                    <img src="/{project.image}" alt={project.title} onerror={() => (photoError = true)} class="w-full rounded-lg mb-10" />
+                {:else}
+                    <hr class="border-slate-200 dark:border-zinc-800 mb-10" />
+                {/if}
 
 				<div class="max-w-none mb-12">
 					<p class="text-lg text-slate-700 dark:text-zinc-300 leading-relaxed">
@@ -128,7 +111,7 @@
 					<Reveal>
 						<div class="p-6 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 h-full">
 							<div class="flex items-center gap-3 mb-4">
-								<span class="flex h-9 w-9 items-center justify-center rounded-lg bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400">
+								<span class="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
 									<Target class="w-4 h-4" />
 								</span>
 								<h2 class="font-bold text-slate-900 dark:text-zinc-100">
@@ -144,7 +127,7 @@
 					<Reveal delay={100}>
 						<div class="p-6 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 h-full">
 							<div class="flex items-center gap-3 mb-4">
-								<span class="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400">
+								<span class="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
 									<Wrench class="w-4 h-4" />
 								</span>
 								<h2 class="font-bold text-slate-900 dark:text-zinc-100">
@@ -176,9 +159,9 @@
 				</Reveal>
 
 				<Reveal>
-					<div class="p-6 rounded-xl border border-emerald-200 dark:border-emerald-900/50 bg-emerald-50 dark:bg-emerald-900/10 mb-12">
+					<div class="p-6 rounded-xl border border-blue-200 dark:border-blue-900/50 bg-blue-50 dark:bg-blue-900/10 mb-12">
 						<div class="flex items-center gap-3 mb-4">
-							<span class="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400">
+							<span class="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
 								<Lightbulb class="w-4 h-4" />
 							</span>
 							<h2 class="font-bold text-slate-900 dark:text-zinc-100">
@@ -188,7 +171,7 @@
 						<ul class="space-y-2.5">
 							{#each project.lessons as lesson}
 								<li class="flex items-start gap-2 text-sm text-slate-700 dark:text-zinc-300">
-									<span class="text-emerald-600 dark:text-emerald-400 font-mono mt-0.5">&gt;&nbsp;</span>
+									<span class="text-blue-600 dark:text-blue-400 font-mono mt-0.5">&gt;&nbsp;</span>
 									{lesson}
 								</li>
 							{/each}
@@ -201,7 +184,7 @@
 						<h2 class="font-bold text-xl text-slate-900 dark:text-zinc-100 mb-6">
 							{t().projects.relatedLabel}
 						</h2>
-						<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+						<div class="grid grid-cols-1 gap-4">
 							{#each related as relatedProject}
 								<ProjectCard project={relatedProject} />
 							{/each}
@@ -217,7 +200,7 @@
 	<div class="min-h-screen flex items-center justify-center pt-16">
 		<div class="text-center">
 			<h1 class="text-2xl font-bold text-slate-900 dark:text-zinc-100 mb-4">404</h1>
-			<a href="/" class="text-emerald-600 dark:text-emerald-400 font-medium">
+			<a href="/" class="text-blue-600 dark:text-blue-400 font-medium">
 				{t().misc.notFound}
 			</a>
 		</div>

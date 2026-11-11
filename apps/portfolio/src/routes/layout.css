@@ -1,3 +1,83 @@
+@import '@fontsource/ibm-plex-mono/latin-400.css';
+@import '@fontsource/ibm-plex-mono/latin-500.css';
 @import 'tailwindcss';
 @import '@aboudrar/shared/tokens.css';
 @import '@aboudrar/shared/base.css';
+
+@font-face {
+  font-family: 'Manrope Variable';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2') format('woff2');
+}
+
+/* Precision Blueprint — scoped to the portfolio application. */
+@theme {
+  --font-sans: 'Manrope Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --color-slate-50: #fbfcff;
+  --color-slate-100: #f0f4fb;
+  --color-slate-200: #dce3ef;
+  --color-slate-300: #bdc9dc;
+  --color-slate-400: #7b8ba5;
+  --color-slate-500: #5d6d86;
+  --color-slate-600: #4c5d78;
+  --color-slate-700: #344762;
+  --color-slate-800: #203350;
+  --color-slate-900: #101d3e;
+  --color-zinc-50: #f7faff;
+  --color-zinc-100: #edf3ff;
+  --color-zinc-200: #d8e4f5;
+  --color-zinc-300: #bdcee4;
+  --color-zinc-400: #a1b4ce;
+  --color-zinc-500: #8b9fbb;
+  --color-zinc-600: #6a80a0;
+  --color-zinc-700: #354c6d;
+  --color-zinc-800: #23364f;
+  --color-zinc-900: #101e34;
+  --color-zinc-950: #091325;
+  --color-blue-50: #eef3ff;
+  --color-blue-100: #dfe9ff;
+  --color-blue-200: #c4d7ff;
+  --color-blue-300: #b1cdff;
+  --color-blue-400: #8ab4ff;
+  --color-blue-500: #467cf5;
+  --color-blue-600: #2455d6;
+  --color-blue-700: #1943b2;
+  --color-blue-800: #193b83;
+  --color-blue-900: #192f60;
+  --color-blue-950: #10203e;
+  --color-accent: var(--color-blue-500);
+  --color-accent-hover: var(--color-blue-400);
+  --color-accent-strong: var(--color-blue-600);
+  --color-accent-soft: var(--color-blue-50);
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
+  --radius-2xl: 8px;
+}
+
+@layer base {
+  html { color-scheme: light; scroll-padding-top: 6rem; }
+  html.dark { color-scheme: dark; }
+  body { line-height: 1.65; }
+  h1, h2, h3 { text-wrap: balance; letter-spacing: -.035em; line-height: 1.2; }
+  ::selection { background: #2455d62b; color: #101d3e; }
+  .dark ::selection { background: #8ab4ff40; color: #edf3ff; }
+  :focus-visible { outline: 2px solid var(--color-blue-600); outline-offset: 4px; }
+  .dark :focus-visible { outline-color: var(--color-blue-400); }
+}
+
+.blueprint-sheet {
+  background-color: #f0f5ff;
+  background-image: linear-gradient(#2455d60a 1px, transparent 1px), linear-gradient(90deg, #2455d60a 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.dark .blueprint-sheet {
+  background-color: #101e34;
+  background-image: linear-gradient(#8ab4ff0d 1px, transparent 1px), linear-gradient(90deg, #8ab4ff0d 1px, transparent 1px);
+}
+.dark .blueprint-drawing { filter: brightness(0) invert(1); opacity: .75; }
+.blueprint-kicker { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }

@@ -39,12 +39,12 @@
 			<label for="skill-search" class="block text-sm font-medium text-slate-700 dark:text-zinc-300 mb-2">{t().skills.search}</label>
 			<div class="relative">
 				<Search class="absolute left-3 top-3 w-5 h-5 text-slate-400" />
-				<input id="skill-search" type="search" bind:value={query} placeholder={t().skills.searchPlaceholder} class="w-full rounded-lg border border-slate-300 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-950 pl-10 pr-3 py-2.5 text-slate-900 dark:text-zinc-100 focus-visible:outline-2 focus-visible:outline-emerald-500" />
+				<input id="skill-search" type="search" bind:value={query} placeholder={t().skills.searchPlaceholder} class="w-full rounded-lg border border-slate-300 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-950 pl-10 pr-3 py-2.5 text-slate-900 dark:text-zinc-100 focus-visible:outline-2 focus-visible:outline-blue-500" />
 			</div>
 		</div>
 		<div class="min-w-0">
 			<label for="skill-domain" class="block text-sm font-medium text-slate-700 dark:text-zinc-300 mb-2">{t().skills.domain}</label>
-			<select id="skill-domain" bind:value={domain} class="w-full sm:max-w-80 rounded-lg border border-slate-300 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-950 px-3 py-2.5 text-slate-900 dark:text-zinc-100 focus-visible:outline-2 focus-visible:outline-emerald-500">
+			<select id="skill-domain" bind:value={domain} class="w-full sm:max-w-80 rounded-lg border border-slate-300 dark:border-zinc-700 bg-slate-50 dark:bg-zinc-950 px-3 py-2.5 text-slate-900 dark:text-zinc-100 focus-visible:outline-2 focus-visible:outline-blue-500">
 				<option value="all">{t().skills.allDomains}</option>
 				{#each categories as category}<option value={category.id}>{category.category}</option>{/each}
 			</select>
@@ -53,7 +53,7 @@
 	<div class="flex flex-wrap items-center justify-between gap-3 my-5 text-sm">
 		<p role="status" aria-live="polite" aria-atomic="true" class="text-slate-500 dark:text-zinc-400">{count} {t().skills.results}</p>
 		{#if query || domain !== 'all'}
-			<button type="button" onclick={() => { query = ''; domain = 'all'; }} class="text-emerald-700 dark:text-emerald-400 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-500">{t().skills.clear}</button>
+			<button type="button" onclick={() => { query = ''; domain = 'all'; }} class="text-blue-700 dark:text-blue-400 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500">{t().skills.clear}</button>
 		{/if}
 	</div>
 
@@ -64,18 +64,18 @@
 				<p class="mt-2 text-sm leading-relaxed text-slate-500 dark:text-zinc-400">{category.context}</p>
 				<ul class="mt-5 flex flex-wrap gap-2">
 					{#each category.items as item}
-						<li class="max-w-full rounded-md border border-emerald-100 dark:border-emerald-900/50 bg-emerald-50 dark:bg-emerald-950/40 px-2.5 py-1.5 text-sm text-emerald-800 dark:text-emerald-200">{item}</li>
+						<li class="max-w-full rounded-md border border-blue-100 dark:border-blue-900/50 bg-blue-50 dark:bg-blue-950/40 px-2.5 py-1.5 text-sm text-blue-800 dark:text-blue-200">{item}</li>
 					{/each}
 				</ul>
 				{#if category.projectSlugs.length || category.journeyIds?.length}
 					<details class="mt-5 border-t border-slate-200 dark:border-zinc-800 pt-4 text-sm">
-						<summary class="cursor-pointer font-medium text-slate-700 dark:text-zinc-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-500">{t().skills.examples}</summary>
+						<summary class="cursor-pointer font-medium text-slate-700 dark:text-zinc-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500">{t().skills.examples}</summary>
 						<ul class="mt-3 space-y-2">
 							{#each t().projects.items.filter((project) => category.projectSlugs.includes(project.slug)) as project}
-								<li><a href={`/projects/${project.slug}`} class="inline-flex items-start gap-1.5 text-emerald-700 dark:text-emerald-400 hover:underline">{project.title}<ArrowUpRight class="w-4 h-4 mt-0.5 shrink-0" /></a></li>
+								<li><a href={`/projects/${project.slug}`} class="inline-flex items-start gap-1.5 text-blue-700 dark:text-blue-400 hover:underline">{project.title}<ArrowUpRight class="w-4 h-4 mt-0.5 shrink-0" /></a></li>
 							{/each}
 							{#each journey.filter((entry) => category.journeyIds?.includes(entry.id)) as entry}
-								<li><a href={entry.href} class="inline-flex items-start gap-1.5 text-emerald-700 dark:text-emerald-400 hover:underline">{entry.label}<ArrowUpRight class="w-4 h-4 mt-0.5 shrink-0" /></a></li>
+								<li><a href={entry.href} class="inline-flex items-start gap-1.5 text-blue-700 dark:text-blue-400 hover:underline">{entry.label}<ArrowUpRight class="w-4 h-4 mt-0.5 shrink-0" /></a></li>
 							{/each}
 						</ul>
 					</details>

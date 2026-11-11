@@ -3,6 +3,7 @@ import type { Dictionary } from './types';
 import { projectsEn } from '../projects/en';
 
 export const en: Dictionary = {
+	blueprint: {"headline": ["Engineering", "for industry."], "selectedWork": "Selected projects", "allProjects": "Explore projects", "figureCaption": "Industrial systems · Concept illustration"},
 	meta: {
 		description:
 			'Younes ABOUDRAR, electrical engineering student studying digital systems. Backend development and industrial digitalization. Available for a six-month final-year internship from early March 2027.'

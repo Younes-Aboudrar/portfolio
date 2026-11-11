@@ -39,6 +39,7 @@ export interface Project {
 }
 
 export interface Dictionary {
+	blueprint: { headline: string[]; selectedWork: string; allProjects: string; figureCaption: string };
 	meta: {
 		description: string;
 	};

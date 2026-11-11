@@ -28,17 +28,17 @@
 					>
 					<span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300">
 							{#if i === 0}
-								<MapPin class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+								<MapPin class="w-4 h-4 text-blue-600 dark:text-blue-400" />
 							{:else if i === 1}
-								<Mail class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+								<Mail class="w-4 h-4 text-blue-600 dark:text-blue-400" />
 							{:else if i === 2}
-								<CalendarCheck class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+								<CalendarCheck class="w-4 h-4 text-blue-600 dark:text-blue-400" />
 							{:else}
-								<Cpu class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+								<Cpu class="w-4 h-4 text-blue-600 dark:text-blue-400" />
 							{/if}
 						</span>
 						<div>
-							<div class="text-xs font-mono uppercase tracking-wider text-slate-400 dark:text-zinc-500">
+							<div class="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-zinc-500">
 								{fact.label}
 							</div>
 							<div class="font-medium text-slate-800 dark:text-zinc-200">

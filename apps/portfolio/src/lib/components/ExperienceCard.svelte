@@ -1,91 +1,30 @@
 <script lang="ts">
-	import { getLocale, t } from '#lib/i18n/i18n.svelte.ts';
-	import SectionHeading from './SectionHeading.svelte';
-	import Reveal from './Reveal.svelte';
-	import LearningLinks from './LearningLinks.svelte';
-	import { learningLinks } from '#lib/learning.ts';
-	import siteStatus from '#lib/site-status.json';
-	import { Briefcase, Calendar, Users } from '@lucide/svelte';
-
-	let { headingLevel = 2, group = 'professional' }: { headingLevel?: 1 | 2; group?: 'professional' | 'extracurricular' } = $props();
-	const extracurricular = $derived(group === 'extracurricular');
-	const items = $derived(extracurricular ? t().experience.activities : t().experience.jobs);
+  import { getLocale, t } from '#lib/i18n/i18n.svelte.ts';
+  import SectionHeading from './SectionHeading.svelte';
+  import LearningLinks from './LearningLinks.svelte';
+  import { learningLinks } from '#lib/learning.ts';
+  import siteStatus from '#lib/site-status.json';
+  import { Briefcase, Users } from '@lucide/svelte';
+  let { headingLevel = 2, group = 'professional' }: { headingLevel?: 1 | 2; group?: 'professional' | 'extracurricular' } = $props();
+  const extracurricular = $derived(group === 'extracurricular');
+  const items = $derived(extracurricular ? t().experience.activities : t().experience.jobs);
 </script>
-
 <section id={extracurricular ? 'extracurricular' : 'experience'} class="py-20">
-	<SectionHeading {headingLevel} title={extracurricular ? t().experience.extracurricularHeading : t().experience.professionalHeading} path={extracurricular ? 'experience/extracurricular' : 'experience'}>
-		{#if extracurricular}
-			<Users class="w-5 h-5" />
-		{:else}
-			<Briefcase class="w-5 h-5" />
-		{/if}
-	</SectionHeading>
-	{#if !extracurricular && !siteStatus.blog && !siteStatus.wiki}
-		<p class="mb-8 max-w-3xl text-sm text-slate-500 dark:text-zinc-400">{t().learning.pausedNote}</p>
-	{/if}
-
-	<div
-		class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 dark:before:via-zinc-800 before:to-transparent"
-	>
-		{#each items as job, i}
-			<div
-				class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
-			>
-				<div
-					class="flex items-center justify-center w-10 h-10 rounded-full border border-white dark:border-zinc-950 bg-slate-100 dark:bg-zinc-900 text-emerald-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 transition-colors group-hover:bg-emerald-500 group-hover:text-white dark:group-hover:text-zinc-900 group-hover:border-emerald-500"
-				>
-					<Calendar class="w-4 h-4" />
-				</div>
-
-				<Reveal
-					delay={i * 100}
-					className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)]"
-				>
-					<article id={job.id}
-						class="relative scroll-mt-24 p-6 rounded-xl focus-within:ring-2 focus-within:ring-emerald-500 bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm transition-all hover:shadow-md hover:border-emerald-200 dark:hover:border-emerald-900/50"
-					>
-						<div
-							class="flex flex-col sm:flex-row flex-wrap sm:items-center sm:justify-between mb-4 gap-2"
-						>
-							<div class="min-w-0">
-								<svelte:element this={headingLevel === 1 ? 'h2' : 'h3'} class="font-bold text-lg text-slate-900 dark:text-zinc-100">
-									<a href={learningLinks(job.id, getLocale()).blog} class="after:absolute after:inset-0 after:rounded-xl hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:underline">{job.role}</a>
-								</svelte:element>
-								<p class="text-emerald-600 dark:text-emerald-400 font-medium text-sm">
-									{job.company}
-								</p>
-							</div>
-							<span
-								class="max-w-full text-xs font-mono px-3 py-1 bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-400 rounded-full shrink-0 border border-slate-200 dark:border-zinc-700"
-							>
-								{job.date}
-							</span>
-						</div>
-
-						{#if job.tech?.length}
-							<div class="flex flex-wrap gap-2 mb-4">
-								{#each job.tech as tech}
-									<span
-										class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border border-emerald-100 dark:border-emerald-800/40"
-									>
-										{tech}
-									</span>
-								{/each}
-							</div>
-						{/if}
-
-						<ul class="space-y-3">
-							{#each job.tasks as task}
-								<li class="flex items-start text-sm text-slate-600 dark:text-zinc-400">
-									<span class="mr-3 text-emerald-500 font-mono mt-0.5">&gt;&nbsp;</span>
-									<span class="leading-relaxed">{task}</span>
-								</li>
-							{/each}
-						</ul>
-						<LearningLinks id={job.id} learning={job.learning} />
-					</article>
-				</Reveal>
-			</div>
-		{/each}
-	</div>
+  <SectionHeading {headingLevel} title={extracurricular ? t().experience.extracurricularHeading : t().experience.professionalHeading} path="experience">
+    {#if extracurricular}<Users class="size-5" />{:else}<Briefcase class="size-5" />{/if}
+  </SectionHeading>
+  {#if !extracurricular && !siteStatus.blog && !siteStatus.wiki}<p class="mb-8 max-w-3xl text-sm text-slate-500 dark:text-zinc-400">{t().learning.pausedNote}</p>{/if}
+  <div class="border-b border-slate-200 dark:border-zinc-800">
+    {#each items as job}
+      <article id={job.id} class="relative grid md:grid-cols-[1fr_2.2fr] gap-6 md:gap-12 py-9 border-t border-slate-200 dark:border-zinc-800 scroll-mt-24 focus-within:ring-2 focus-within:ring-blue-500">
+        <div><p class="text-xs font-mono text-blue-700 dark:text-blue-300 mb-3">{job.date}</p><p class="text-base font-semibold">{job.company}</p></div>
+        <div class="min-w-0">
+          <svelte:element this={headingLevel === 1 ? 'h2' : 'h3'} class="text-xl sm:text-2xl font-bold mb-5"><a href={learningLinks(job.id, getLocale()).blog} class="after:absolute after:inset-0 hover:text-blue-600 dark:hover:text-blue-400 focus-visible:underline">{job.role}</a></svelte:element>
+          {#if job.tech?.length}<div class="flex flex-wrap gap-2 mb-5">{#each job.tech as tech}<span class="text-xs font-mono px-2 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800/40 rounded-sm">{tech}</span>{/each}</div>{/if}
+          <ul class="space-y-3 list-disc pl-4 marker:text-blue-600 dark:marker:text-blue-400">{#each job.tasks as task}<li class="pl-1 text-sm leading-relaxed text-slate-600 dark:text-zinc-400">{task}</li>{/each}</ul>
+          <LearningLinks id={job.id} learning={job.learning} />
+        </div>
+      </article>
+    {/each}
+  </div>
 </section>

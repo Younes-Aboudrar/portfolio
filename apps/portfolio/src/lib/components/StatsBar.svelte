@@ -10,10 +10,10 @@
 	>
 		{#each t().stats as stat, i}
 			<div
-				class="bg-white dark:bg-zinc-900 p-6 sm:p-8 text-center group hover:bg-emerald-50 dark:hover:bg-emerald-900/10 transition-colors"
+				class="bg-white dark:bg-zinc-900 p-6 sm:p-8 text-center group hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-colors"
 			>
 				<div
-					class="text-3xl sm:text-4xl font-bold font-mono text-emerald-600 dark:text-emerald-400"
+					class="text-3xl sm:text-4xl font-bold font-mono text-blue-600 dark:text-blue-400"
 				>
 					<Counter value={stat.value} suffix={stat.suffix ?? ''} />
 				</div>

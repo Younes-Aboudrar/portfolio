@@ -16,12 +16,12 @@
 		{/each}
 	</ul>
 	<div class="relative z-10 mt-4 flex flex-wrap gap-3 text-sm">
-		<a href={links.blog} class="inline-flex items-center gap-2 font-medium text-emerald-700 dark:text-emerald-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-500">
+		<a href={links.blog} class="inline-flex items-center gap-2 font-medium text-blue-700 dark:text-blue-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500">
 			<FileText class="h-4 w-4" /> {t().learning.blog}
 			{#if !siteStatus.blog}<span class="text-xs text-slate-500 dark:text-zinc-400">· {t().learning.paused}</span>{/if}
 			<ArrowUpRight class="h-3.5 w-3.5" />
 		</a>
-		<a href={links.wiki} class="inline-flex items-center gap-2 font-medium text-emerald-700 dark:text-emerald-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-500">
+		<a href={links.wiki} class="inline-flex items-center gap-2 font-medium text-blue-700 dark:text-blue-400 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500">
 			<BookOpen class="h-4 w-4" /> {t().learning.wiki}
 			{#if !siteStatus.wiki}<span class="text-xs text-slate-500 dark:text-zinc-400">· {t().learning.paused}</span>{/if}
 			<ArrowUpRight class="h-3.5 w-3.5" />

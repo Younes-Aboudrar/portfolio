@@ -39,18 +39,18 @@
 	class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-slate-200 dark:border-zinc-800 transition-colors"
 >
 	<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="flex items-center justify-between h-16">
+		<div class="flex items-center justify-between h-20">
 			<a
 				href="/"
 				onclick={closeMenu}
 				aria-label={t().nav.home}
 				aria-current={page.url.pathname === '/' ? 'page' : undefined}
-				class="group flex items-center gap-2 font-bold text-xl tracking-tight shrink-0"
+				class="group flex items-center gap-2 font-bold text-lg tracking-tight shrink-0"
 			>
-				<span class="text-emerald-500 font-mono">&gt;_</span>
+
 				<span
-					class="text-slate-900 dark:text-white transition-colors group-hover:text-emerald-500"
-					>aboudrar.dev</span
+					class="text-slate-900 dark:text-white transition-colors group-hover:text-blue-500"
+					><span class="hidden sm:inline">Younes Aboudrar</span><span class="sm:hidden">Y. Aboudrar</span></span
 				>
 			</a>
 
@@ -61,7 +61,7 @@
 							href={link.href}
 							class:active={isActive(link.href)}
 							aria-current={isActive(link.href) ? 'page' : undefined}
-							class="text-sm font-medium text-slate-600 hover:text-emerald-600 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors border-b-2 border-transparent py-1 [&.active]:text-emerald-600 [&.active]:border-emerald-500 [&.active]:dark:text-emerald-400"
+							class="text-sm font-medium text-slate-600 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors border-b-2 border-transparent py-1 [&.active]:text-blue-600 [&.active]:border-blue-500 [&.active]:dark:text-blue-400"
 						>
 							{link.label}
 						</a>
@@ -78,7 +78,7 @@
 							href={link.href}
 							target="_blank"
 							rel="noopener noreferrer"
-							class="inline-flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-emerald-600 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors"
+							class="inline-flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors"
 						>
 							{#if link.icon === 'wiki'}
 								<BookOpen class="w-4 h-4" />
@@ -99,7 +99,7 @@
 				<LangToggle />
 				<button
 					onclick={() => (isMenuOpen = !isMenuOpen)}
-					class="text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white pb-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-500"
+					class="text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white pb-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500"
 					aria-label="Menu"
 					aria-expanded={isMenuOpen}
 					aria-controls="mobile-navigation"
@@ -117,7 +117,7 @@
 	{#if isMenuOpen}
 		<div
 			id="mobile-navigation"
-			class="xl:hidden border-t border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 pt-2 pb-4 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto"
+			class="xl:hidden border-t border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 pt-2 pb-4 space-y-1 max-h-[calc(100vh-5rem)] overflow-y-auto"
 		>
 			{#each siteLinks as link}
 				<a
@@ -125,7 +125,7 @@
 					onclick={closeMenu}
 					aria-current={isActive(link.href) ? 'page' : undefined}
 					class:active={isActive(link.href)}
-					class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-zinc-900 transition-colors [&.active]:text-emerald-600 [&.active]:dark:text-emerald-400"
+					class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-zinc-900 transition-colors [&.active]:text-blue-600 [&.active]:dark:text-blue-400"
 				>
 					{link.label}
 				</a>
@@ -140,7 +140,7 @@
 						target="_blank"
 						rel="noopener noreferrer"
 						onclick={closeMenu}
-						class="inline-flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-zinc-900 transition-colors"
+						class="inline-flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-50 dark:hover:bg-zinc-900 transition-colors"
 					>
 						{#if link.icon === 'wiki'}
 								<BookOpen class="w-4 h-4" />
@@ -157,7 +157,7 @@
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label="GitHub"
-						class="text-slate-500 hover:text-emerald-500 transition-colors"
+						class="text-slate-500 hover:text-blue-500 transition-colors"
 					>
 						<BrandIcon name="github" className="w-5 h-5" />
 					</a>
@@ -166,14 +166,14 @@
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label="LinkedIn"
-						class="text-slate-500 hover:text-emerald-500 transition-colors"
+						class="text-slate-500 hover:text-blue-500 transition-colors"
 					>
 						<BrandIcon name="linkedin" className="w-5 h-5" />
 					</a>
 					<a
 						href="mailto:{contact.email}"
 						aria-label="Email"
-						class="text-slate-500 hover:text-emerald-500 transition-colors"
+						class="text-slate-500 hover:text-blue-500 transition-colors"
 					>
 						<Mail class="w-5 h-5" />
 					</a>

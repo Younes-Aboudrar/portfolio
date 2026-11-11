@@ -1,29 +1,12 @@
 <script lang="ts">
-	import Reveal from './Reveal.svelte';
-
-	let {
-		title,
-		path,
-		headingLevel = 2,
-		children
-	}: {
-		title: string;
-		path: string;
-		headingLevel?: 1 | 2;
-		children: import('svelte').Snippet;
-	} = $props();
+  let { title, headingLevel = 2, children }: {
+    title: string;
+    path: string;
+    headingLevel?: 1 | 2;
+    children: import('svelte').Snippet;
+  } = $props();
 </script>
-
-<Reveal>
-	<div class="flex items-center gap-3 mb-12">
-		<span
-			class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50"
-		>
-			{@render children()}
-		</span>
-		<div>
-			<svelte:element this={headingLevel === 1 ? 'h1' : 'h2'} class="text-3xl font-bold text-slate-900 dark:text-zinc-100">{title}</svelte:element>
-			<p class="text-sm font-mono text-slate-500 dark:text-zinc-500 mt-0.5">~/{path}</p>
-		</div>
-	</div>
-</Reveal>
+<div class="flex items-center gap-4 mb-12 pb-6 border-b border-slate-200 dark:border-zinc-800">
+  <span class="text-blue-600 dark:text-blue-400 shrink-0">{@render children()}</span>
+  <svelte:element this={headingLevel === 1 ? 'h1' : 'h2'} class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-zinc-100">{title}</svelte:element>
+</div>

@@ -3,6 +3,7 @@ import type { Dictionary } from './types';
 import { projectsFr } from '../projects/fr';
 
 export const fr: Dictionary = {
+	blueprint: {"headline": ["L’industrie,", "pensée en systèmes."], "selectedWork": "Projets à découvrir", "allProjects": "Explorer les projets", "figureCaption": "Systèmes industriels · Illustration conceptuelle"},
 	meta: {
 		description:
 			'Younes ABOUDRAR, élève ingénieur en génie électrique et systèmes numériques. Développement backend et digitalisation industrielle. PFE de six mois dès début mars 2027.'

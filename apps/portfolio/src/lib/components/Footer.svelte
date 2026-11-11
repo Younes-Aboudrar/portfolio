@@ -11,8 +11,8 @@
 		<div class="grid md:grid-cols-3 gap-10 mb-12">
 			<div>
 				<div class="flex items-center gap-2 font-bold tracking-tight mb-3">
-					<span class="text-emerald-500 font-mono">&gt;_</span>
-					<span class="text-slate-900 dark:text-white">aboudrar.dev</span>
+
+					<span class="text-slate-900 dark:text-white">Younes Aboudrar</span>
 				</div>
 				<p class="text-sm text-slate-500 dark:text-zinc-500 font-mono leading-relaxed">
 					{contact.location}
@@ -28,28 +28,28 @@
 				</h3>
 				<ul class="space-y-2.5">
 					<li>
-						<a href="/" class="text-sm text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+						<a href="/" class="text-sm text-slate-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
 							{t().nav.home}
 						</a>
 					</li>
 					<li>
-						<a href="/projects" class="text-sm text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+						<a href="/projects" class="text-sm text-slate-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
 							{t().nav.projects}
 						</a>
 					</li>
 					<li>
-						<a href="/contact" class="text-sm text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+						<a href="/contact" class="text-sm text-slate-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
 							{t().nav.contact}
 						</a>
 					</li>
 					<li>
-						<a href="/now" class="text-sm text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+						<a href="/now" class="text-sm text-slate-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
 							{t().nav.now}
 						</a>
 					</li>
 					{#if siteStatus.wiki}
 						<li>
-							<a href={contact.wiki} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+							<a href={contact.wiki} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
 								<BookOpen class="w-4 h-4" />
 								{t().nav.wiki}
 							</a>
@@ -57,7 +57,7 @@
 					{/if}
 					{#if siteStatus.blog}
 						<li>
-							<a href={contact.blog} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+							<a href={contact.blog} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
 								<FileText class="w-4 h-4" />
 								{t().nav.blog}
 							</a>
@@ -76,7 +76,7 @@
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label="GitHub"
-						class="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-300 dark:hover:border-emerald-800 transition-colors"
+						class="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-800 transition-colors"
 					>
 						<BrandIcon name="github" className="w-5 h-5" />
 					</a>
@@ -85,25 +85,25 @@
 						target="_blank"
 						rel="noopener noreferrer"
 						aria-label="LinkedIn"
-						class="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-300 dark:hover:border-emerald-800 transition-colors"
+						class="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-800 transition-colors"
 					>
 						<BrandIcon name="linkedin" className="w-5 h-5" />
 					</a>
 					<a
 						href="mailto:{contact.email}"
 						aria-label="Email"
-						class="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-300 dark:hover:border-emerald-800 transition-colors"
+						class="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-slate-600 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-800 transition-colors"
 					>
 						<Mail class="w-5 h-5" />
 					</a>
 				</div>
 				<a
 					href="mailto:{contact.email}"
-					class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-emerald-600 dark:text-emerald-400"
+					class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400"
 				>
 					{contact.email}
 				</a>
-				<a href={contact.phoneHref} class="mt-3 flex w-fit items-center gap-2 text-sm font-medium text-emerald-600 dark:text-emerald-400 hover:underline">
+				<a href={contact.phoneHref} class="mt-3 flex w-fit items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">
 					<Phone class="w-4 h-4 shrink-0" />
 					{contact.phone}
 				</a>
@@ -121,7 +121,7 @@
 			<a
 				href="#top"
 				aria-label={t().footer.backToTop}
-				class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 hover:bg-emerald-100 dark:bg-zinc-900 dark:hover:bg-emerald-900/40 text-slate-600 hover:text-emerald-600 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors"
+				class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 hover:bg-blue-100 dark:bg-zinc-900 dark:hover:bg-blue-900/40 text-slate-600 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors"
 			>
 				<ArrowUp class="w-5 h-5" />
 			</a>

@@ -20,7 +20,7 @@
 
 <Seo {title} {description} />
 
-<div class="min-h-screen flex flex-col pt-16" id="top">
+<div class="min-h-screen flex flex-col pt-20" id="top">
 	<Navbar />
 	<main class="flex-grow w-full">
 		<div class={fullWidth ? 'w-full' : 'max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full'}>
