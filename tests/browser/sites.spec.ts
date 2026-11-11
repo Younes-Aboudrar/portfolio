@@ -49,7 +49,7 @@ test('portfolio renders missing-image fallbacks and complete page metadata', asy
 	const missing: string[] = [];
 	page.on('pageerror', (error) => errors.push(error.message));
 	page.on('response', (response) => { if (response.status() >= 400 && response.url().startsWith(portfolio)) missing.push(response.url()); });
-	for (const path of ['/', '/cv', '/now', '/projects', '/projects/maintenance-manager']) {
+	for (const path of ['/', '/now', '/projects', '/projects/maintenance-manager']) {
 		await page.goto(portfolio + path);
 		await expect(page.locator('html')).toHaveAttribute('lang', 'en');
 		await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `https://younes.aboudrar.dev${path}`);

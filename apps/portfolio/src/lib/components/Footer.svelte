@@ -47,11 +47,6 @@
 							{t().nav.now}
 						</a>
 					</li>
-					<li>
-						<a href="/cv" class="text-sm text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-							{t().nav.cv}
-						</a>
-					</li>
 					{#if siteStatus.wiki}
 						<li>
 							<a href={contact.wiki} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">

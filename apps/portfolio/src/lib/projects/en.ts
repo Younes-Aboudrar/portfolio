@@ -20,7 +20,6 @@ export const projectsEn: Project[] = [
 		],
 		category: 'internships',
 		kind: 'project',
-		cvFeatured: true,
 		context: 'OCP internship · IMACID maintenance'
 	},
 	{
@@ -75,13 +74,13 @@ export const projectsEn: Project[] = [
 		context: 'Personal development',
 		tech: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'GitHub Pages'],
 		description:
-			'Personal portfolio in French and English built with SvelteKit and Tailwind CSS. The site includes dedicated background, experience, project, skills and contact pages, together with a printable CV.',
+			'Personal portfolio in French and English built with SvelteKit and Tailwind CSS. The site includes dedicated background, experience, project, skills and contact pages.',
 		challenges: 'Present a professional background clearly across desktop and mobile.',
 		solutions:
-			'Static pages, bilingual content, section-based navigation and a CV generated from the same data.',
+			'Static pages, bilingual content and section-based navigation.',
 		lessons: [
 			'Organizing a professional website across multiple pages.',
-			'Consistency between portfolio content, translations and CV.'
+			'Consistency between portfolio content and translations.'
 		],
 		links: {
 			demo: 'https://younes.aboudrar.dev'
@@ -146,7 +145,6 @@ export const projectsEn: Project[] = [
 			'Time-series data preparation and model comparisons.',
 			'Distinguishing experimentation, prototype components and a system validated in operation.'
 		],
-		cvFeatured: true
 	},
 	{
 		slug: 'efficacite-energetique-climatisation',
@@ -167,7 +165,6 @@ export const projectsEn: Project[] = [
 		],
 		category: 'academic',
 		kind: 'project',
-		cvFeatured: true,
 		context: 'ENSEM · Academic work'
 	},
 	{
@@ -189,7 +186,6 @@ export const projectsEn: Project[] = [
 		],
 		category: 'academic',
 		kind: 'project',
-		cvFeatured: true,
 		context: 'ENSEM · Academic work'
 	},
 	{
@@ -211,7 +207,6 @@ export const projectsEn: Project[] = [
 		],
 		category: 'academic',
 		kind: 'project',
-		cvFeatured: true,
 		context: 'ENSEM · Academic work'
 	},
 	{
@@ -313,7 +308,6 @@ export const projectsEn: Project[] = [
 		],
 		category: 'academic',
 		kind: 'coursework',
-		cvFeatured: true,
 		context: 'ENSEM · Academic work'
 	},
 	{

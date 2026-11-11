@@ -18,7 +18,6 @@ export const fr: Dictionary = {
 		blog: 'Blog',
 		wiki: 'Wiki',
 		now: 'En ce moment',
-		cv: 'CV',
 		home: 'Accueil'
 	},
 	hero: {
@@ -215,36 +214,7 @@ export const fr: Dictionary = {
 		clear: "Effacer les filtres",
 		examples: "Voir les projets et expériences",
 		categories: skillsFr,
-		cvCategories: [
-			{
-				category: 'Développement backend — stage OCP',
-				items: [
-					'Python',
-					'FastAPI',
-					'PostgreSQL',
-					'Architecture Offline-First',
-					'Synchronisation asynchrone'
-				]
-			},
-			{
-				category: 'Automatique et énergie — études et simulations',
-				items: ['MATLAB/Simulink', 'Régulation PID', 'TIA Portal', 'Variation de vitesse']
-			},
-			{
-				category: 'Données et optimisation — travaux académiques',
-				items: [
-					'Analyse exploratoire',
-					'ACP / K-Means',
-					'SageMath',
-					'Programmation linéaire',
-					'Graphes et heuristiques'
-				]
-			},
-			{
-				category: 'Systèmes et réseaux — travaux pratiques',
-				items: ['Linux / Ubuntu', 'Apache', 'Packet Tracer', 'Wireshark']
-			}
-		]
+
 	},
 	learning: {
 		"heading": "Ce que j’en retiens",
@@ -301,17 +271,6 @@ export const fr: Dictionary = {
 			'Localisation : Nancy, France',
 			'Disponibilité : début mars 2027, pour six mois'
 		]
-	},
-	cv: {
-		title: 'Curriculum Vitae',
-		profile: 'Profil',
-		contactLabel: 'Contact',
-		skillsTitle: 'Compétences',
-		experienceTitle: 'Expériences professionnelles',
-		educationTitle: 'Formation',
-		projectsTitle: 'Projets sélectionnés',
-		certificationsTitle: 'Certifications & Récompenses',
-		print: 'Imprimer / PDF'
 	},
 	misc: {
 		langName: 'EN',

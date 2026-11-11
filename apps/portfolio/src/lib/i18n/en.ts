@@ -18,7 +18,6 @@ export const en: Dictionary = {
 		blog: 'Blog',
 		wiki: 'Wiki',
 		now: 'Now',
-		cv: 'CV',
 		home: 'Home'
 	},
 	hero: {
@@ -215,36 +214,7 @@ export const en: Dictionary = {
 		clear: "Clear filters",
 		examples: "View projects and experience",
 		categories: skillsEn,
-		cvCategories: [
-			{
-				category: 'Backend development — OCP internship',
-				items: [
-					'Python',
-					'FastAPI',
-					'PostgreSQL',
-					'Offline-first architecture',
-					'Asynchronous synchronization'
-				]
-			},
-			{
-				category: 'Control and energy — studies and simulations',
-				items: ['MATLAB/Simulink', 'PID control', 'TIA Portal', 'Variable speed drives']
-			},
-			{
-				category: 'Data and optimization — academic work',
-				items: [
-					'Exploratory analysis',
-					'PCA / K-Means',
-					'SageMath',
-					'Linear programming',
-					'Graphs and heuristics'
-				]
-			},
-			{
-				category: 'Systems and networks — practical coursework',
-				items: ['Linux / Ubuntu', 'Apache', 'Packet Tracer', 'Wireshark']
-			}
-		]
+
 	},
 	learning: {
 		"heading": "What I learned",
@@ -300,17 +270,6 @@ export const en: Dictionary = {
 			'Location: Nancy, France',
 			'Availability: early March 2027, for six months'
 		]
-	},
-	cv: {
-		title: 'Curriculum Vitae',
-		profile: 'Profile',
-		contactLabel: 'Contact',
-		skillsTitle: 'Skills',
-		experienceTitle: 'Professional experience',
-		educationTitle: 'Education',
-		projectsTitle: 'Selected projects',
-		certificationsTitle: 'Certifications & Awards',
-		print: 'Print / PDF'
 	},
 	misc: {
 		langName: 'FR',

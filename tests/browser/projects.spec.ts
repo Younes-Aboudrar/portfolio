@@ -3,7 +3,7 @@ import { projectsFr } from '../../apps/portfolio/src/lib/projects/fr';
 import { projectsEn } from '../../apps/portfolio/src/lib/projects/en';
 
 test('translated projects retain unique identities and every detail URL is published', async ({ request }) => {
-	const identities = (projects: typeof projectsFr) => projects.map(({ slug, category, kind, cvFeatured, image, links }) => ({ slug, category, kind, cvFeatured, image, links }));
+	const identities = (projects: typeof projectsFr) => projects.map(({ slug, category, kind, image, links }) => ({ slug, category, kind, image, links }));
 	expect(new Set(projectsFr.map((project) => project.slug)).size).toBe(projectsFr.length);
 	expect(identities(projectsEn)).toEqual(identities(projectsFr));
 	for (const { slug, title } of projectsFr) {

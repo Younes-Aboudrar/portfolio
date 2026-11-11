@@ -25,7 +25,6 @@ export interface Project {
 	category: ProjectCategory;
 	kind: 'project' | 'coursework';
 	context: string;
-	cvFeatured?: boolean;
 	title: string;
 	tagline: string;
 	date: string;
@@ -55,7 +54,6 @@ export interface Dictionary {
 		blog: string;
 		wiki: string;
 		now: string;
-		cv: string;
 	};
 	home: {
 		heading: string;
@@ -143,7 +141,6 @@ export interface Dictionary {
 		clear: string;
 		examples: string;
 		categories: SkillCategory[];
-		cvCategories: { category: string; items: string[] }[];
 	};
 	learning: {
 		heading: string;
@@ -179,17 +176,6 @@ export interface Dictionary {
 		focus: { title: string; detail: string }[];
 		currentlyTitle: string;
 		currently: string[];
-	};
-	cv: {
-		title: string;
-		profile: string;
-		contactLabel: string;
-		skillsTitle: string;
-		experienceTitle: string;
-		educationTitle: string;
-		projectsTitle: string;
-		certificationsTitle: string;
-		print: string;
 	};
 	misc: {
 		langName: string;
