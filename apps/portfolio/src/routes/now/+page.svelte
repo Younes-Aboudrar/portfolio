@@ -1,16 +1,14 @@
 <script lang="ts">
-	import { t } from '$lib/i18n/i18n.svelte';
-	import { contact } from '$lib/contact';
-	import Navbar from '$lib/components/Navbar.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-	import Reveal from '$lib/components/Reveal.svelte';
+	import Seo from '#lib/components/Seo.svelte';
+	import { t } from '#lib/i18n/i18n.svelte.ts';
+	import { contact } from '#lib/contact.ts';
+	import Navbar from '#lib/components/Navbar.svelte';
+	import Footer from '#lib/components/Footer.svelte';
+	import Reveal from '#lib/components/Reveal.svelte';
 	import { Rocket, Activity, ArrowLeft } from '@lucide/svelte';
 </script>
 
-<svelte:head>
-	<title>{t().now.heading} | {contact.name}</title>
-	<meta name="description" content={t().now.subheading} />
-</svelte:head>
+<Seo title={t().now.heading} description={t().now.subheading} />
 
 <div class="min-h-screen flex flex-col pt-16" id="top">
 	<Navbar />

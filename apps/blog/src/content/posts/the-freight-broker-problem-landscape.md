@@ -2,6 +2,7 @@
 title: The Freight Broker Problem Landscape
 description: The freight brokerage market is in pain — 83% operate reactively, carrier capacity is tightening, and a SCOTUS ruling just opened the floodgates on liability. Here's what the market looks like and where the wedge is.
 pubDate: 2026-09-10
+lang: en
 tags: ["freight", "logistics", "business", "ai"]
 ---
 

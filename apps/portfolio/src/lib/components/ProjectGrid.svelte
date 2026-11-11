@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { t } from '$lib/i18n/i18n.svelte';
-	import type { ProjectCategory } from '$lib/i18n/types';
+	import { t } from '#lib/i18n/i18n.svelte.ts';
+	import type { ProjectCategory } from '#lib/i18n/types.ts';
 	import SectionHeading from './SectionHeading.svelte';
 	import Reveal from './Reveal.svelte';
 	import ProjectCard from './ProjectCard.svelte';

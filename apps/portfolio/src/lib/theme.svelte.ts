@@ -1,8 +1,11 @@
-let isDark = $state<boolean>(initTheme());
+import { readPreference, writePreference } from './storage';
+
+let isDark = $state(false);
+export function initializeTheme() { setTheme(initTheme()); }
 
 function initTheme(): boolean {
-	if (typeof localStorage === 'undefined') return true;
-	const saved = localStorage.getItem('theme');
+	if (typeof window === 'undefined') return false;
+	const saved = readPreference('theme');
 	if (saved === 'dark') return true;
 	if (saved === 'light') return false;
 	return window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -20,9 +23,7 @@ export function getTheme(): boolean {
 
 export function setTheme(dark: boolean) {
 	isDark = dark;
-	if (typeof localStorage !== 'undefined') {
-		localStorage.setItem('theme', dark ? 'dark' : 'light');
-	}
+	writePreference('theme', dark ? 'dark' : 'light');
 	applyTheme(dark);
 }
 

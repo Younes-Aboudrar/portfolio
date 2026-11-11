@@ -1,16 +1,14 @@
 <script lang="ts">
-	import { t } from '$lib/i18n/i18n.svelte';
-	import { contact } from '$lib/contact';
-	import Navbar from '$lib/components/Navbar.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-	import BrandIcon from '$lib/components/BrandIcon.svelte';
+	import Seo from '#lib/components/Seo.svelte';
+	import { t } from '#lib/i18n/i18n.svelte.ts';
+	import { contact } from '#lib/contact.ts';
+	import Navbar from '#lib/components/Navbar.svelte';
+	import Footer from '#lib/components/Footer.svelte';
+	import BrandIcon from '#lib/components/BrandIcon.svelte';
 	import { Printer, Mail, Phone, MapPin } from '@lucide/svelte';
 </script>
 
-<svelte:head>
-	<title>{t().cv.title} | {contact.name}</title>
-	<meta name="description" content={`${contact.name} — ${t().cv.title}`} />
-</svelte:head>
+<Seo title={t().cv.title} description={`${contact.name} — ${t().cv.title}`} />
 
 <div class="min-h-screen flex flex-col pt-16 print:pt-0" id="top">
 	<Navbar />

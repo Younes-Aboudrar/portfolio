@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { t } from '$lib/i18n/i18n.svelte';
-	import { contact } from '$lib/contact';
+	import { t } from '#lib/i18n/i18n.svelte.ts';
+	import { contact } from '#lib/contact.ts';
 	import SectionHeading from './SectionHeading.svelte';
 	import Reveal from './Reveal.svelte';
 	import ContactForm from './ContactForm.svelte';

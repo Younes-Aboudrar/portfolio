@@ -23,16 +23,17 @@ const next = idx >= 0 && idx < all.length - 1 ? all[idx + 1] : null;
 const title = `${post.data.title} — ablog`;
 ---
 
-<BaseLayout title={title} description={post.data.description}>
+<BaseLayout title={title} description={post.data.description} lang={post.data.lang}>
 	<PostHeader
 		title={post.data.title}
+		lang={post.data.lang}
 		description={post.data.description}
 		date={post.data.pubDate}
 		updatedDate={post.data.updatedDate}
 		tags={post.data.tags}
 	/>
 	<p class="font-mono text-xs text-zinc-400 mb-10 -mt-6">
-		{readingTime(post.body)} de lecture
+		{readingTime(post.body)} {post.data.lang === 'en' ? 'read' : 'de lecture'}
 	</p>
 
 	<article class="prose">
@@ -42,13 +43,13 @@ const title = `${post.data.title} — ablog`;
 	<nav class="not-prose mt-14 grid grid-cols-2 gap-4 border-t border-zinc-200 dark:border-zinc-800 pt-6 text-sm">
 		{prev && (
 			<a href={`/posts/${prev.id}/`} class="no-underline group">
-				<p class="font-mono text-xs text-zinc-400 mb-1">&lt;- précédent</p>
+				<p class="font-mono text-xs text-zinc-400 mb-1">&lt;- {post.data.lang === 'en' ? 'previous' : 'précédent'}</p>
 				<p class="text-zinc-700 dark:text-zinc-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400">{prev.data.title}</p>
 			</a>
 		)}
 		{next && (
 			<a href={`/posts/${next.id}/`} class="no-underline group text-right">
-				<p class="font-mono text-xs text-zinc-400 mb-1">suivant -&gt;</p>
+				<p class="font-mono text-xs text-zinc-400 mb-1">{post.data.lang === 'en' ? 'next' : 'suivant'} -&gt;</p>
 				<p class="text-zinc-700 dark:text-zinc-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400">{next.data.title}</p>
 			</a>
 		)}

@@ -1,7 +1,6 @@
 <script lang="ts">
+	import Seo from '#lib/components/Seo.svelte';
 	import type { Snippet } from 'svelte';
-	import { page } from '$app/state';
-	import { contact } from '$lib/contact';
 	import Navbar from './Navbar.svelte';
 	import Footer from './Footer.svelte';
 
@@ -17,18 +16,9 @@
 		children: Snippet;
 	} = $props();
 
-	const canonical = $derived('https://younes.aboudrar.dev' + page.url.pathname);
 </script>
 
-<svelte:head>
-	<title>{title} | {contact.name}</title>
-	<meta name="description" content={description} />
-	<meta property="og:title" content={`${title} — ${contact.name}`} />
-	<meta property="og:description" content={description} />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content={canonical} />
-	<link rel="canonical" href={canonical} />
-</svelte:head>
+<Seo {title} {description} />
 
 <div class="min-h-screen flex flex-col pt-16" id="top">
 	<Navbar />

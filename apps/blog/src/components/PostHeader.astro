@@ -6,15 +6,16 @@ interface Props {
 	date?: Date;
 	updatedDate?: Date;
 	tags?: string[];
+	lang?: 'fr' | 'en';
 }
-const { title, description, date, updatedDate, tags = [] } = Astro.props;
+const { title, description, date, updatedDate, tags = [], lang = 'fr' } = Astro.props;
 ---
 
 <header class="not-prose border-b border-zinc-200 dark:border-zinc-800 pb-8 mb-10">
 	{date && (
 		<p class="font-mono text-sm text-emerald-600 dark:text-emerald-400 mb-3">
-			{formatDate(date)}
-			{updatedDate && <span class="text-zinc-400"> · mis à jour le {formatDate(updatedDate)}</span>}
+			{formatDate(date, lang)}
+			{updatedDate && <span class="text-zinc-400"> · {lang === 'en' ? 'updated' : 'mis à jour le'} {formatDate(updatedDate, lang)}</span>}
 		</p>
 	)}
 	<h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 leading-tight">

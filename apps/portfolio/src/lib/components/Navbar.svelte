@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { t } from '$lib/i18n/i18n.svelte';
-	import { contact } from '$lib/contact';
-	import siteStatus from '$lib/site-status.json';
+	import { t } from '#lib/i18n/i18n.svelte.ts';
+	import { contact } from '#lib/contact.ts';
+	import siteStatus from '#lib/site-status.json';
 	import BrandIcon from './BrandIcon.svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
 	import LangToggle from './LangToggle.svelte';
@@ -32,6 +32,8 @@
 		isMenuOpen = false;
 	}
 </script>
+
+<svelte:window onkeydown={(event) => { if (event.key === 'Escape') closeMenu(); }} />
 
 <nav
 	class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-slate-200 dark:border-zinc-800 transition-colors"
@@ -97,7 +99,7 @@
 				<LangToggle />
 				<button
 					onclick={() => (isMenuOpen = !isMenuOpen)}
-					class="text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white pb-1 focus:outline-none"
+					class="text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white pb-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-500"
 					aria-label="Menu"
 					aria-expanded={isMenuOpen}
 					aria-controls="mobile-navigation"

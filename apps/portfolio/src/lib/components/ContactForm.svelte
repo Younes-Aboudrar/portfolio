@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { t } from '$lib/i18n/i18n.svelte';
+	import { t } from '#lib/i18n/i18n.svelte.ts';
 	import { Send, LoaderCircle, CheckCircle2, XCircle } from '@lucide/svelte';
-	import { env } from '$env/dynamic/public';
+	import * as env from '$app/env/public';
 
 	const endpoint = env.PUBLIC_CONTACT_ENDPOINT || 'https://contact.aboudrar.dev/api/contact';
 
@@ -22,7 +22,7 @@
 			const res = await fetch(endpoint, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ name, email, message })
+				body: JSON.stringify({ name, email, message, website })
 			});
 			if (!res.ok) throw new Error('Bad response');
 			status = 'success';
@@ -42,6 +42,7 @@
 				</label>
 				<input
 					id="contact-name"
+					maxlength="100"
 					type="text"
 					bind:value={name}
 					required
@@ -54,6 +55,7 @@
 				</label>
 				<input
 					id="contact-email"
+					maxlength="200"
 					type="email"
 					bind:value={email}
 					required
@@ -68,6 +70,7 @@
 			</label>
 			<textarea
 				id="contact-message"
+				maxlength="5000"
 				bind:value={message}
 				required
 				rows="5"
@@ -79,7 +82,7 @@
 			<label>Website <input type="text" bind:value={website} tabindex="-1" autocomplete="off" /></label>
 		</div>
 
-		<div class="flex items-center gap-4">
+		<div class="flex items-center gap-4" aria-live="polite" aria-atomic="true">
 			<button
 				type="submit"
 				disabled={status === 'sending'}

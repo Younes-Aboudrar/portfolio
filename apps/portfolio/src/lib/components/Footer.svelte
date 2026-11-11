@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { t } from '$lib/i18n/i18n.svelte';
-	import { contact } from '$lib/contact';
-	import siteStatus from '$lib/site-status.json';
+	import { t } from '#lib/i18n/i18n.svelte.ts';
+	import { contact } from '#lib/contact.ts';
+	import siteStatus from '#lib/site-status.json';
 	import BrandIcon from './BrandIcon.svelte';
 	import { ArrowUp, Mail, Phone, BookOpen, FileText } from '@lucide/svelte';
 </script>

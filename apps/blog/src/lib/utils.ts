@@ -1,5 +1,5 @@
-export function formatDate(date: Date): string {
-	return new Intl.DateTimeFormat('fr-FR', {
+export function formatDate(date: Date, lang: 'fr' | 'en' = 'fr'): string {
+	return new Intl.DateTimeFormat(lang === 'en' ? 'en-GB' : 'fr-FR', {
 		day: 'numeric',
 		month: 'long',
 		year: 'numeric'

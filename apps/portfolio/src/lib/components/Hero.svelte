@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { t } from '$lib/i18n/i18n.svelte';
-	import { contact } from '$lib/contact';
+	import { hasImage } from '#lib/images.ts';
+	import { t } from '#lib/i18n/i18n.svelte.ts';
+	import { contact } from '#lib/contact.ts';
 	import Typewriter from './Typewriter.svelte';
 	import { ChevronRight, MapPin } from '@lucide/svelte';
 
@@ -122,7 +123,7 @@
 				</div>
 
 				<div class="p-6">
-					{#if !photoError}
+					{#if hasImage('images/profile.jpg') && !photoError}
 						<div class="aspect-square w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-zinc-800">
 							<img
 								src="/images/profile.jpg"

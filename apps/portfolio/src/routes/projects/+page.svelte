@@ -1,7 +1,7 @@
 <script lang="ts">
-	import PageShell from '$lib/components/PageShell.svelte';
-	import ProjectGrid from '$lib/components/ProjectGrid.svelte';
-	import { t } from '$lib/i18n/i18n.svelte';
+	import PageShell from '#lib/components/PageShell.svelte';
+	import ProjectGrid from '#lib/components/ProjectGrid.svelte';
+	import { t } from '#lib/i18n/i18n.svelte.ts';
 </script>
 
 <PageShell title={t().projects.heading} description={t().projects.subheading}>

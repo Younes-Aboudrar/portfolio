@@ -1,4 +1,4 @@
-import { fr } from '$lib/i18n/fr';
+import { fr } from '#lib/i18n/fr.ts';
 import { error } from '@sveltejs/kit';
 
 export const prerender = true;

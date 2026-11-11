@@ -1,12 +1,13 @@
 <script lang="ts">
+	import { hasImage } from '#lib/images.ts';
+	import Seo from '#lib/components/Seo.svelte';
 	import { page } from '$app/state';
-	import { t } from '$lib/i18n/i18n.svelte';
-	import { contact } from '$lib/contact';
-	import Navbar from '$lib/components/Navbar.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-	import ProjectCard from '$lib/components/ProjectCard.svelte';
-	import Reveal from '$lib/components/Reveal.svelte';
-	import BrandIcon from '$lib/components/BrandIcon.svelte';
+	import { t } from '#lib/i18n/i18n.svelte.ts';
+	import Navbar from '#lib/components/Navbar.svelte';
+	import Footer from '#lib/components/Footer.svelte';
+	import ProjectCard from '#lib/components/ProjectCard.svelte';
+	import Reveal from '#lib/components/Reveal.svelte';
+	import BrandIcon from '#lib/components/BrandIcon.svelte';
 	import { ArrowLeft, ArrowUpRight, Calendar, Lightbulb, Wrench, Target } from '@lucide/svelte';
 
 	let slug = $derived(page.params.slug);
@@ -21,16 +22,7 @@
 	);
 </script>
 
-<svelte:head>
-	<title>{project?.title ?? '404'} | {contact.name}</title>
-	<meta name="description" content={project?.tagline ?? t().meta.description} />
-	{#if project}
-		<meta property="og:title" content={project.title} />
-		<meta property="og:description" content={project.tagline} />
-		<meta property="og:type" content="article" />
-		<meta property="og:url" content={'https://younes.aboudrar.dev/projects/' + project.slug} />
-	{/if}
-</svelte:head>
+<Seo title={project?.title ?? '404'} description={project?.tagline ?? t().meta.description} type="article" />
 
 {#if project}
 	{@const links = project.links ?? {}}
@@ -107,7 +99,7 @@
 					<div
 						class="aspect-[16/9] rounded-2xl overflow-hidden border border-slate-200 dark:border-zinc-800 bg-slate-100 dark:bg-zinc-800 mb-10"
 					>
-						{#if project.image && !photoError}
+						{#if project.image && hasImage(project.image) && !photoError}
 							<img
 								src="/{project.image}"
 								alt={project.title}

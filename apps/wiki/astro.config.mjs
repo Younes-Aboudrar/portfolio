@@ -32,7 +32,7 @@ export default defineConfig({
 			customCss: ['./src/styles/custom.css'],
 			lastUpdated: true,
 			editLink: {
-				baseUrl: 'https://github.com/Younes-Aboudrar/aboudrar.dev/edit/main/'
+				baseUrl: 'https://github.com/Younes-Aboudrar/portfolio/edit/main/apps/wiki/'
 			},
 			head,
 			social: [

@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { t } from '$lib/i18n/i18n.svelte';
+	import { hasImage } from '#lib/images.ts';
+	import { t } from '#lib/i18n/i18n.svelte.ts';
 	import { ArrowUpRight } from '@lucide/svelte';
-	import type { Project } from '$lib/i18n/types';
+	import type { Project } from '#lib/i18n/types.ts';
 
 	let { project, compact = false }: { project: Project; compact?: boolean } = $props();
 
@@ -14,7 +15,7 @@
 >
 	{#if !compact}
 	<div class="relative aspect-[16/9] overflow-hidden bg-slate-100 dark:bg-zinc-800">
-		{#if project.image && !photoError}
+		{#if project.image && hasImage(project.image) && !photoError}
 			<img
 				src="/{project.image}"
 				alt={project.title}

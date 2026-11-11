@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { t } from '$lib/i18n/i18n.svelte';
+	import { t } from '#lib/i18n/i18n.svelte.ts';
 	import Reveal from './Reveal.svelte';
 	import SectionHeading from './SectionHeading.svelte';
 	import { User, MapPin, Mail, CalendarCheck, Cpu } from '@lucide/svelte';

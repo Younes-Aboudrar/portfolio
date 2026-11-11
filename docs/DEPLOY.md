@@ -18,12 +18,12 @@ un **Cloudflare Worker** (envoi d'emails via Resend).
 - Zone DNS `aboudrar.dev` sur Cloudflare (les sous-domaines + SSL se gèrent dans
   le dashboard).
 - Compte [Resend](https://resend.com) avec le domaine `aboudrar.dev` vérifié.
-- Node ≥ 20 (testé avec Node 26). `NODE_VERSION=26` dans CI (GitHub Actions).
+- Node ≥ 22.23.4 (validation locale avec Node 24.22.1). Node 26 dans CI (GitHub Actions).
 
 ## Construire localement
 
 ```bash
-npm install
+npm ci --ignore-scripts
 npm run build          # build les 3 apps
 npm run check          # svelte-check (portfolio) + astro check (wiki, blog)
 ```
@@ -39,8 +39,10 @@ Sorties de build :
 Workflow `.github/workflows/deploy-pages.yml` :
 
 1. Sur chaque push vers `main` (ou déclenchement manuel via *Actions*).
-2. Lit `apps/portfolio/src/lib/site-status.json`, puis construit le portfolio
-   et les sites actifs (`npm ci` à la racine + `npm run build --workspace <pkg>`).
+2. Installe avec `npm ci --ignore-scripts`, contrôle les dépendances, exécute les
+   tests du Worker et les diagnostics, puis construit les trois applications et
+   exécute les tests Chromium. Lit ensuite `apps/portfolio/src/lib/site-status.json`
+   pour choisir entre les sites complets et leurs pages de pause.
 3. Pousse chaque sortie vers la branche `gh-pages` de son repo de déploiement
    avec le fichier `CNAME` correspondant, via l'action
    `peaceiris/actions-gh-pages` (token `GH_PAGES_DEPLOY_TOKEN`, secret du repo
@@ -99,10 +101,9 @@ sans le supprimer d'abord.
 
 ```bash
 cd workers/contact
-npm install
 npx wrangler login     # autorise le compte Cloudflare dans le navigateur
-npm run dev            # local, utilise .dev.vars
-npm run deploy         # déploie sur contact.aboudrar.dev (crée le custom domain)
+npm run dev -- --env development  # local, utilise .dev.vars.development
+npm run deploy         # déploie la route de zone contact.aboudrar.dev/*
 ```
 
 ### Secrets et variables
@@ -127,6 +128,32 @@ npm run deploy         # déploie sur contact.aboudrar.dev (crée le custom doma
 CORS : seule l'origine `https://younes.aboudrar.dev` est autorisée. Les emails
 sont envoyés vers `younes@aboudrar.dev` avec `reply_to` = l'email du visiteur.
 
+### Protection du formulaire
+
+Le Worker applique deux bindings Cloudflare Rate Limiting définis dans
+`wrangler.toml` : 5 tentatives par minute et par adresse IP, et 20 tentatives
+par minute pour l'ensemble du formulaire. Ces limites sont **approximatives et
+locales à chaque point de présence Cloudflare**, pas un quota mondial strict.
+Les namespaces `1001` et `1002` doivent être réservés à ces limites dans le
+compte Cloudflare ; les changer si un autre Worker les utilise déjà.
+
+L'adresse vient de `CF-Connecting-IP`, fourni par Cloudflare. Sans cette adresse
+ou sans bindings fonctionnels, le Worker refuse l'envoi avec un statut 503.
+Une limite atteinte produit un statut 429 avec `Retry-After: 60`. Le champ piège
+`website` est aussi vérifié côté serveur. Le corps JSON est limité à 32 Kio
+pendant sa lecture ; les valeurs nulles, tableaux et champs invalides sont rejetés.
+L'appel à Resend expire après 10 secondes.
+
+Ces protections réduisent les rafales de spam ; elles ne constituent pas une
+preuve humaine et ne bloquent pas tous les abus distribués. Un défi Turnstile
+vérifié côté serveur ou un quota strict via Durable Object peut compléter cette
+protection si nécessaire. Aucun nouveau secret n'est requis pour ces bindings.
+
+Exécuter `npm test` à la racine pour les tests du Worker (Resend simulé, aucun
+email réel). Après revue, déployer le Worker avec `npm run deploy --workspace
+@aboudrar/contact-worker` pour activer les bindings et la validation en production.
+Le workflow GitHub Pages ne déploie pas le Worker.
+
 ## Ajuster le contenu
 
 - **Portfolio** : textes dans `apps/portfolio/src/lib/i18n/fr.ts` et `en.ts` ;
@@ -148,9 +175,9 @@ affichés automatiquement.
 
 ## Sécurité
 
-Le token GitHub stocké dans `.git/config` était révoqué/expiré. Le remote a été
-nettoyé (URL HTTPS sans token). Pour pousser vers `Younes-Aboudrar/portfolio`,
-configure une authentification propre : clé SSH (`git remote set-url origin
-git@github.com:Younes-Aboudrar/portfolio.git`) ou GitHub CLI (`gh auth login`).
-Le secret `GH_PAGES_DEPLOY_TOKEN` est stocké dans les secrets du repo et utilisé
-uniquement par le workflow.
+Conserver les secrets hors du dépôt. Le secret `GH_PAGES_DEPLOY_TOKEN` est stocké
+sur GitHub et utilisé uniquement par le workflow pour publier les trois sites.
+L'authentification Git de la machine qui pousse vers `main` est distincte de ce
+token. Le déploiement du Worker exige une connexion Wrangler au compte Cloudflare
+ou les variables sécurisées `CLOUDFLARE_API_TOKEN` et `CLOUDFLARE_ACCOUNT_ID`.
+Voir [SECURITY.md](SECURITY.md) pour les protections et les dépendances restantes.
