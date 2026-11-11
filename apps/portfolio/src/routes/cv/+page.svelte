@@ -132,7 +132,7 @@
 						{t().cv.skillsTitle}
 					</h2>
 					<div class="grid sm:grid-cols-2 gap-4">
-						{#each t().skills.categories as category}
+						{#each t().skills.cvCategories as category}
 							<div>
 								<h3 class="text-sm font-bold text-slate-800 dark:text-zinc-200 mb-1.5 print:text-black">
 									{category.category}

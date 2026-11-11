@@ -2,11 +2,22 @@ export type Locale = 'fr' | 'en';
 export type ProjectCategory = 'internships' | 'academic' | 'personal';
 
 export interface Experience {
+	id: string;
+	learning: string[];
 	role: string;
 	company: string;
 	date: string;
 	tech: string[];
 	tasks: string[];
+}
+
+export interface SkillCategory {
+	id: string;
+	category: string;
+	context: string;
+	items: string[];
+	projectSlugs: string[];
+	journeyIds?: string[];
 }
 
 export interface Project {
@@ -84,6 +95,8 @@ export interface Dictionary {
 	education: {
 		heading: string;
 		items: {
+			id: string;
+			learning: string[];
 			degree: string;
 			institution: string;
 			date: string;
@@ -120,8 +133,24 @@ export interface Dictionary {
 	};
 	skills: {
 		heading: string;
-		terminalPrompt: string;
-		categories: { category: string; items: string[] }[];
+		intro: string;
+		search: string;
+		searchPlaceholder: string;
+		domain: string;
+		allDomains: string;
+		results: string;
+		empty: string;
+		clear: string;
+		examples: string;
+		categories: SkillCategory[];
+		cvCategories: { category: string; items: string[] }[];
+	};
+	learning: {
+		heading: string;
+		blog: string;
+		wiki: string;
+		paused: string;
+		pausedNote: string;
 	};
 	contact: {
 		heading: string;
@@ -136,6 +165,7 @@ export interface Dictionary {
 			error: string;
 		};
 		socials: string;
+		messaging: string;
 	};
 	footer: {
 		tagline: string;

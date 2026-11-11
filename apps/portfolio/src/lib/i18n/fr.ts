@@ -1,3 +1,4 @@
+import { skillsFr } from '../skills/fr';
 import type { Dictionary } from './types';
 import { projectsFr } from '../projects/fr';
 
@@ -88,6 +89,8 @@ export const fr: Dictionary = {
 		extracurricularHeading: 'Expérience parascolaire',
 		jobs: [
 			{
+				id: "ocp",
+				learning: ["Conception backend et données de maintenance", "Synchronisation en connectivité limitée", "Coordination de l’intégration mobile"],
 				role: 'Stagiaire — projet de GMAO',
 				company: 'OCP S.A. · Jorf Lasfar',
 				date: '15 juin – 15 août 2026',
@@ -100,6 +103,8 @@ export const fr: Dictionary = {
 				]
 			},
 			{
+				id: "codealpha",
+				learning: ["Traitement du langage et similarité", "Intégration d’API de traduction", "Synthèse vocale côté navigateur"],
 				role: 'Stage à distance — IA et développement web',
 				company: 'CodeAlpha',
 				date: 'Juillet 2025',
@@ -112,6 +117,8 @@ export const fr: Dictionary = {
 		],
 		activities: [
 			{
+				id: "aeroensem",
+				learning: ["Leadership associatif", "Coordination d’activités", "Communication technique"],
 				role: 'Président',
 				company: 'Club AéroENSEM',
 				date: 'Sept. 2025 – mars 2026',
@@ -127,12 +134,16 @@ export const fr: Dictionary = {
 		heading: 'Formation',
 		items: [
 			{
+				id: "ensem-nancy",
+				learning: ["Ingénierie des systèmes numériques", "Échange académique international"],
 				degree: 'Mobilité internationale — Ingénierie des Systèmes Numériques (ISN)',
 				institution: 'ENSEM Nancy, France',
 				date: '7 sept. 2026 – 26 fév. 2027',
 				highlight: 'Semestre d’études S9 dans le cadre d’un échange avec l’ENSEM Casablanca.'
 			},
 			{
+				id: "ensem-casablanca",
+				learning: ["Génie électrique", "Digitalisation des processus industriels"],
 				degree: 'Diplôme d’ingénieur d’État en Génie Électrique — en préparation',
 				institution: 'ENSEM Casablanca, Maroc',
 				date: 'Sept. 2024 – août 2027 (fin prévue)',
@@ -140,6 +151,8 @@ export const fr: Dictionary = {
 					'Spécialisation : Génie électrique en Digitalisation des Processus Industriels (GE-DPI). Troisième année du cycle ingénieur, 2026–2027.'
 			},
 			{
+				id: "cpge-reda-slaoui",
+				learning: ["Mathématiques", "Physique", "Sciences de l’ingénieur"],
 				degree: 'Classes préparatoires MPSI / MP',
 				institution: 'Lycée Reda Slaoui, Agadir',
 				date: 'Sept. 2022 – juin 2024',
@@ -191,9 +204,18 @@ export const fr: Dictionary = {
 		projectPlural: 'projets'
 	},
 	skills: {
-		heading: 'Compétences et domaines étudiés',
-		terminalPrompt: 'younes@aboudrar: ~/competences',
-		categories: [
+		heading: "Compétences et domaines étudiés",
+		intro: "Mon répertoire de compétences, organisé par domaine. Explorez les technologies et méthodes, puis retrouvez des exemples dans mes projets, mes stages et mon parcours.",
+		search: "Rechercher une compétence",
+		searchPlaceholder: "Python, réseaux, automatisme…",
+		domain: "Domaine",
+		allDomains: "Tous les domaines",
+		results: "compétences affichées",
+		empty: "Aucune compétence ne correspond à cette recherche.",
+		clear: "Effacer les filtres",
+		examples: "Voir les projets et expériences",
+		categories: skillsFr,
+		cvCategories: [
 			{
 				category: 'Développement backend — stage OCP',
 				items: [
@@ -224,10 +246,18 @@ export const fr: Dictionary = {
 			}
 		]
 	},
+	learning: {
+		"heading": "Ce que j’en retiens",
+		"blog": "Carnet de parcours",
+		"wiki": "Notes et apprentissages",
+		"paused": "en pause",
+		"pausedNote": "Les carnets de parcours et les notes sont reliés au blog et au wiki, actuellement en pause."
+	},
 	contact: {
 		heading: 'Contact',
 		subheading:
-			'Pour un PFE de six mois à partir de début mars 2027, ou pour échanger sur un projet, contactez-moi par email ou via ce formulaire.',
+			'Pour un PFE de six mois à partir de début mars 2027, ou pour échanger sur un projet, contactez-moi par email, Telegram, WhatsApp Business ou via ce formulaire.',
+		messaging: "Messagerie directe",
 		form: {
 			name: 'Nom',
 			email: 'Email',

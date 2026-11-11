@@ -1,7 +1,10 @@
 <script lang="ts">
-	import { t } from '#lib/i18n/i18n.svelte.ts';
+	import { getLocale, t } from '#lib/i18n/i18n.svelte.ts';
 	import SectionHeading from './SectionHeading.svelte';
 	import Reveal from './Reveal.svelte';
+	import LearningLinks from './LearningLinks.svelte';
+	import { learningLinks } from '#lib/learning.ts';
+	import siteStatus from '#lib/site-status.json';
 	import { Briefcase, Calendar, Users } from '@lucide/svelte';
 
 	let { headingLevel = 2, group = 'professional' }: { headingLevel?: 1 | 2; group?: 'professional' | 'extracurricular' } = $props();
@@ -17,6 +20,9 @@
 			<Briefcase class="w-5 h-5" />
 		{/if}
 	</SectionHeading>
+	{#if !extracurricular && !siteStatus.blog && !siteStatus.wiki}
+		<p class="mb-8 max-w-3xl text-sm text-slate-500 dark:text-zinc-400">{t().learning.pausedNote}</p>
+	{/if}
 
 	<div
 		class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 dark:before:via-zinc-800 before:to-transparent"
@@ -35,16 +41,16 @@
 					delay={i * 100}
 					className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)]"
 				>
-					<div
-						class="p-6 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm transition-all hover:shadow-md hover:border-emerald-200 dark:hover:border-emerald-900/50"
+					<article id={job.id}
+						class="relative scroll-mt-24 p-6 rounded-xl focus-within:ring-2 focus-within:ring-emerald-500 bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 shadow-sm transition-all hover:shadow-md hover:border-emerald-200 dark:hover:border-emerald-900/50"
 					>
 						<div
 							class="flex flex-col sm:flex-row flex-wrap sm:items-center sm:justify-between mb-4 gap-2"
 						>
 							<div class="min-w-0">
-								<h3 class="font-bold text-lg text-slate-900 dark:text-zinc-100">
-									{job.role}
-								</h3>
+								<svelte:element this={headingLevel === 1 ? 'h2' : 'h3'} class="font-bold text-lg text-slate-900 dark:text-zinc-100">
+									<a href={learningLinks(job.id, getLocale()).blog} class="after:absolute after:inset-0 after:rounded-xl hover:text-emerald-600 dark:hover:text-emerald-400 focus-visible:underline">{job.role}</a>
+								</svelte:element>
 								<p class="text-emerald-600 dark:text-emerald-400 font-medium text-sm">
 									{job.company}
 								</p>
@@ -76,7 +82,8 @@
 								</li>
 							{/each}
 						</ul>
-					</div>
+						<LearningLinks id={job.id} learning={job.learning} />
+					</article>
 				</Reveal>
 			</div>
 		{/each}

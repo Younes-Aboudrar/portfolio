@@ -1,4 +1,5 @@
 const phone = '+33 7 52 90 24 27';
+const phoneDigits = phone.replace(/\D/g, '');
 
 export const contact = {
 	name: 'Younes ABOUDRAR',
@@ -6,6 +7,8 @@ export const contact = {
 	email: 'younes@aboudrar.dev',
 	phone,
 	phoneHref: `tel:${phone.replaceAll(' ', '')}`,
+	telegram: `https://t.me/+${phoneDigits}`,
+	whatsapp: `https://wa.me/${phoneDigits}`,
 	linkedin: 'younes-aboudrar',
 	github: 'Younes-Aboudrar',
 	location: 'Nancy, France',

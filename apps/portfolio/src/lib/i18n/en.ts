@@ -1,3 +1,4 @@
+import { skillsEn } from '../skills/en';
 import type { Dictionary } from './types';
 import { projectsEn } from '../projects/en';
 
@@ -88,6 +89,8 @@ export const en: Dictionary = {
 		extracurricularHeading: 'Extracurricular experience',
 		jobs: [
 			{
+				id: "ocp",
+				learning: ["Backend design and maintenance data", "Synchronization with limited connectivity", "Mobile integration coordination"],
 				role: 'Intern — maintenance management application',
 				company: 'OCP S.A. · Jorf Lasfar',
 				date: '15 June – 15 August 2026',
@@ -100,6 +103,8 @@ export const en: Dictionary = {
 				]
 			},
 			{
+				id: "codealpha",
+				learning: ["Language processing and similarity", "Translation API integration", "Browser speech synthesis"],
 				role: 'Remote internship — AI and web development',
 				company: 'CodeAlpha',
 				date: 'July 2025',
@@ -112,6 +117,8 @@ export const en: Dictionary = {
 		],
 		activities: [
 			{
+				id: "aeroensem",
+				learning: ["Club leadership", "Activity coordination", "Technical communication"],
 				role: 'President',
 				company: 'AeroENSEM Club',
 				date: 'Sept. 2025 – March 2026',
@@ -127,12 +134,16 @@ export const en: Dictionary = {
 		heading: 'Education',
 		items: [
 			{
+				id: "ensem-nancy",
+				learning: ["Digital systems engineering", "International academic exchange"],
 				degree: 'International exchange — Digital Systems Engineering (ISN)',
 				institution: 'ENSEM Nancy, France',
 				date: '7 Sept. 2026 – 26 Feb. 2027',
 				highlight: 'Semester S9 exchange with ENSEM Casablanca.'
 			},
 			{
+				id: "ensem-casablanca",
+				learning: ["Electrical engineering", "Industrial process digitalization"],
 				degree: 'State Engineering Degree in Electrical Engineering — in progress',
 				institution: 'ENSEM Casablanca, Morocco',
 				date: 'Sept. 2024 – Aug. 2027 (expected completion)',
@@ -140,6 +151,8 @@ export const en: Dictionary = {
 					'Specialization in Industrial Process Digitalization (GE-DPI). Third year of the engineering cycle, 2026–2027.'
 			},
 			{
+				id: "cpge-reda-slaoui",
+				learning: ["Mathematics", "Physics", "Engineering science"],
 				degree: 'CPGE preparatory classes, MPSI / MP',
 				institution: 'Lycée Reda Slaoui, Agadir',
 				date: 'Sept. 2022 – June 2024',
@@ -191,9 +204,18 @@ export const en: Dictionary = {
 		projectPlural: 'projects'
 	},
 	skills: {
-		heading: 'Skills & areas of study',
-		terminalPrompt: 'younes@aboudrar: ~/skills',
-		categories: [
+		heading: "Skills and areas of study",
+		intro: "My skills, organized by domain. Explore the technologies and methods, then find examples in my projects, internships and education.",
+		search: "Search skills",
+		searchPlaceholder: "Python, networks, automation…",
+		domain: "Domain",
+		allDomains: "All domains",
+		results: "skills shown",
+		empty: "No skills match this search.",
+		clear: "Clear filters",
+		examples: "View projects and experience",
+		categories: skillsEn,
+		cvCategories: [
 			{
 				category: 'Backend development — OCP internship',
 				items: [
@@ -224,10 +246,18 @@ export const en: Dictionary = {
 			}
 		]
 	},
+	learning: {
+		"heading": "What I learned",
+		"blog": "Experience journal",
+		"wiki": "Notes and learning",
+		"paused": "paused",
+		"pausedNote": "The journals and learning notes link to the blog and wiki, which are currently paused."
+	},
 	contact: {
 		heading: 'Contact',
 		subheading:
-			'For a six-month final-year internship from early March 2027, or to discuss a project, contact me by email or using this form.',
+			'For a six-month final-year internship from early March 2027, or to discuss a project, contact me by email, Telegram, WhatsApp Business or using this form.',
+		messaging: "Direct messages",
 		form: {
 			name: 'Name',
 			email: 'Email',
